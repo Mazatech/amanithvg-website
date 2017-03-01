@@ -1,0 +1,34 @@
+
+<ul>
+  {% for item in site.data.sections.items %}
+    {% assign attr = item[0] %}
+    {% assign label = item[1] %}
+
+    <li class="title">{{ label }}</li>
+    {% assign items = site.docs | where: "categories", attr %}
+    {% if items %}
+      {% assign items = items | sort:"chapter" %}
+      {% for page in items %}
+        <li class="article"><a class="menu_item" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>      
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<!--
+<ul>
+  {% for item in site.data.sections.items %}
+    {% assign attr = item[0] %}
+    {% assign label = item[1] %}
+
+    <li class="title">{{ label }}</li>
+    {% assign items = site.categories[attr] %}
+    {% if items %}
+      {% assign items = items | sort:"chapter" %}
+      {% for page in items %}
+        <li class="article"><a class="menu_item" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a></li>      
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+</ul>  
+-->
