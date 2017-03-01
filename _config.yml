@@ -5,6 +5,13 @@ google_analytics:
 copyright: (C) 2005-2017 Mazatech, S.r.l.
 vatid: VAT ID IT03498460405
 rights: All rights reserved
+collections:
+  docs:
+    output: true
+assets:
+  sources:
+    - _assets
+    - _assets/fonts
 exclude:
   - Gemfile
   - Gemfile.lock

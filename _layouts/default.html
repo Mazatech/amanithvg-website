@@ -8,7 +8,7 @@ layout: compress
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }}</title>
+    <title>{{ site.title | default: site.github.repository_name }} | {{ page.categories }} | {{ page.title }}</title>
     <link rel="canonical" href="{{site.github.repository_name}}" />
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
     <meta name="description" content="{{site.title}} {{site.description}} {{site.description2}}">
@@ -20,9 +20,10 @@ layout: compress
     <meta property="og:url" content="{{site.github.repository_name}}"/>
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     <style amp-custom>
       {% capture criticalcss %}
-      {% include jekyll-theme-midnight.scss %}
+      {% include amanithvg.scss %}
       {% endcapture %}
       {{ criticalcss | scssify }}
     </style>
@@ -36,24 +37,24 @@ layout: compress
   </head>
 
   <body>
-      <div id="header">
 
-        <input id="nav_checkbox" type="checkbox">
-        <label for="nav_checkbox"></label>
+    <div id="header">
 
-        <nav id="nav_bar">
-          <!--
-          <ul>
-            <li class="title"><a class="menu_item" href="#amanithvg_section">AmanithVG</a></li>
-            <li class="title"><a class="menu_item" href="#amanithsvg_section">AmanithSVG</a></li>
-            <li class="title"><a class="menu_item" href="#about_section">About Us</a></li>
-            <li class="title"><a class="menu_item" href="#contacts_section">Contacts</a></li>
-          </ul>
-          -->
-        </nav>
+      <input id="nav_checkbox" type="checkbox">
+      <label for="nav_checkbox"></label>
+      
+      <nav id="nav_bar">
+        <div id="nav_content">
+          <h2><a class="a_title" href="{{ site.url }}">{{ site.title }}</a></h2>  
+          {% include header.html %}
+        </div>
+      </nav>
 
-      </div><!-- end header -->
+    </div><!-- end header -->   
 
+
+
+<!--
       <div id="footer">
         <nav>
           <ul>
@@ -62,18 +63,12 @@ layout: compress
             <li>{{ site.rights }}</li>
           </ul>
         </nav>
-      </div><!-- end header -->
-
+      </div>
+-->
     <div class="wrapper">
 
-      <section>
-        <div id="title">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-          <p>{{ site.description | default: site.github.project_tagline }}</p>
-        </div>
-
+      <section id="docs">
         {{ content }}
-
       </section>
 
     </div>

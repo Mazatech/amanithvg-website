@@ -1,18 +1,32 @@
-## AmanithVG <a class="jumptarget" name="amanithvg_section"></a>
+---
+layout: landing
+---
 
-[AmanithVG](http://mazatech.com/amanithvg) is a 2D vector graphics library that implements [OpenVG 1.1](https://www.khronos.org/openvg/): the standard, royalty-free, cross-platform API for hardware accelerated 2D vector and raster graphics, created by [Khronos group](https://www.khronos.org); AmanithVG comes with two different rendering backends: SRE (pure software) and GLE (OpenGL\|ES aided) in order to provide the highest rendering quality at top speed on any device.  
-The library is witten in ANSI C and depends on a very limited set of standard libc functions, that can be easily mapped to custom functions, to be portable even on bare metal platforms.
+<div id="logo"></div>
 
-The AmanithVG SDK includes:
+# <span class="w500">A</span>manith<span class="w500">VG</span> | Blazing fast <span class="w300">OpenVG</span>
 
-* Library (bin) for:
-	* Desktop (Win, OS X, Linux) on: x86, x86\_64
-	* Mobile (iOS, Android, Linux, QNX) on: arm, armv7, aarch64, ppc, mips
-* Tiger example (bin+src) for:
-	* Desktop (Win, OS X, Linux) on: x86, x86\_64
-	* Mobile (iOS, Android, Linux, QNX) on: arm, armv7, aarch64, ppc, mips
-* Documentation
+## with pure software and OpenGL ES 1.1 rendering
 
-Download [AmanithVG evaluation SDK](http://www.mazatech.com/downloads/amanithvg_v4_0_0_968_eval.zip) now!
+---
 
-More information at [AmanithVG project page](http://mazatech.com/amanithvg). Interested in licensing? Send us an [eMail](mailto:sales@mazatech.com?subject=AmanithVG%20Licensing).
+### AmanithVG is a native library that implements OpenVG 1.1 the API for 2D vector graphics created by the Khronos Group  
+
+<a id="redbutton" href="/docs/tut/000-get-amanithvg-sdk.html">Getting Started</a>
+
+<div id="leftsection">
+<span class="titlesection">Cross Platform</span>
+<p>Written in pure ANSI C without external dependancies, the package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box.</p>
+</div>
+
+<div id="middlesection">
+<span class="titlesection">Fast and Accurate</span>
+<p>AmanithVG comes with two different backends in order to deliver fast and accurate rendering. GLE, the OpenGL(ES) aided engine, grants better performance than software rasterizers in terms of high resolution animations and complex special effects; SRE, the pure software engine, delivers superior rendering quality at unbeatable speed.</p>
+</div>
+
+<div id="rightsection">
+<span class="titlesection">Source Code</span>
+<p>In order to satisfy all the needs to have total control over the software, the complete AmanithVG source code is always available as licensing option.</p>
+</div>
+
+<p><br><br><br></p>
