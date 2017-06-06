@@ -1,5 +1,5 @@
 items: [
+  ['desc', 'Documentation'],
   ['tut', 'Getting started'],
-  ['doc', 'Documentation'],
   ['vgapi', 'OpenVG API']
 ]

@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   color: #f0f0e8;
-  background: #252525;
+  background: #181818;
   font: 14px/1.5 "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   text-shadow: none;
@@ -90,7 +90,7 @@ code {
 
 pre {
   padding:8px 15px;
-  background-color: #191919;
+  background-color: #242424;
   border-radius: 10px;
   border: 1px solid transparent;
   overflow: auto;
@@ -160,6 +160,14 @@ dt {
  font-weight: 700; 
 }
 
+.green_text {
+  color: green;
+}
+
+.red_text {
+  color: red;
+}
+
 .jumptarget {
   content: "";
   display: block;
@@ -196,6 +204,14 @@ dt {
   font-weight: 300;
   line-height: 1.5;
 
+  #nav-logo {
+    display: none;
+  }
+
+  #nav-title {
+    display: none;
+  }
+
   label {
     display: none;
   }
@@ -212,13 +228,35 @@ dt {
     font-weight: 300;
     min-height: 1px;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 
     #nav_content {
       display: block;
       overflow: hidden;
       min-height: 1px;
       padding: 0 0 200px;
+
+      #logo {
+        border-radius: 300px;
+        background: url(../../assets/images/amanithvg-logo.png) #fff;
+        background-size: 80% 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 210px;
+        height: 210px;
+        margin: 20px auto;
+        box-shadow: 0  0 10px rgba(112, 96, 88, 0.66),
+                    0  0 15px rgba(112, 96, 88, 0.44),
+                    0  0 20px rgba(112, 96, 88, 0.22); 
+      }
+
+      #title {
+        font-size: 2.4em;
+        color: #f0f0f0;
+        font-weight: 700;
+        padding: 0;
+        text-align: center;
+      }
     }
 
     .a_title {
@@ -228,8 +266,7 @@ dt {
     ul {
       width: auto;
       list-style-type: none;
-      padding-top: 20px;
-      padding-left: 20px;
+      padding: 5px 20px;
       color: #f0f0f0;    
     }
 
@@ -240,11 +277,12 @@ dt {
       font-weight: 300;
 
       &.title {
-        /*font-family: "OpenSansRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+        font-size: 1.25em;
         float: left;
         margin-top: 10px;
         line-height: 2.5;
-        color: #f0f0f0;
+        font-weight: 500;
+        color: white;
       }
 
       &.article {
@@ -322,7 +360,6 @@ dt {
   font-weight: 100;
 
   #logo {
-    /*border: 16px solid #292929;*/
     border-radius: 300px;
     background: url(../assets/images/amanithvg-logo.png) #fff;
     background-size: 80% 80%;
@@ -556,10 +593,10 @@ dt {
  
   .rwd-table {
     border-color: transparent;
-    background-color: #181818;
+    background-color: #242424;
     
     tr {
-      border-top: 1px solid #252525;
+      border-top: 1px solid #181818;
       min-width: 730px;
     }
 
@@ -568,7 +605,7 @@ dt {
       background-color: #d04000;
       text-shadow: 0px 1px 3px #000;
       font-weight: 400;
-      border-bottom: 3px solid #252525;
+      border-bottom: 3px solid #181818;
     }
 
     th, td {
@@ -584,7 +621,7 @@ dt {
     margin: 0;
     padding: 0;
     color: #f0f0e8;
-    background: #252525;
+    background: #181818;
     font: 12px/1.2 "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-decoration: none;
     text-shadow: none;
@@ -662,6 +699,34 @@ dt {
     border-bottom: 2px solid #434343;
     box-shadow: 0px 1px 3px rgba(0,0,0,.25);
 
+    a {
+      color: white;
+    }
+
+    #nav-logo {
+      display: block;
+      border-radius: 300px;
+      background: url(../../assets/images/amanithvg-logo.png) transparent;
+      background-size: 80% 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 36px;
+      height: 36px;
+      margin: 22px 4px;
+      float: left;
+    }
+
+    #nav-title {
+      display: block;
+      color: white;
+      font-size: 1.5em;
+      font-weight: 500;
+      height: 36px;
+      line-height: 36px;
+      margin: 23px 4px;
+      float: left;
+    }
+
     label {
       display: block;
       margin-top: 24px;
@@ -708,6 +773,14 @@ dt {
         overflow: hidden;
         min-height: 1px;
         padding: 0 0 200px;
+
+        #title {
+          display: none;
+        }
+
+        #logo {
+          display: none;
+        }
       }
 
       h2 {
@@ -764,7 +837,7 @@ dt {
       min-width: 290px; 
         
       tr {
-        border-bottom: 15px solid #252525;
+        border-bottom: 15px solid #181818;
       }
       
       th {
@@ -783,7 +856,7 @@ dt {
       }
       
       th, td {
-        border-top: 1px solid #252525;
+        border-top: 1px solid #181818;
         text-align: left;
       }
     }
