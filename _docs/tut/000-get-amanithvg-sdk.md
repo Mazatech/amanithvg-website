@@ -140,7 +140,7 @@ cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-
 
 ## Android tutorials
 
-Tutorials for android can be compiled directly with Android Studio (you don't need to use CMake).
+Tutorials for Android can be compiled directly with Android Studio (you don't need to use CMake).
 
 Open project located in `<tutorial_dir>/platform/android`
 
@@ -153,3 +153,32 @@ AmanithVG SRE (software rendering) is the default, you can switch to AmanithVG G
 </resources>
 ```
 
+---
+
+## iOS tutorials
+
+iOS tutorials can be compiled using Xcode only.
+Once you have generated the Xcode project (through CMake), plug your iOS device in and open the .xcodeproj file.
+
+| ![Open the .xcodeproj file]({{site.url}}/assets/images/setup-001.png) | 
+| :---: |
+| *Open the .xcodeproj file* |
+
+Then select the iOS device and check project properties.
+Select a valid developer certificate for the signing process.
+
+| ![Select a valid developer certificate, before]({{site.url}}/assets/images/setup-002.png) | 
+| :---: |
+| *Select a valid developer certificate, before* |
+
+| ![Select a valid developer certificate, after]({{site.url}}/assets/images/setup-003.png) | 
+| :---: |
+| *Select a valid developer certificate, after* |
+
+Select the actual tutorial target, in order to run it.
+
+| ![Select a tutorial target]({{site.url}}/assets/images/setup-004.png) | 
+| :---: |
+| *Select a tutorial target* | 
+
+---
