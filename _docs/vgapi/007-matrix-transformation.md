@@ -10,7 +10,7 @@ categories: [vgapi]
 
 ## Coordinate Systems [6.4]
 
-Geometric coordinates are specified in the user coordinate system. The path-user-tosurface (`VG_MATRIX_PATH_USER_TO_SURFACE`)
+Geometric coordinates are specified in the user coordinate system. The path-user-to-surface (`VG_MATRIX_PATH_USER_TO_SURFACE`)
 and image-user-to-surface (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) transformations map between the user coordinate system and pixel coordinates on the destination drawing surface.  
 This pixel-based coordinate system is known as the surface coordinate system.  
 The user coordinate system is oriented such that values along the x-axis increase from left to right and values along the y-axis increase from bottom to top.  
