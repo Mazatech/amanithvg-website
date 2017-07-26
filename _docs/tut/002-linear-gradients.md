@@ -9,7 +9,7 @@ categories: [tut]
 # Tutorial 02: Linear gradients
 
 Using OpenVG API it is possible to draw vector paths, specifying a paint for the fill (i.e.: the bounded inside region defined by its contours) and a paint for the stroke (i.e. the "widening" of path edges using a straight-line pen).
-The are a total of four possible paint types: plain colors, linear gradients, radial gradients and bitmap patterns. AmanithVG extends such paint types with an additional one: conical gradients (see [`VG_MZT_conical_gradient` extension](http://www.amanithvg.com/docs/desc/004-extensions.html)).
+The are a total of four possible paint types: plain colors, linear gradients, radial gradients and bitmap patterns. AmanithVG extends such paint types with an additional one: conical gradients (see [`VG_MZT_conical_gradient` extension]({{site.url}}/docs/desc/004-extensions.html)).
 This tutorial will introduce linear gradients.
 
 ---
