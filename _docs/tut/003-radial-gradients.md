@@ -48,7 +48,7 @@ VGfloat radGradParams[5] = { cx, cy, fx, fy, r };
 // set the paint to be a radial gradient
 vgSetParameteri(radGradPaint, VG_PAINT_TYPE, VG_PAINT_TYPE_RADIAL_GRADIENT);
 // set geometric parameters for the radial gradient (cx, cy), (fx, fy), r
-vgSetParameterfv(radGradPaint, VG_PAINT_RADIAL_GRADIENT, 4, radGradParams);
+vgSetParameterfv(radGradPaint, VG_PAINT_RADIAL_GRADIENT, 5, radGradParams);
 ```
 
 Color ramps behaviour does not change for radial gradients, it's the same as specified for linear gradients: `VG_PAINT_COLOR_RAMP_STOPS` parameter takes an array of floating-point values giving the offsets and colors of the stops, and all the three spread modes are supported too (`VG_COLOR_RAMP_SPREAD_PAD`, `VG_COLOR_RAMP_SPREAD_REPEAT`, `VG_COLOR_RAMP_SPREAD_REFLECT`).
