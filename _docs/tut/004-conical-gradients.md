@@ -13,7 +13,7 @@ In order to extend the OpenVG API and add the support for conical gradients, new
 
 ---
 
-## Conical gradients in OpenVG
+## Conical gradients in AmanithVG
 
 Conical gradients define a scalar-valued gradient function based on a gradient center point `(cx, cy)`, a target point `(tx, ty)` and the number or `repeats`.
 The scalar function has the following properties:
