@@ -458,9 +458,10 @@ dt {
     text-align: center;
   }
 
-
   #redbutton:hover, #redbutton:focus {
     cursor: pointer;
+    text-decoration: none;
+    background: linear-gradient(#c02018, #d83830);
   }
 
   #redbutton:active {
