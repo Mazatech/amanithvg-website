@@ -26,7 +26,7 @@ The scalar function has the following properties:
 | :---: |
 | *gradFunc(x, y)* | 
 
-$$ gradFunc(x,y) = \left(\frac{\arctan\left(\frac{y \ - \ cy}{x \ - \ cx}\right)}{2\pi} \ - \ \frac{\arctan\left(\frac{ty \ - \ cy}{tx \ - \ cx}\right)}{2\pi}\right) \ \dot \ repeats $$
+$$ gradFunc(x,y) = \left(\frac{\arctan\left(\frac{y \ - \ cy}{x \ - \ cx}\right)}{2\pi} \ - \ \frac{\arctan\left(\frac{ty \ - \ cy}{tx \ - \ cx}\right)}{2\pi}\right) \ \cdot \ repeats $$
 
 Such scalar value is mapped to colors by *color ramps*, exactly as it happens for [linear]({{site.url}}/docs/tut/002-linear-gradients.html) (have a look at it for more details) and [radial]({{site.url}}/docs/tut/003-radial-gradients.html) gradients (have a look at it for more details).
 
