@@ -93,7 +93,6 @@ The following table shows the equation factors for each OpenVG blend mode:
 
 The following table shows the resulting (and simplified) blend equation for each OpenVG blend mode:
 
-
 | Blend mode | Dca' |  Da'  |  
 | :--------- | :--- | :---- |
 | `VG_BLEND_SRC` | `Sca` | `Sa` |
