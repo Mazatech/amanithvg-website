@@ -109,18 +109,29 @@ void fontInit(Font* font) {
     font->openvgHandle = vgCreateFont(font->glyphsCount);
     // create OpenVG glyphs
     for (i = 0; i < font->glyphsCount; ++i) {
-        // specify segments and coordinates capacity hint, so the OpenVG driver could try to optimize memory allocation
-        VGPath path = vgCreatePath(VG_PATH_FORMAT_STANDARD, VG_PATH_DATATYPE_F, 1.0f, 0.0f, font->glyphs[i].commandsCount, font->glyphs[i].coordinatesCount, VG_PATH_CAPABILITY_ALL);
+        // specify segments and coordinates capacity hint, so the OpenVG driver
+        // could try to optimize memory allocation
+        VGPath path = vgCreatePath(VG_PATH_FORMAT_STANDARD, VG_PATH_DATATYPE_F,
+                                   1.0f, 0.0f, font->glyphs[i].commandsCount,
+                                   font->glyphs[i].coordinatesCount,
+                                   VG_PATH_CAPABILITY_ALL);
         // upload vector data (i.e. glyph outlines)
-        vgAppendPathData(path, font->glyphs[i].commandsCount, font->glyphs[i].commands, font->glyphs[i].coordinates);
-        // remove "editing" capabilities, so that OpenVG driver can try to free some memory
-        vgRemovePathCapabilities(path, VG_PATH_CAPABILITY_APPEND_FROM | VG_PATH_CAPABILITY_APPEND_TO |
-                                       VG_PATH_CAPABILITY_MODIFY | VG_PATH_CAPABILITY_TRANSFORM_FROM |
-                                       VG_PATH_CAPABILITY_TRANSFORM_TO | VG_PATH_CAPABILITY_INTERPOLATE_FROM |
+        vgAppendPathData(path, font->glyphs[i].commandsCount, font->glyphs[i].commands,
+        	             font->glyphs[i].coordinates);
+        // remove "editing" capabilities, so that OpenVG driver
+        // can try to free some memory
+        vgRemovePathCapabilities(path, VG_PATH_CAPABILITY_APPEND_FROM |
+        	                           VG_PATH_CAPABILITY_APPEND_TO |
+        	                           VG_PATH_CAPABILITY_MODIFY | 
+        	                           VG_PATH_CAPABILITY_TRANSFORM_FROM |
+                                       VG_PATH_CAPABILITY_TRANSFORM_TO | 
+                                       VG_PATH_CAPABILITY_INTERPOLATE_FROM |
                                        VG_PATH_CAPABILITY_INTERPOLATE_TO);
         // associate the created path to the given glyph index
-        vgSetGlyphToPath(font->openvgHandle, font->glyphs[i].glyphIndex, path, VG_FALSE, font->glyphs[i].glyphOrigin, font->glyphs[i].escapement);
-        // since path objects are reference counted, destroying the object will mark its handle as invalid while leaving the resource available to the VGFont object
+        vgSetGlyphToPath(font->openvgHandle, font->glyphs[i].glyphIndex, path, VG_FALSE,
+                         font->glyphs[i].glyphOrigin, font->glyphs[i].escapement);
+        // since path objects are reference counted, destroying the object will mark its
+        // handle as invalid while leaving the resource available to the VGFont object
         vgDestroyPath(path);
     }
 }
@@ -430,7 +441,8 @@ VGint kerningsCompare(void* arg0,
     return (VGint)krn0->key - (VGint)krn1->key;
 }
 
-// given a couple of glyph indices, return the relative kerning data (NULL if kerning is zero)
+// given a couple of glyph indices, return the relative
+// kerning data (NULL if kerning is zero)
 KerningEntry* kerningFromGlyphIndices(Font* font,
                                       VGint leftGlyphIndex,
                                       VGint rightGlyphIndex) {
