@@ -117,13 +117,13 @@ void fontInit(Font* font) {
                                    VG_PATH_CAPABILITY_ALL);
         // upload vector data (i.e. glyph outlines)
         vgAppendPathData(path, font->glyphs[i].commandsCount, font->glyphs[i].commands,
-        	             font->glyphs[i].coordinates);
+                         font->glyphs[i].coordinates);
         // remove "editing" capabilities, so that OpenVG driver
         // can try to free some memory
         vgRemovePathCapabilities(path, VG_PATH_CAPABILITY_APPEND_FROM |
-        	                           VG_PATH_CAPABILITY_APPEND_TO |
-        	                           VG_PATH_CAPABILITY_MODIFY | 
-        	                           VG_PATH_CAPABILITY_TRANSFORM_FROM |
+                                       VG_PATH_CAPABILITY_APPEND_TO |
+                                       VG_PATH_CAPABILITY_MODIFY | 
+                                       VG_PATH_CAPABILITY_TRANSFORM_FROM |
                                        VG_PATH_CAPABILITY_TRANSFORM_TO | 
                                        VG_PATH_CAPABILITY_INTERPOLATE_FROM |
                                        VG_PATH_CAPABILITY_INTERPOLATE_TO);
