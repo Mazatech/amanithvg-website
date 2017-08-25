@@ -59,7 +59,7 @@ Some complex scripts require glyph positioning be adjusted in both directions; t
 
 ## OpenVG text
 
-OpenVG provides a mechanism to allow applications to define a `VGFont` object as a collection of glyphs, where each glyph can be represented as either a `VGPath` representing either an original unhinted outline that can be scaled and rendered, or a scaled and hinted outline; or a `VGImage` representing a scaled, optionally hinted, and rendered image of a glyph. Use of a VGImage provides the opportunity to satisfy rendering quality requirements that cannot be achieved by generic outline rendering. No further hinting is applied to image glyphs.
+OpenVG provides a mechanism to allow applications to define a `VGFont` object as a collection of glyphs, where each glyph can be represented as either a `VGPath` representing either an original unhinted outline that can be scaled and rendered, or a scaled and hinted outline; or a `VGImage` representing a scaled, optionally hinted, and rendered image of a glyph. Use of a `VGImage` provides the opportunity to satisfy rendering quality requirements that cannot be achieved by generic outline rendering. No further hinting is applied to image glyphs.
 
 `VGFont` objects are created by an application, and can contain either a full set of glyphs or a subset of glyphs of an original font. `VGFont` objects do not contain any metric or layout information; instead, applications are responsible for all text layout operations using the information provided by the original fonts. In other words, OpenVG can assist applications in text composition by providing glyph positioning calculations; however, the **text layout is the responsibility of the application**.
 
