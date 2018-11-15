@@ -21,12 +21,12 @@ layout: landing
 
 	<div id="middlesection">
 		<span class="titlesection">Fast and Accurate</span>
-		<p>AmanithVG comes with two different backends in order to deliver fast and accurate rendering. GLE, the OpenGL(ES) aided engine, grants better performance than software rasterizers in terms of high resolution animations and complex special effects; SRE, the pure software engine, delivers superior rendering quality at an unbeatable speed.</p>
+		<p>AmanithVG comes with two different backends in order to deliver fast and accurate OpenVG rendering: GLE, the OpenGL|ES aided engine, grants better performance than software rasterizers in terms of high resolution animations and complex special effects. SRE, the pure software engine, delivers superior rendering quality at an unbeatable speed.</p>
 	</div>
 
 	<div id="rightsection">
 		<span class="titlesection">Source Code</span>
-		<p>In order to satisfy all the needs to have total control over the software, the complete AmanithVG SRE (software rendering) and GLE (OpenGL|ES aided rendering) engines source code is always available as a licensing option.</p>
+		<p>In order to satisfy all the needs to have total control over the software, the complete AmanithVG SRE, software rendering, and GLE, OpenGL|ES aided rendering, engines source code is always available as a licensing option.</p>
 	</div>
 </div>
 
