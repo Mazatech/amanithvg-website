@@ -16,7 +16,7 @@ layout: landing
 
 	<div id="leftsection">
 		<span class="titlesection">Cross Platform</span>
-		<p>Written in pure ANSI C without external dependencies, the package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box.</p>
+		<p>Written in pure ANSI C without external dependencies, the package comes with precompiled binaries for Desktop: Windows, OSX, Linux and Mobile: iOS, Android, Linux, QNX platforms and supports x86, x86_64, arm, armv7, aarch64, ppc and mips architectures out of the box. AmanithVG enables 2D vector graphics rendering everywhere.</p>
 	</div>
 
 	<div id="middlesection">
@@ -26,7 +26,7 @@ layout: landing
 
 	<div id="rightsection">
 		<span class="titlesection">Source Code</span>
-		<p>In order to satisfy all the needs to have total control over the software, the complete AmanithVG source code is always available as a licensing option.</p>
+		<p>In order to satisfy all the needs to have total control over the software, the complete AmanithVG SRE (software rendering) and GLE (OpenGL|ES aided rendering) engines source code is always available as a licensing option.</p>
 	</div>
 </div>
 
