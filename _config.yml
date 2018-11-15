@@ -1,4 +1,4 @@
-title: AmanithVG
+title: AmanithVG, a native OpenVG library for 2D vector graphics by Mazatech
 description: OpenVG 1.1 library for 2D vector graphics rendering
 description2: 
 url: https://www.amanithvg.com
@@ -7,6 +7,10 @@ google_analytics: UA-257732-1
 copyright: (C) 2018 Mazatech, Srl
 vatid: VAT ID IT03498460405
 rights: All rights reserved
+company_email: "info@mazatech.com"
+facebook_username: "mazatechsrl"
+twitter_username: "Mazatech1"
+github_username: "Mazatech"
 collections:
   docs:
     output: true

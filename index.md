@@ -30,4 +30,11 @@ layout: landing
 	</div>
 </div>
 
+<div class="header-icons">
+    <a aria-label="eMail" target="_blank" href="mailto:{{site.company_email}}"><i class="icon fas fa-envelope"></i></a>
+    <a aria-label="Twitter" target="_blank" href="https://www.twitter.com/{{site.twitter_username}}/"><i class="icon fab fa-twitter" aria-hidden="true"></i></a>
+    <a aria-label="Facebook" target="_blank" href="https://www.facebook.com/{{site.facebook_username}}/"><i class="icon fab fa-facebook-f" aria-hidden="true"></i></a>
+    <a aria-label="Github" target="_blank" href="https://github.com/{{site.github_username}}"><i class="icon fab fa-github" aria-hidden="true"></i></a>
+</div>
+
 <p><br><br><br></p>
