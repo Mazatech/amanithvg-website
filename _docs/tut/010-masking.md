@@ -128,11 +128,11 @@ typedef enum {
 } AlphaPrimitiveType;
 ```
 
-| ![The "flat spot" path]({{site.url}}/assets/images/tut10_spot1.png) | ![The "tentacular spot" path]({{site.url}}/assets/images/tut10_spot2.png) |
+| ![The flat spot path]({{site.url}}/assets/images/tut10_spot1.png) | ![The tentacular spot path]({{site.url}}/assets/images/tut10_spot2.png) |
 | :---: | :---: |
 | *The "flat spot" path* | *The "tentacular spot" path* |
 
-| ![The "smoke cloud" image]({{site.url}}/assets/images/tut10_cloud.png) | ![The "burning star" image]({{site.url}}/assets/images/tut10_star.png) |
+| ![The smoke cloud image]({{site.url}}/assets/images/tut10_cloud.png) | ![The burning star image]({{site.url}}/assets/images/tut10_star.png) |
 | :---: | :---: |
 | *The "smoke cloud" image* | *The "burning star" image* |
 
@@ -181,7 +181,7 @@ void drawAlphaMask(void) {
 }
 ```
 
-| ![Cloud image "intersected" with spot path]({{site.url}}/assets/images/tut10_cloud_spot_intersection.png) | ![Cloud image "subtracted" from the star image]({{site.url}}/assets/images/tut10_cloud_star_subtraction.png) |
+| ![Cloud image intersected with spot path]({{site.url}}/assets/images/tut10_cloud_spot_intersection.png) | ![Cloud image subtracted from the star image]({{site.url}}/assets/images/tut10_cloud_star_subtraction.png) |
 | :---: | :---: |
 | *Cloud image "intersected" with spot path* | *Cloud image "subtracted" from the star image* |
 
