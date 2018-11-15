@@ -4,7 +4,7 @@ description2:
 url: https://www.amanithvg.com
 enforce_ssl: www.amanithvg.com
 google_analytics: UA-257732-1
-copyright: (C) 2005-2017 Mazatech, S.r.l.
+copyright: (C) 2018 Mazatech, Srl
 vatid: VAT ID IT03498460405
 rights: All rights reserved
 collections:
@@ -25,5 +25,5 @@ compress_html:
   clippings: all
   endings: all
   comments: ["<!--", "-->"]
-gems: 
+plugins: 
   - jekyll-sitemap

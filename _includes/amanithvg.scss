@@ -1,6 +1,4 @@
-/*@import "normalize";
-@import "fonts"; */
-
+@import "fonts";
 @import "rouge-base16-dark";
 
 body {
@@ -358,9 +356,8 @@ dt {
   max-width: 1024px;
   margin: 0 auto;
   position: relative;
-  padding: 0 20px;
-  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 100;
+  padding: 0 8px;
+  font-family: "Roboto", sans-serif;
 
   #logo {
     border-radius: 300px;
@@ -400,9 +397,9 @@ dt {
     width: 100%;
     border: 0;
     font-size: 3.0em;
-    font-weight: 100;
     margin: 0.25em auto 0;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    font-weight: 300;
   }
 
   h2 {
@@ -413,9 +410,8 @@ dt {
     width: 100%;
     border: 0;
     font-size: 2.0em;
-    font-weight: 100;
     margin: 0 auto 0.5em;
-    letter-spacing: 1px;
+    font-weight: 300;
   }  
 
   h3 {
@@ -424,18 +420,10 @@ dt {
     display: block;
     width: 100%;
     border: 0;
-    font-size: 1.3em;
-    font-weight: 100;
+    font-size: 1.5em;
     margin: 0.75em auto;
+    font-weight: 300;
   }  
-
-  hr {
-    border: 1px solid transparent;
-    border-bottom: 1px dotted #484848;
-    outline: none;
-    height: 1px;
-    margin: 0 5%;
-  }
 
   #redbutton {
     display: block;
@@ -473,53 +461,51 @@ dt {
     text-shadow: 0 1px 2px rgba(72, 16, 10, 1.0);
   }
 
+  .usersection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
   .titlesection {
-    font-weight: 300;
-    display: block;
+    font-weight: 500;
     color: #e8e8e8;
     text-align: left;
-    font-size: 1.3em;
     width: 100%;
     padding: 0px 2px 4px;
     margin: 0;
     border-bottom: 1px dotted #181818;
     line-height: 2.0;
+    font-size: 1.6em;
   }
 
   #leftsection {
     width: 284px;
-    float: left;
     padding: 8px 16px;
     margin: 8px 0;
     color: #d8d8d8;
-    border-radius: 16px;
-    font-weight: 100;
-    font-size: 0.95em;
-    line-height: 1.1;
+    font-weight: 300;
+    font-size: 1.1em;
   }
 
   #middlesection {
     width: 284px;
-    float: left;
     padding: 8px 16px;
     margin: 8px 38px;
     color: #d8d8d8;
-    border-radius: 16px;
-    font-weight: 100;
-    font-size: 0.95em;
-    line-height: 1.1;   
+    font-weight: 300;
+    font-size: 1.1em;  
   }
 
   #rightsection {
     width: 284px;
     padding: 8px 16px;
-    float: left;
     margin: 8px 0;
     color: #d8d8d8;
-    border-radius: 16px;
-    font-weight: 100;
-    font-size: 0.95em;
-    line-height: 1.1;
+
+    font-weight: 300;
+    font-size: 1.1em;
   }
 
 }
@@ -619,42 +605,32 @@ dt {
   } 
 }
 
-@media print, screen and (max-width: 750px) {
 
-  body {
-    margin: 0;
-    padding: 0;
-    color: #f0f0e8;
-    background: #181818;
-    font: 12px/1.2 "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    text-decoration: none;
-    text-shadow: none;
-    font-weight: 100;
-    line-height: 1.5;
-  }
+
+@media screen and (max-width: 975px) {
 
   #landing {
 
-    max-width: 730px;
+    max-width: 975px;
 
     section {
-      max-width: 730px;
-
+      max-width: 975px;
     }
 
     h1 {
-      letter-spacing: 0;
-      font-size: 1.75em;
+      font-size: 3.0em;
     }
 
     h2 {
-      letter-spacing: 0;
-      font-size: 1.25em;
+      font-size: 2.0em;
     }
 
     h3 {
-      letter-spacing: 0;
-      font-size: 1.0em;
+      font-size: 1.2em;
+    }
+
+    p {
+      padding: 0 2px;
     }
 
     #logo {
@@ -666,6 +642,10 @@ dt {
 
     #redbutton {
       margin: 24px auto;
+    }
+
+    .usersection {
+      flex-wrap: wrap;
     }
 
     #leftsection {
@@ -873,4 +853,28 @@ dt {
     margin: -80px 0 0; /* negative fixed header height */
   }
 
+}
+
+@media screen and (max-width: 730px) {
+  
+  #landing {
+    max-width: 730px;
+
+    section {
+      max-width: 730px;
+      min-width: 320px;
+    }
+
+    h1 {
+      font-size: 5.5vw;
+    }
+
+    h2 {
+      font-size: 4.0vw;
+    }
+
+    h3 {
+      font-size: 1.2em;
+    }
+  }
 }
