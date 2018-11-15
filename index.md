@@ -6,11 +6,11 @@ layout: landing
 
 # <span class="w500">A</span>manith<span class="w500">VG</span> | Blazing fast <span class="w300">OpenVG</span>
 
-## with pure software and OpenGL ES 1.1 rendering
+## with pure software and OpenGL|ES rendering
 
 <a id="redbutton" href="/docs/tut/000-get-amanithvg-sdk.html">Getting Started</a>
 
-### AmanithVG is a native library that implements OpenVG 1.1 the API for 2D vector graphics created by the Khronos Group
+### AmanithVG is a native software library that implements the Khronos' OpenVG 1.1 API for 2D vector graphics rendering, developed by [Mazatech](https://www.mazatech.com)
 
 <div class="usersection">
 
