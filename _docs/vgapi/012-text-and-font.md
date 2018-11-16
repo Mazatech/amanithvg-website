@@ -4,6 +4,9 @@ title: "Text and font"
 date: 2017-01-01 08:00:00 +0100
 chapter: 12
 categories: [vgapi]
+headline: "Openvg API, glyph, font and text definition"
+image: "amanithvg-logo.png"
+keywords: "openvg api text font glyph fonts glyphs"
 ---
 
 # Text and Font Operations

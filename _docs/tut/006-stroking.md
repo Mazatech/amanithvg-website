@@ -4,6 +4,9 @@ title: "Tut. 06 - Stroking"
 date: 2017-01-01 08:00:00 +0100
 chapter: 6
 categories: [tut]
+headline: "AmanithVG, how to stroke a path with solid or dashing stroke, and different join and cap styles"
+image: "tut06_solid_stroke.png"
+keywords: "amanithvg tutorial 06 path stroke stroking join bevel round miter cap butt square solid dashing openvg"
 ---
 
 # Tutorial 06: Stroking

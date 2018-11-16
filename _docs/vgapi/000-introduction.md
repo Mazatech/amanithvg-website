@@ -4,6 +4,9 @@ title: "Introduction"
 date: 2017-01-01 08:00:00 +0100
 chapter: 0
 categories: [vgapi]
+headline: "Openvg API, introduction and design philosophy"
+image: "amanithvg-logo.png"
+keywords: "openvg api introduction design philosophy"
 ---
 
 # Introduction

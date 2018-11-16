@@ -4,6 +4,9 @@ title: "Tut. 08 - Image warping"
 date: 2017-01-01 08:00:00 +0100
 chapter: 8
 categories: [tut]
+headline: "AmanithVG, draw image with perspective transformations and warping effects"
+image: "tut08_image_warp2.png"
+keywords: "amanithvg tutorial 08 image draw perspective transformations warp openvg"
 ---
 
 # Tutorial 08: Image warping

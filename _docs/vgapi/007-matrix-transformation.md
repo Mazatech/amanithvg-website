@@ -4,6 +4,9 @@ title: "Matrix transformation"
 date: 2017-01-01 08:00:00 +0100
 chapter: 7
 categories: [vgapi]
+headline: "Openvg API, matrix transformations"
+image: "amanithvg-logo.png"
+keywords: "openvg api matrix transformations translate scale rotate shear"
 ---
 
 # Coordinate Systems and Trasformations
@@ -22,8 +25,7 @@ In the surface coordinate system, pixel (0, 0) is located at the lower-left corn
 
 ### Select Matrix Mode
 
-The current matrix to be manipulated is specified by setting the matrix mode. Separate matrices are maintained for transforming paths, images, and paint (gradients and
-patterns). The matrix modes are defined in the VGMatrixMode enumeration:
+The current matrix to be manipulated is specified by setting the matrix mode. Separate matrices are maintained for transforming paths, images, and paint (gradients and patterns). The matrix modes are defined in the `VGMatrixMode` enumeration:
 
 | Matrix mode | Type of matrix |
 | ----------- | -------------- |
@@ -34,7 +36,7 @@ patterns). The matrix modes are defined in the VGMatrixMode enumeration:
 | `VG_MATRIX_GLYPH_USER_TO_SURFACE` | Affine |
 {:.rwd-table}
 
-To set the matrix mode, call vgSeti with a type of `VG_MATRIX_MODE` and a value of `VGMatrixMode`.  
+To set the matrix mode, call `vgSeti` with a type of `VG_MATRIX_MODE` and a value of `VGMatrixMode`.  
 For example, to set the matrix mode to allow manipulation of the path-user-to-surface transformation, call:
 
 ```c

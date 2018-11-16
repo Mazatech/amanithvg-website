@@ -4,6 +4,9 @@ title: "Data Types"
 date: 2017-01-01 08:00:00 +0100
 chapter: 1
 categories: [vgapi]
+headline: "Openvg API, data types"
+image: "amanithvg-logo.png"
+keywords: "openvg api data types primitive handle"
 ---
 
 # Data Types

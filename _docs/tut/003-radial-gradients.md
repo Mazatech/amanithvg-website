@@ -4,6 +4,9 @@ title: "Tut. 03 - Radial gradients"
 date: 2017-01-01 08:00:00 +0100
 chapter: 3
 categories: [tut]
+headline: "AmanithVG, how to create and use radial gradient paint type"
+image: "tut03_repeat.png"
+keywords: "amanithvg tutorial 03 radial gradient pad repeat reflect openvg"
 ---
 
 # Tutorial 03: Radial gradients

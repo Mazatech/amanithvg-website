@@ -4,6 +4,9 @@ title: "Technical choices"
 date: 2017-01-01 08:00:00 +0100
 chapter: 1
 categories: [desc]
+headline: "AmanithVG technical choices and supported platforms"
+image: "amanithvg-logo.png"
+keywords: "amanithvg sre gle engines 2d vector graphics techincal engines supported platforms openvg"
 ---
 
 # Technical choices

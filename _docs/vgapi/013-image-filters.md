@@ -4,6 +4,9 @@ title: "Image filters"
 date: 2017-01-01 08:00:00 +0100
 chapter: 13
 categories: [vgapi]
+headline: "Openvg API, image filters definition"
+image: "amanithvg-logo.png"
+keywords: "openvg api image filters filter"
 ---
 
 # Image Filters

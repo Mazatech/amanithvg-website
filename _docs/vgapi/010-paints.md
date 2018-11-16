@@ -4,6 +4,9 @@ title: "Paints"
 date: 2017-01-01 08:00:00 +0100
 chapter: 10
 categories: [vgapi]
+headline: "Openvg API, paints definition"
+image: "amanithvg-logo.png"
+keywords: "openvg api paint paints"
 ---
 
 # Paints

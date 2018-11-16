@@ -4,6 +4,9 @@ title: "Tut. 09 - Text & Fonts"
 date: 2017-01-01 08:00:00 +0100
 chapter: 9
 categories: [tut]
+headline: "AmanithVG, how to deal with fonts and text drawing functions"
+image: "tut09_screenshot.png"
+keywords: "amanithvg tutorial 09 draw text font glyph layout kerning escapement openvg"
 ---
 
 # Tutorial 9 : Text & Fonts

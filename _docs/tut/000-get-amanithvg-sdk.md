@@ -4,6 +4,9 @@ title: "Get AmanithVG SDK"
 date: 2017-01-01 08:00:00 +0100
 chapter: 0
 categories: [tut]
+headline: "Getting started with AmanithVG SDK: download, installation and setup toolchain"
+image: "amanithvg-logo.png"
+keywords: "amanithvg tutorial 00 get start sdk setup openvg"
 ---
 
 # Getting started

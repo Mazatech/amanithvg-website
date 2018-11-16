@@ -4,6 +4,9 @@ title: "Paths"
 date: 2017-01-01 08:00:00 +0100
 chapter: 9
 categories: [vgapi]
+headline: "Openvg API, paths definition"
+image: "amanithvg-logo.png"
+keywords: "openvg api path paths"
 ---
 
 # Paths

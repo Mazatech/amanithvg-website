@@ -4,6 +4,9 @@ title: "Introduction"
 date: 2017-01-01 08:00:00 +0100
 chapter: 0
 categories: [desc]
+headline: "AmanithVG SRE and GLE 2D vector graphics engines"
+image: "amanithvg-logo.png"
+keywords: "amanithvg sre gle engines 2d engines openvg"
 ---
 
 # Introduction

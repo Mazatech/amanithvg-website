@@ -4,6 +4,9 @@ title: "Tut. 07 - Alpha blending"
 date: 2017-01-01 08:00:00 +0100
 chapter: 7
 categories: [tut]
+headline: "AmanithVG, how to use alpha blending operation"
+image: "tut07_src_over.png"
+keywords: "amanithvg tutorial 07 path alpha blending Porter-Duff src src-over openvg"
 ---
 
 # Tutorial 07: Alpha blending

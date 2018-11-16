@@ -4,6 +4,9 @@ title: "Configuration file"
 date: 2017-01-01 08:00:00 +0100
 chapter: 5
 categories: [desc]
+headline: "AmanithVG configuration file for rendering quality and performance fine tuning"
+image: "amanithvg-logo.png"
+keywords: "amanithvg configuration file threshold customize fine tuning quality performance openvg"
 ---
 
 # Configuration file

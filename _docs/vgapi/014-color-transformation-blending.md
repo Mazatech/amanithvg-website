@@ -4,6 +4,9 @@ title: "Color transformation, blending"
 date: 2017-01-01 08:00:00 +0100
 chapter: 14
 categories: [vgapi]
+headline: "Openvg API, color transformation and blending definition"
+image: "amanithvg-logo.png"
+keywords: "openvg api color transformation blending equation transform blend premultiply unpremultiply"
 ---
 
 # Color Transformation and Blending

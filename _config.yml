@@ -1,13 +1,15 @@
-title: AmanithVG, a software OpenVG library for 2D vector graphics rendering
-description: OpenVG 1.1 library for 2D vector graphics rendering
+title: "AmanithVG, a software OpenVG library for 2D vector graphics rendering"
+description: "OpenVG 1.1 library for 2D vector graphics rendering"
 description2: 
-url: https://www.amanithvg.com
-enforce_ssl: www.amanithvg.com
-google_analytics: UA-257732-1
-copyright: (C) 2018 Mazatech, Srl
-vatid: VAT ID IT03498460405
-rights: All rights reserved
-product_name: AmanithVG
+keywords: "amanithvg openvg vector graphics 2D library software rendering openvg1.1 khronos" 
+url: "https://www.amanithvg.com"
+enforce_ssl: "www.amanithvg.com"
+google_analytics: "UA-257732-1"
+copyright: "(C) 2018 Mazatech, Srl"
+vatid: "VAT ID IT03498460405"
+rights: "All rights reserved"
+product_name: "AmanithVG"
+company_name_ext: "Mazatech, Srl"
 company_email: "info@mazatech.com"
 facebook_username: "mazatechsrl"
 twitter_username: "Mazatech1"

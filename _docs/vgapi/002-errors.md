@@ -4,6 +4,9 @@ title: "Errors"
 date: 2017-01-01 08:00:00 +0100
 chapter: 2
 categories: [vgapi]
+headline: "Openvg API, error codes"
+image: "amanithvg-logo.png"
+keywords: "openvg api error codes"
 ---
 
 # Errors

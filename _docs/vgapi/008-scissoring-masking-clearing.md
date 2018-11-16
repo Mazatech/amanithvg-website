@@ -4,6 +4,9 @@ title: "Scissoring, masking, clearing"
 date: 2017-01-01 08:00:00 +0100
 chapter: 8
 categories: [vgapi]
+headline: "Openvg API, Scissoring, masking and clearing"
+image: "amanithvg-logo.png"
+keywords: "openvg api scissoring mask masking clear"
 ---
 
 # Scissoring, Masking, and Clearing

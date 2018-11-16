@@ -4,6 +4,9 @@ title: "Extensions to the OpenVG API"
 date: 2017-01-01 08:00:00 +0100
 chapter: 4
 categories: [desc]
+headline: "AmanithVG OpenVG API proprietary extensions by Mazatech"
+image: "separable_blend_modes.png"
+keywords: "amanithvg API proprietary extensions conical gradient advanced blend modes separable color ramp interpolation cap style clip path mzt openvg"
 ---
 
 # MZT extensions

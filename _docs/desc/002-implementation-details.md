@@ -4,6 +4,9 @@ title: "Implementation details"
 date: 2017-01-01 08:00:00 +0100
 chapter: 2
 categories: [desc]
+headline: "AmanithVG implementation details, requirements and limitations"
+image: "amanithvg-logo.png"
+keywords: "amanithvg sre gle engines 2d vector graphics implementation details openvg"
 ---
 
 # Implementation details
