@@ -69,9 +69,10 @@ vgSeti(VG_STROKE_DASH_PHASE_RESET, VG_TRUE);
 vgDrawPath(clover, VG_STROKE_PATH);
 ```
 
-| ![Setting stroke parameters]({{site.url}}/assets/images/tut06_stroke_parameters.png) | 
+| &nbsp; |
 | :---: |
 | *Setting stroke parameters* | 
+{:.tbl_images .tut06_stroke_parameters} 
 
 ---
 
@@ -83,9 +84,10 @@ vgDrawPath(clover, VG_STROKE_PATH);
 
  - the `VG_CAP_SQUARE` end cap style appends a rectangle with two sides of length equal to the line width perpendicular to the tangent, and two sides of length equal to half the line width parallel to the tangent, at each endpoint. The outgoing tangent is used at the left endpoint and the incoming tangent is used at the right endpoint
 
-| ![End cap styles]({{site.url}}/assets/images/tut06_cap_styles.png) | 
+| !&nbsp; |
 | :---: |
-| *End cap styles* | 
+| *End cap styles* |
+{:.tbl_images .tut06_cap_styles} 
 
 ---
 
@@ -97,9 +99,10 @@ vgDrawPath(clover, VG_STROKE_PATH);
 
  - the `VG_JOIN_MITER` join style appends a trapezoid with one vertex at the intersection point of the two original lines, two adjacent vertices at the outer endpoints of the two "fattened" lines and a fourth vertex at the extrapolated intersection point of the outer perimeters of the two "fattened" lines
 
-| ![Join styles]({{site.url}}/assets/images/tut06_join_styles.png) | 
+| &nbsp; | 
 | :---: |
-| *Join styles* | 
+| *Join styles* |
+{:.tbl_images .tut06_join_styles} 
 
 The ratio of miter length to line width may be computed directly from the angle `θ` between the two line segments being joined as `1 / sin(θ/2)`. A number of angles with their
 corresponding miter limits for a line width of `1` are shown in the following table:
@@ -128,9 +131,10 @@ The dash pattern consists of a sequence of lengths of alternating "on" and "off"
 
 For example, if the dash pattern is `[ 10 20 30 40 ]` and the dash phase is `35`, the path will be stroked with an "on" segment of length `25` (skipping the first "on" segment of length `10`, the following "off" segment of length `20`, and the first `5` units of the next "on" segment), followed by an "off" segment of length `40`. The pattern will then repeat from the beginning, with an "on" segment of length `10`, an "off" segment of length `20`, an "on" segment of length `30`, etc.
 
-| ![Dashing]({{site.url}}/assets/images/tut06_dashing.png) | 
+| &nbsp; | 
 | :---: |
-| *Dashing* | 
+| *Dashing* |
+{:.tbl_images .tut06_dashing} 
 
 Conceptually, dashing is performed by breaking the path into a set of subpaths according to the dash pattern. Each subpath is then drawn independently using the end cap, line join style, and miter limit that were set for the path as a whole.
 
@@ -202,9 +206,10 @@ The user can play with such stroke parameters and, at the same time, move path c
  
  - every time we need to set a path control point in order to match the mouse/touch position (that is expressed in drawing surface space), we use the `SurfaceToPath` mapping (see `controlPointSet` function)
 
-| ![Solid stroke in the tutorial app]({{site.url}}/assets/images/tut06_solid_stroke.png) | 
+| &nbsp; | 
 | :---: |
-| *Solid stroke in the tutorial app* | 
+| *Solid stroke in the tutorial app* |
+{:.tbl_images .tut06_solid_stroke} 
 
 ---
 
@@ -237,8 +242,9 @@ else {
 }
 ```
 
-| ![start cap butt, end cap round]({{site.url}}/assets/images/tut06_stroke_ext.png) | 
+| &nbsp; | 
 | :---: |
-| *start cap butt, end cap round* | 
+| *start cap butt, end cap round* |
+{:.tbl_images .tut06_stroke_ext} 
 
 ---

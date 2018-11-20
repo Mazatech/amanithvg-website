@@ -34,9 +34,10 @@ A stop is defined by an offset between `0` and `1` and a color value. Color and 
 
 The two geometric points `(x0, y0)` and `(x1, y1)` that defines a linear gradient are specified in the *paint coordinates system*; according to the OpenVG pipeline, such system is then transported to the path coordinates system throught a "paint-to-user" affine matrix (`VG_MATRIX_FILL_PAINT_TO_USER` / `VG_MATRIX_STROKE_PAINT_TO_USER`). Finally the filled/stroked path is moved to the drawing surface system by another affine matrix, the so called "path-user-to-surface" (`VG_MATRIX_PATH_USER_TO_SURFACE`).
 
-| ![Gradient Matrices]({{site.url}}/assets/images/tut02_grad_matrices.png) | 
+| &nbsp; | 
 | :---: |
-| *Gradient Matrices* | 
+| *Gradient Matrices* |
+{:.tbl_images .tut02_grad_matrices}
 
 To enable linear gradient paint, use `vgSetParameteri` to set the paint type to `VG_PAINT_TYPE_LINEAR_GRADIENT`.
 The linear gradient parameters are set using `vgSetParameterfv` with a `paramType` argument of `VG_PAINT_LINEAR_GRADIENT`. The gradient values are supplied as a vector of 4 floats in the order `x0`, `y0`, `x1`, `y1`.
@@ -65,10 +66,10 @@ The `VG_PAINT_COLOR_RAMP_SPREAD_MODE` parameter controls the spread mode, that i
 
  - `VG_COLOR_RAMP_SPREAD_REFLECT`: repeat stops in reflected order
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut02_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut02_repeat.png) | ![VG_COLOR_RAMP_SPREAD_REFLECT]({{site.url}}/assets/images/tut02_reflect.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Pad* | *Repeat* | *Reflect* |
-
+{:.tbl_images .tut02_color_ramp}
 
 The `VG_PAINT_COLOR_RAMP_STOPS` parameter takes an array of floating-point values giving the offsets and colors of the stops, in order.
 Each stop is defined by a floating-point offset value and four floating-point values containing the sRGBA color and alpha value associated with each stop, in the form of a non-premultiplied `(R, G, B, α)`.
@@ -179,8 +180,9 @@ void extensionsCheck(void) {
 
 The `VG_MZT_color_ramp_interpolation` extension introduces a smooth color ramp interpolation schema, based on the Hermite interpolant coupled with Catmull-Rom tangents calculation. The result is a much smoother transition in colored gradients:
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut02_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut02_smooth.png) |
+| &nbsp; | &nbsp; |
 | :---: | :---: |
 | *Linear interpolation* | *Smooth interpolation* |
+{:.tbl_images .tut02_color_ramp_interpolation}
 
 ---

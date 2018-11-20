@@ -43,18 +43,20 @@ Scalable fonts define glyphs using vector outlines and additional set of data, s
 
 - escapement: each scaled and rendered glyph is positioned in such a way that the current glyph origin is located at the same point that is defined by the "advance width", or escapement of the previous character
 
-| ![Some basic properties of glyphs: origin, outline, bounding box, escapement]({{site.url}}/assets/images/tut09_glyph_metrics.png) | 
+| &nbsp; |
 | :---: |
 | *Some basic properties of glyphs: origin, outline, bounding box, escapement* |
+{:.tbl_images .tut09_glyph_metrics} 
 
 The complexity of text rendering and composition depends on language scripts. In many simple scripts (such as western and eastern European languages) text is composed by simply planking glyphs next to each other along the horizontal baseline.
 The next glyph origin must be calculated using the *escapement* for the current glyph. Note that vector defined by two points *glyph origin* and *escapement* must be subjected to the same matrix transformation that is applied to a glyph outline when the glyph is scaled.
 
 In some cases, the text composition requires that glyph layout and positioning be adjusted along the baseline (using kerning) to account for the difference in appearance of different glyphs and to achieve uniform typographic color (optical density) of the text.
 
-| ![Glyph positioning with kerning]({{site.url}}/assets/images/tut09_glyph_kerning.png) | 
+| &nbsp; | 
 | :---: |
 | *Glyph positioning with kerning* |
+{:.tbl_images .tut09_glyph_kerning} 
 
 Some complex scripts require glyph positioning be adjusted in both directions; therefore, when a text composition involves support for complex scripts, the inter-character spacing between each pair of glyphs in a text string may have to be defined using the *escapement* for the current glyph (i), and the additional *adjustment* vector for the pair of glyphs (i, i + 1).
 
@@ -155,9 +157,10 @@ void fontDestroy(Font* font) {
 The tutorial draws two text strings along two different trajectories: one straight line and a curve trait.
 The straight line trajectory is defined by two control points, that can be moved using the mouse/touch. The wavy trajectory is defined by a single cubic Bézier curve, so four control points are needed.
 
-| ![The text routes: a line and a cubic Bézier curve]({{site.url}}/assets/images/tut09_trajectories.png) | 
+| &nbsp; |
 | :---: |
 | *The text routes: a line and a cubic Bézier curve* |
+{:.tbl_images .tut09_trajectories} 
 
 In both cases, the text string must cover the whole trajectory, so we must implement:
 
@@ -315,9 +318,10 @@ void straightTextDraw(void) {
 }
 ```
 
-| ![Text follows the straight line route]({{site.url}}/assets/images/tut09_straight_text.png) | 
+| &nbsp; |
 | :---: |
 | *Text follows the straight line route* |
+{:.tbl_images .tut09_straight_text} 
 
 In order to draw a text along a wavy path, we cannot use the same `vgDrawGlyphs` function that we have used before, because we must change the `VG_MATRIX_GLYPH_USER_TO_SURFACE` matrix for every glyph, in order to match path position and slope. So we must stick to the `vgDrawGlyph` function (that draws a single glyph) with the additional help of `vgPointAlongPath` function in order to calculate, for each glyph, path position and slope.
 
@@ -366,9 +370,10 @@ void textAlongPathDraw(Font* font,
 }
 ```
 
-| ![Text along a wavy path]({{site.url}}/assets/images/tut09_wavy_text.png) | 
+| &nbsp; |
 | :---: |
 | *Text along a wavy path* |
+{:.tbl_images .tut09_wavy_text} 
 
 A note about the actual Font structure defined within the code. The real structure contains two important tables: *character codes map* and *kerning table*.
 The first is a simple array of the following structure (see `font_common.h` file):
@@ -462,8 +467,9 @@ KerningEntry* kerningFromGlyphIndices(Font* font,
 }
 ```
 
-| ![The full tutorial example]({{site.url}}/assets/images/tut09_screenshot.png) | 
+| &nbsp; |
 | :---: |
 | *The full tutorial example* |
+{:.tbl_images .tut09_screenshot} 
 
 ---

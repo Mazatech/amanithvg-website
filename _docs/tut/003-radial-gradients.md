@@ -29,17 +29,19 @@ The scalar function has the following properties:
 
 (side note: if the gradient radius is less than or equal to `0`, the function is given the value `1` everywhere)
 
-| ![gradFunc(x, y) = D / (D + d)]({{site.url}}/assets/images/tut03_radgrad_func.png) | 
+| &nbsp; |
 | :---: |
-| *gradFunc(x, y) = D / (D + d)* | 
+| *gradFunc(x, y) = D / (D + d)* |
+{:.tbl_images .tut03_grad_func} 
 
 Such scalar value is mapped to colors by *color ramps*, exactly as it happens for [linear gradients]({{site.url}}/docs/tut/002-linear-gradients.html) (have a look at it for more details).
 
 Geometric properties (center, focus and radius) defining a radial gradient are specified in the *paint coordinates system*; according to the OpenVG pipeline, such system is then transported to the path coordinates system throught a "paint-to-user" affine matrix (`VG_MATRIX_FILL_PAINT_TO_USER` / `VG_MATRIX_STROKE_PAINT_TO_USER`). Finally the filled/stroked path is moved to the drawing surface system by another affine matrix, the so called "path-user-to-surface" (`VG_MATRIX_PATH_USER_TO_SURFACE`).
 
-| ![Gradient Matrices]({{site.url}}/assets/images/tut03_radgrad_matrices.png) | 
+| &nbsp; |
 | :---: |
 | *Gradient Matrices* | 
+{:.tbl_images .tut03_grad_matrices} 
 
 To enable radial gradient paint, use `vgSetParameteri` to set the paint type to `VG_PAINT_TYPE_RADIAL_GRADIENT`.
 The radial gradient parameters are set using `vgSetParameterfv` with a `paramType` argument of `VG_PAINT_RADIAL_GRADIENT`. The gradient values are supplied as a vector of 5 floats in the order `cx`, `cy`, `fx`, `fy`, `r`.
@@ -56,9 +58,10 @@ vgSetParameterfv(radGradPaint, VG_PAINT_RADIAL_GRADIENT, 5, radGradParams);
 
 Color ramps behaviour does not change for radial gradients, it's the same as specified for linear gradients: `VG_PAINT_COLOR_RAMP_STOPS` parameter takes an array of floating-point values giving the offsets and colors of the stops, and all the three spread modes are supported too (`VG_COLOR_RAMP_SPREAD_PAD`, `VG_COLOR_RAMP_SPREAD_REPEAT`, `VG_COLOR_RAMP_SPREAD_REFLECT`).
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut03_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut03_repeat.png) | ![VG_COLOR_RAMP_SPREAD_REFLECT]({{site.url}}/assets/images/tut03_reflect.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Pad* | *Repeat* | *Reflect* |
+{:.tbl_images .tut03_color_ramp}
 
 ---
 
@@ -143,8 +146,10 @@ float radGradRadius;
 
 The `VG_MZT_color_ramp_interpolation` extension, that we have seen in the previous tutorial, is supported by radial grandients too.
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut03_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut03_smooth.png) |
+| &nbsp; | &nbsp; |
 | :---: | :---: |
 | *Linear interpolation* | *Smooth interpolation* |
+{:.tbl_images .tut03_color_ramp_interpolation}
+
 
 ---

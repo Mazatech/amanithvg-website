@@ -1,5 +1,5 @@
 ---
-layout: default-mj
+layout: default
 title: "Matrix transformation"
 date: 2017-01-01 08:00:00 +0100
 chapter: 7
@@ -17,7 +17,7 @@ Geometric coordinates are specified in the user coordinate system. The path-user
 and image-user-to-surface (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) transformations map between the user coordinate system and pixel coordinates on the destination drawing surface.  
 This pixel-based coordinate system is known as the surface coordinate system.  
 The user coordinate system is oriented such that values along the x-axis increase from left to right and values along the y-axis increase from bottom to top.  
-In the surface coordinate system, pixel (0, 0) is located at the lower-left corner of the drawing surface.
+In the surface coordinate system, pixel `(0, 0)` is located at the lower-left corner of the drawing surface.
 
 ---
 
@@ -47,15 +47,18 @@ vgSeti(VG_MATRIX_MODE, VG_MATRIX_PATH_USER_TO_SURFACE);
 
 ### Matrix Manipulation API
 
-The matrix conventions used by OpenVG are similar to those of OpenGL. A point to be transformed is given by a homogeneous column vector $$ [x, y, 1]^{T} $$. Transformation of a point $$ p $$ by a matrix $$ M $$ is defined as the product $$ M \cdot p $$. Concatenation of transformations is performed using right-multiplication of matrices.
+The matrix conventions used by OpenVG are similar to those of OpenGL. A point to be transformed is given by a homogeneous column vector **[x, y, 1]<sup>T</sup>**. Transformation of a point **p** by a matrix **M** is defined as the product **M &sdot; p**. Concatenation of transformations is performed using right-multiplication of matrices.
 
-<div>
-$$ M = \begin{bmatrix} sx & shx & tx \\ shy & sy & ty \\ w_0 & w_1 & w_2 \end{bmatrix} \qquad p = \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} $$
-</div>
-  
+&nbsp;
 
-Matrix m = { sx, shy, w0, shx, sy, w1, tx, ty, w2 }  
-For affine transformations, w0 = w1 = 0, w2 = 1
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .matrix_transform} 
+
+Matrix `m = { sx, shy, w0, shx, sy, w1, tx, ty, w2 }`
+
+For affine transformations, `w0 = w1 = 0`, `w2 = 1`
 
 ```c
 void vgLoadIdentity(void)

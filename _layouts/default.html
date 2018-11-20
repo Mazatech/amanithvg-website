@@ -64,7 +64,6 @@ layout: compress
   <body>
 
     <div id="header">
-
       <a href="{{ site.url }}"><div id="nav-logo"></div></a>
       <div id="nav-title"><a class="a_title" href="{{ site.url }}">{{ site.product_name }}</a></div>
 
@@ -92,11 +91,9 @@ layout: compress
     </div>
 
     <div class="wrapper">
-
       <section id="docs">
         {{ content }}
       </section>
-
     </div>
 
     {% if site.google_analytics %}
@@ -116,5 +113,6 @@ layout: compress
       </script>
     </amp-analytics>
     {% endif %}
+
   </body>
 </html>

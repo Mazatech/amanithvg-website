@@ -31,9 +31,10 @@ VG_PAINT_TYPE_CONICAL_GRADIENT_MZT = 0x1B90
 ```
 to the `VGPaintTypeMzt` enum type.
 
-| ![Conical gradient, pad spread mode]({{site.url}}/assets/images/conical_gradient_pad.png) | ![Conical gradient, repeat spread mode]({{site.url}}/assets/images/conical_gradient_repeat.png) | ![Conical gradient, reflect spread mode]({{site.url}}/assets/images/conical_gradient_reflect.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Conical gradient, pad spread mode* | *Conical gradient, repeat spread mode* | *Conical gradient, reflect spread mode* |
+{:.tbl_images .desc04_conical_gradient_spread}
 
 ```c
 VGfloat congrad[5] = {
@@ -87,18 +88,25 @@ to the `VGBlendModeMzt` enum type.
 
 Some of these new modes aren't available in AmanithVG GLE: *Overlay*, *Color Dodge*, *Color Burn*, *Hard Light*, *Soft Light*, *Difference*. In this case a *Src Over* fallback will be used.
 
-| ![Src]({{site.url}}/assets/images/blend_src.png) | ![Dst]({{site.url}}/assets/images/blend_dst.png) | ![SrcOver]({{site.url}}/assets/images/blend_srcover.png) | ![DstOver]({{site.url}}/assets/images/blend_dstover.png) | ![SrcIn]({{site.url}}/assets/images/blend_srcin.png) | ![DstIn]({{site.url}}/assets/images/blend_dstin.png) |
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | *Src* | *Dst* | *SrcOver* | *DstOver* | *SrcIn* | *DstIn* |
-| ![SrcOut]({{site.url}}/assets/images/blend_srcout.png) | ![DstOut]({{site.url}}/assets/images/blend_dstout.png) | ![SrcAtop]({{site.url}}/assets/images/blend_srcatop.png) | ![DstAtop]({{site.url}}/assets/images/blend_dstatop.png) | ![Clear]({{site.url}}/assets/images/blend_clear.png) | ![xor]({{site.url}}/assets/images/blend_xor.png) |
+{:.tbl_images .desc04_blend01}
+
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | *SrcOut* | *DstOut* | *SrcAtop* | *DstAtop* | *Clear* | *Xor* |
-| ![Screen]({{site.url}}/assets/images/blend_screen.png) | ![Multiply]({{site.url}}/assets/images/blend_multiply.png) | ![Difference]({{site.url}}/assets/images/blend_difference.png) | ![Exclusion]({{site.url}}/assets/images/blend_exclusion.png) | ![Additive]({{site.url}}/assets/images/blend_additive.png) | ![Overlay]({{site.url}}/assets/images/blend_overlay.png) |
+{:.tbl_images .desc04_blend02}
+
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | *Screen* | *Multiply* | *Difference* | *Exclusion* | *Additive* | *Overlay* |
-| ![Darken]({{site.url}}/assets/images/blend_darken.png) | ![Lighten]({{site.url}}/assets/images/blend_lighten.png) | ![ColorDodge]({{site.url}}/assets/images/blend_colordodge.png) | ![ColorBurn]({{site.url}}/assets/images/blend_colorburn.png) | ![HardLight]({{site.url}}/assets/images/blend_hardlight.png) | ![SoftLight]({{site.url}}/assets/images/blend_softlight.png) |
+{:.tbl_images .desc04_blend03}
+
+| &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | *Darken* | *Lighten* | *ColorDodge* | *ColorBurn* | *HardLight* | *SoftLight* |
+{:.tbl_images .desc04_blend04}
 
 ```c
 vgSeti(VG_BLEND_MODE, VG_BLEND_EXCLUSION_MZT);
@@ -119,9 +127,10 @@ VG_FILL_BLEND_MODE_MZT = 0x1191
 ```
 to the `VGParamType1Mzt` enum type.
 
-| ![Separable Blend Modes]({{site.url}}/assets/images/separable_blend_modes.png) | 
+| &nbsp; | 
 | :---: |
 | *SrcOver fill - Additive stroke* |
+{:.tbl_images .desc04_separable_blend}
 
 ```c
 vgSeti(VG_FILL_BLEND_MODE_MZT, VG_BLEND_SRC_OVER);
@@ -150,9 +159,10 @@ typedef enum {
 } VGColorRampInterpolationTypeMzt;
 ```
 
-| ![Linear and smooth color interpolation ]({{site.url}}/assets/images/smooth_interpolation_linear_gradients.png) | ![Radial gradient, linear color interpolation]({{site.url}}/assets/images/linear_interpolation_radial_gradient.png) | ![Radial gradient, smooth color interpolation]({{site.url}}/assets/images/smooth_interpolation_radial_gradient.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Linear and smooth color interpolation* | *Radial gradient, linear color interpolation* | *Radial gradient, smooth color interpolation* |
+{:.tbl_images .desc04_smooth_interpolation}
 
 ```c
 vgSetParameteri(paint, VG_PAINT_COLOR_RAMP_INTERPOLATION_TYPE_MZT,
@@ -177,9 +187,10 @@ VG_STROKE_END_CAP_STYLE_MZT = 0x1193
 
 to the official `VGParamType0Mzt` enum type.
 
-| ![Different start/end cap styles ]({{site.url}}/assets/images/separable_stroke_cap_styles.png) | ![Round start cap style, square end cap style]({{site.url}}/assets/images/separable_stroke_round_square_caps.png) | ![Square start cap style, round end cap style]({{site.url}}/assets/images/separable_stroke_square_round_caps.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Different start/end cap styles* | *Round start cap style, square end cap style* | *Square start cap style, round end cap style* |
+{:.tbl_images .desc04_cap_style}
 
 ```c
 vgSeti(VG_STROKE_START_CAP_STYLE_MZT, VG_CAP_ROUND);
@@ -194,9 +205,10 @@ OpenVG 1.1 specifications provide a way to define a set of scissor rectangles: a
 The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in
 a stack-like fashion: each drawing performed by `vgDrawPath` / `vgDrawImage` / `vgDrawGlyph` is clipped against the intersection of all pushed clip paths.
 
-| ![Clipping disabled]({{site.url}}/assets/images/clip_paths.png) | ![Clip against intersected paths]({{site.url}}/assets/images/clip_path_intersection.png) | ![Clip against united paths]({{site.url}}/assets/images/clip_path_union.png) |
+| &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
 | *Clipping disabled* | *Clip against intersected paths* | *Clip against united paths* |
+{:.tbl_images .desc04_clipping}
 
 ```c
 // turn off clipping

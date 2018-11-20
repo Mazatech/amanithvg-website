@@ -58,9 +58,10 @@ Pattern paint defines a rectangular pattern of colors based on the pixel values 
 
 Pattern paints have a reference system that coincides with images: the lower-left pixel has a coordinate of `(0, 0)`, the x coordinate increases horizontally from left to right, and the y coordinate increases vertically from bottom to top. Such system is then transported to the path coordinates system throught a "paint-to-user" affine matrix (`VG_MATRIX_FILL_PAINT_TO_USER` / `VG_MATRIX_STROKE_PAINT_TO_USER`). Finally the filled/stroked path is moved to the drawing surface system by another affine matrix, the so called "path-user-to-surface" (`VG_MATRIX_PATH_USER_TO_SURFACE`).
 
-| ![Pattern Matrices]({{site.url}}/assets/images/tut05_pattern_matrices.png) | 
+| &nbsp; |
 | :---: |
-| *Pattern Matrices* | 
+| *Pattern Matrices* |
+{:.tbl_images .tut05_pattern_matrices} 
 
 The tutorial defines a simple procedural image, then creates a pattern paint object and link the image to it (see `genPaints` function); here's a simplified code version for a fixed 64x64 pattern image:
 
@@ -97,9 +98,10 @@ vgSetParameteri(pattern, VG_PAINT_TYPE, VG_PAINT_TYPE_PATTERN);
 vgPaintPattern(pattern, image);
 ```
 
-| ![64x64 pattern image]({{site.url}}/assets/images/tut05_pattern_image.png) | 
+| &nbps; |
 | :---: |
-| *64x64 pattern image* | 
+| *64x64 pattern image* |
+{:.tbl_images .tut05_pattern_image} 
 
 As it can be seen from the code, to enable pattern paints, we use `vgSetParameteri` to set the paint type to `VG_PAINT_TYPE_PATTERN`.
 The `vgPaintPattern` function, instead, replaces any previous pattern image defined on the given paint object with a new pattern image.
@@ -112,21 +114,24 @@ Patterns may be extended (tiled) using one of four possible tiling modes, define
 
  - the `VG_TILE_FILL` condition specifies that pixels outside the bounds of the source image should be taken as the color `VG_TILE_FILL_COLOR`. Such color is expressed as a non-premultiplied `sRGBA` color and alpha value. Values outside the `[0, 1]` range are interpreted as the nearest endpoint of the range.
 
-| ![Tile fill]({{site.url}}/assets/images/tut05_fill.png) |
+| &nbsp; |
 | :---: |
 | *Tile fill* |
+{:.tbl_images .tut05_tile_fill} 
 
  - the `VG_TILE_PAD` condition specifies that pixels outside the bounds of the source image should be taken as having the same color as the closest edge pixel of the source image; that is, a pixel `(x, y)` has the same value as the image pixel `(max(0, min(x, width – 1))`, `max(0, min(y, height – 1)))`.
 
-| ![Tile pad]({{site.url}}/assets/images/tut05_pad.png) |
+| &nbsp; |
 | :---: |
 | *Tile pad* |
+{:.tbl_images .tut05_tile_pad} 
 
  - the `VG_TILE_REPEAT` condition specifies that the source image should be repeated indefinitely in all directions; that is, a pixel `(x, y)` has the same value as the image pixel (`x mod width`, `y mod height`) where the operator `(a mod b)` returns a value between `0` and `(b – 1)` such that `a = (k * b) + (a mod b)` for some integer `k`. For example, a such module operator coincides with the standard C/C++/Java `%` operator.
 
-| ![Tile repeat]({{site.url}}/assets/images/tut05_repeat.png) |
+| &nbsp; |
 | :---: |
 | *Tile repeat* |
+{:.tbl_images .tut05_tile_repeat} 
 
  - the `VG_TILE_REFLECT` condition specifies that the source image should be reflected indefinitely in all directions. That is, a pixel `(x, y)` has the same value as the image pixel `(u, v)` where:
    
@@ -134,9 +139,10 @@ Patterns may be extended (tiled) using one of four possible tiling modes, define
    
    - `v = (y mod height)` if `floor(y/height)` is even; `(height – 1 – (y mod height))` otherwise
 
-| ![Tile reflect]({{site.url}}/assets/images/tut05_reflect.png) |
+| &nbsp; |
 | :---: |
 | *Tile reflect* |
+{:.tbl_images .tut05_tile_reflect} 
 
 The pattern tiling mode is set using `vgSetParameteri` with a `paramType` argument of `VG_PAINT_PATTERN_TILING_MODE`.
 

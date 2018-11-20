@@ -46,7 +46,7 @@ h4, h5, h6 {
   color: #d8d8d8;
 }
 
-a {
+button, a {
   color: #ffc000;
   font-weight: 300;
   text-decoration: none;
@@ -895,3 +895,916 @@ dt {
     }
   }
 }
+
+.tbl_images {
+  table-layout: fixed;
+}
+
+.tbl_images th {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  color: transparent;
+}
+
+.desc04_conical_gradient_spread th:nth-child(1) {
+  background-image: url(../../assets/images/conical_gradient_pad.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_conical_gradient_spread th:nth-child(2) {
+  background-image: url(../../assets/images/conical_gradient_repeat.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_conical_gradient_spread th:nth-child(3) {
+  background-image: url(../../assets/images/conical_gradient_reflect.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(1) {
+  background-image: url(../../assets/images/blend_src.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(2) {
+  background-image: url(../../assets/images/blend_dst.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(3) {
+  background-image: url(../../assets/images/blend_srcover.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(4) {
+  background-image: url(../../assets/images/blend_dstover.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(5) {
+  background-image: url(../../assets/images/blend_srcin.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend01 th:nth-child(6) {
+  background-image: url(../../assets/images/blend_dstin.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(1) {
+  background-image: url(../../assets/images/blend_srcout.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(2) {
+  background-image: url(../../assets/images/blend_dstout.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(3) {
+  background-image: url(../../assets/images/blend_srcatop.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(4) {
+  background-image: url(../../assets/images/blend_dstatop.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(5) {
+  background-image: url(../../assets/images/blend_clear.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend02 th:nth-child(6) {
+  background-image: url(../../assets/images/blend_xor.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(1) {
+  background-image: url(../../assets/images/blend_screen.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(2) {
+  background-image: url(../../assets/images/blend_multiply.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(3) {
+  background-image: url(../../assets/images/blend_difference.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(4) {
+  background-image: url(../../assets/images/blend_exclusion.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(5) {
+  background-image: url(../../assets/images/blend_additive.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend03 th:nth-child(6) {
+  background-image: url(../../assets/images/blend_overlay.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(1) {
+  background-image: url(../../assets/images/blend_darken.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(2) {
+  background-image: url(../../assets/images/blend_lighten.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(3) {
+  background-image: url(../../assets/images/blend_colordodge.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(4) {
+  background-image: url(../../assets/images/blend_colorburn.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(5) {
+  background-image: url(../../assets/images/blend_hardlight.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_blend04 th:nth-child(6) {
+  background-image: url(../../assets/images/blend_softlight.png);
+  line-height: 100px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.desc04_separable_blend th {
+  background-image: url(../../assets/images/separable_blend_modes.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_smooth_interpolation th:nth-child(1) {
+  background-image: url(../../assets/images/smooth_interpolation_linear_gradients.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_smooth_interpolation th:nth-child(2) {
+  background-image: url(../../assets/images/linear_interpolation_radial_gradient.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_smooth_interpolation th:nth-child(3) {
+  background-image: url(../../assets/images/smooth_interpolation_radial_gradient.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_cap_style th:nth-child(1) {
+  background-image: url(../../assets/images/separable_stroke_cap_styles.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_cap_style th:nth-child(2) {
+  background-image: url(../../assets/images/separable_stroke_round_square_caps.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_cap_style th:nth-child(3) {
+  background-image: url(../../assets/images/separable_stroke_square_round_caps.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_clipping th:nth-child(1) {
+  background-image: url(../../assets/images/clip_paths.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_clipping th:nth-child(2) {
+  background-image: url(../../assets/images/clip_path_intersection.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.desc04_clipping th:nth-child(3) {
+  background-image: url(../../assets/images/clip_path_union.png);
+  line-height: 200px;
+  @media screen and (max-width: 975px) {
+    line-height: 20vw;
+  }
+}
+
+.tut00_setup001 th {
+  background-image: url(../../assets/images/setup-001.png);
+  line-height: 311px;
+  @media screen and (max-width: 975px) {
+    line-height: 31vw;
+  }
+}
+
+.tut00_setup002 th {
+  background-image: url(../../assets/images/setup-002.png);
+  line-height: 257px;
+  @media screen and (max-width: 975px) {
+    line-height: 26vw;
+  }
+}
+
+.tut00_setup003 th {
+  background-image: url(../../assets/images/setup-003.png);
+  line-height: 194px;
+  @media screen and (max-width: 975px) {
+    line-height: 19vw;
+  }
+}
+
+.tut00_setup004 th {
+  background-image: url(../../assets/images/setup-004.png);
+  line-height: 256px;
+  @media screen and (max-width: 975px) {
+    line-height: 26vw;
+  }
+}
+
+.tut02_grad_matrices th {
+  background-image: url(../../assets/images/tut02_grad_matrices_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut02_color_ramp th:nth-child(1) {
+  background-image: url(../../assets/images/tut02_pad_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut02_color_ramp th:nth-child(2) {
+  background-image: url(../../assets/images/tut02_repeat_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut02_color_ramp th:nth-child(3) {
+  background-image: url(../../assets/images/tut02_reflect_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut02_color_ramp_interpolation th:nth-child(1) {
+  background-image: url(../../assets/images/tut02_pad_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut02_color_ramp_interpolation th:nth-child(2) {
+  background-image: url(../../assets/images/tut02_smooth_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut03_grad_func th {
+  background-image: url(../../assets/images/tut03_radgrad_func_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut03_grad_matrices th {
+  background-image: url(../../assets/images/tut03_radgrad_matrices_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut03_color_ramp th:nth-child(1) {
+  background-image: url(../../assets/images/tut03_pad_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut03_color_ramp th:nth-child(2) {
+  background-image: url(../../assets/images/tut03_repeat_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut03_color_ramp th:nth-child(3) {
+  background-image: url(../../assets/images/tut03_reflect_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut03_color_ramp_interpolation th:nth-child(1) {
+  background-image: url(../../assets/images/tut03_pad_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut03_color_ramp_interpolation th:nth-child(2) {
+  background-image: url(../../assets/images/tut03_smooth_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut04_congrad_func th {
+  background-image: url(../../assets/images/tut04_congrad_func_dark.png);
+  line-height: 270px;
+  @media screen and (max-width: 975px) {
+    line-height: 27vw;
+  }
+}
+
+.tut04_congrad_gradfunc th {
+  background-image: url(../../assets/images/tut04_congrad_gradfunc.png);
+  line-height: 80px;
+  @media screen and (max-width: 975px) {
+    line-height: 16vw;
+  }
+}
+
+.tut04_congrad_matrices th {
+  background-image: url(../../assets/images/tut04_congrad_matrices_dark.png);
+  line-height: 270px;
+  @media screen and (max-width: 975px) {
+    line-height: 27vw;
+  }
+}
+
+.tut04_congrad_repeats th:nth-child(1) {
+  background-image: url(../../assets/images/tut04_pad_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_repeats th:nth-child(2) {
+  background-image: url(../../assets/images/tut04_repeat_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_repeats th:nth-child(3) {
+  background-image: url(../../assets/images/tut04_reflect_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_repnum th:nth-child(1) {
+  background-image: url(../../assets/images/tut04_one_rep_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_repnum th:nth-child(2) {
+  background-image: url(../../assets/images/tut04_two_rep_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_repnum th:nth-child(3) {
+  background-image: url(../../assets/images/tut04_three_rep_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut04_congrad_interpolation th:nth-child(1) {
+  background-image: url(../../assets/images/tut04_pad_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut04_congrad_interpolation th:nth-child(2) {
+  background-image: url(../../assets/images/tut04_smooth_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut05_pattern_matrices th {
+  background-image: url(../../assets/images/tut05_pattern_matrices_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut05_pattern_image th {
+  background-image: url(../../assets/images/tut05_pattern_image_dark.png);
+  line-height: 64px;
+}
+
+.tut05_tile_fill th {
+  background-image: url(../../assets/images/tut05_fill_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut05_tile_pad th {
+  background-image: url(../../assets/images/tut05_pad_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut05_tile_repeat th {
+  background-image: url(../../assets/images/tut05_repeat_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut05_tile_reflect th {
+  background-image: url(../../assets/images/tut05_reflect_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut06_stroke_parameters th {
+  background-image: url(../../assets/images/tut06_stroke_parameters_dark.png);
+  line-height: 400px;
+  @media screen and (max-width: 975px) {
+    line-height: 40vw;
+  }
+}
+
+.tut06_cap_styles th {
+  background-image: url(../../assets/images/tut06_cap_styles_dark.png);
+  line-height: 307px;
+  @media screen and (max-width: 975px) {
+    line-height: 31vw;
+  }
+}
+
+.tut06_join_styles th {
+  background-image: url(../../assets/images/tut06_join_styles_dark.png);
+  line-height: 283px;
+  @media screen and (max-width: 975px) {
+    line-height: 28vw;
+  }
+}
+
+.tut06_dashing th {
+  background-image: url(../../assets/images/tut06_dashing_dark.png);
+  line-height: 437px;
+  @media screen and (max-width: 975px) {
+    line-height: 44vw;
+  }
+}
+
+.tut06_solid_stroke th {
+  background-image: url(../../assets/images/tut06_solid_stroke_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut06_stroke_ext th {
+  background-image: url(../../assets/images/tut06_stroke_ext_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut07_src_over th {
+  background-image: url(../../assets/images/tut07_src_over_dark.png);
+  line-height: 384px;
+  @media screen and (max-width: 975px) {
+    line-height: 39vw;
+  }
+}
+
+.tut07_images th:nth-child(1) {
+  background-image: url(../../assets/images/tut07_src_image_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut07_images th:nth-child(2) {
+  background-image: url(../../assets/images/tut07_dst_image_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut07_dst_atop th {
+  background-image: url(../../assets/images/tut07_dst_atop_dark.png);
+  line-height: 384px;
+  @media screen and (max-width: 975px) {
+    line-height: 39vw;
+  }
+}
+
+.tut08_prj_matrix th {
+  background-image: url(../../assets/images/tut08_prj_matrix.png);
+  line-height: 80px;
+  @media screen and (max-width: 975px) {
+    line-height: 16vw;
+  }
+}
+
+.tut08_prj_transform th {
+  background-image: url(../../assets/images/tut08_prj_transform.png);
+  line-height: 60px;
+  @media screen and (max-width: 975px) {
+    line-height: 12vw;
+  }
+}
+
+.tut08_warp_quad_to_square th {
+  background-image: url(../../assets/images/tut08_warp_quad_to_square_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut08_warp_square_to_quad th {
+  background-image: url(../../assets/images/tut08_warp_square_to_quad_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut08_warp_quad_to_quad th {
+  background-image: url(../../assets/images/tut08_warp_quad_to_quad_dark.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut08_original_image th {
+  background-image: url(../../assets/images/tut08_original_image.png);
+  line-height: 410px;
+  @media screen and (max-width: 975px) {
+    line-height: 41vw;
+  }
+}
+
+.tut08_warp_example th:nth-child(1) {
+  background-image: url(../../assets/images/tut08_image_warp1.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut08_warp_example th:nth-child(2) {
+  background-image: url(../../assets/images/tut08_image_warp2.png);
+  line-height: 300px;
+  @media screen and (max-width: 975px) {
+    line-height: 30vw;
+  }
+}
+
+.tut09_glyph_metrics th {
+  background-image: url(../../assets/images/tut09_glyph_metrics_dark.png);
+  line-height: 325px;
+  @media screen and (max-width: 975px) {
+    line-height: 32vw;
+  }
+}
+
+.tut09_glyph_kerning th {
+  background-image: url(../../assets/images/tut09_glyph_kerning_dark.png);
+  line-height: 375px;
+  @media screen and (max-width: 975px) {
+    line-height: 37vw;
+  }
+}
+
+.tut09_trajectories th {
+  background-image: url(../../assets/images/tut09_trajectories_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut09_straight_text th {
+  background-image: url(../../assets/images/tut09_straight_text_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut09_wavy_text th {
+  background-image: url(../../assets/images/tut09_wavy_text_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut09_screenshot th {
+  background-image: url(../../assets/images/tut09_screenshot_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut10_ship th {
+  background-image: url(../../assets/images/tut10_ship_dark.png);
+  line-height: 512px;
+  @media screen and (max-width: 975px) {
+    line-height: 51vw;
+  }
+}
+
+.tut10_spot th:nth-child(1) {
+  background-image: url(../../assets/images/tut10_spot1_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut10_spot th:nth-child(2) {
+  background-image: url(../../assets/images/tut10_spot2_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut10_masks th:nth-child(1) {
+  background-image: url(../../assets/images/tut10_cloud_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut10_masks th:nth-child(2) {
+  background-image: url(../../assets/images/tut10_star_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut10_maskop th:nth-child(1) {
+  background-image: url(../../assets/images/tut10_union_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut10_maskop th:nth-child(2) {
+  background-image: url(../../assets/images/tut10_intersection_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut10_maskop th:nth-child(3) {
+  background-image: url(../../assets/images/tut10_subtraction_dark.png);
+  line-height: 250px;
+  @media screen and (max-width: 975px) {
+    line-height: 25vw;
+  }
+}
+
+.tut10_cloud th:nth-child(1) {
+  background-image: url(../../assets/images/tut10_cloud_spot_intersection_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.tut10_cloud th:nth-child(2) {
+  background-image: url(../../assets/images/tut10_cloud_star_subtraction_dark.png);
+  line-height: 350px;
+  @media screen and (max-width: 975px) {
+    line-height: 35vw;
+  }
+}
+
+.matrix_transform th {
+  background-image: url(../../assets/images/matrix_transform.png);
+  line-height: 80px;
+  @media screen and (max-width: 975px) {
+    line-height: 16vw;
+  }
+}
+
+.color_xyz_to_linear th {
+  background-image: url(../../assets/images/color_xyz_to_linear.png);
+  line-height: 60px;
+  @media screen and (max-width: 975px) {
+    line-height: 9vw;
+  }
+}
+
+.color_srgb_eq th {
+  background-image: url(../../assets/images/color_srgb_eq.png);
+  line-height: 150px;
+  @media screen and (max-width: 975px) {
+    line-height: 22vw;
+  }
+}
+
+.color_lrgb_to_srgb th {
+  background-image: url(../../assets/images/color_lrgb_to_srgb.png);
+  line-height: 70px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.color_srgb_to_lrgb th {
+  background-image: url(../../assets/images/color_srgb_to_lrgb.png);
+  line-height: 70px;
+  @media screen and (max-width: 975px) {
+    line-height: 10vw;
+  }
+}
+
+.color_lrgb_to_lum th {
+  background-image: url(../../assets/images/color_lrgb_to_lum.png);
+  line-height: 50px;
+  @media screen and (max-width: 975px) {
+    line-height: 7vw;
+  }
+}
+
+.color_lum_conversions th {
+  background-image: url(../../assets/images/color_lum_conversions.png);
+  line-height: 50px;
+  @media screen and (max-width: 975px) {
+    line-height: 7vw;
+  }
+}
+
+.color_lum_to_srgb th {
+  background-image: url(../../assets/images/color_lum_to_srgb.png);
+  line-height: 14px;
+  @media screen and (max-width: 975px) {
+    line-height: 2vw;
+  }
+}
+

@@ -1,5 +1,5 @@
 ---
-layout: default-mj
+layout: default
 title: "Colors"
 date: 2017-01-01 08:00:00 +0100
 chapter: 3
@@ -14,7 +14,7 @@ keywords: "openvg api color spaces conversions linear sRGB luminance"
 ## Colors [3.4]
 
 Colors in OpenVG other than those stored in image pixels are represented as non-premultiplied sRGBA color values.
-Color and alpha values lie in the range [0, 1] unless otherwise noted.
+Color and alpha values lie in the range `[0, 1]` unless otherwise noted.
 
 ---
 
@@ -22,49 +22,43 @@ Color and alpha values lie in the range [0, 1] unless otherwise noted.
 
 The linear lRGB color space is defined in terms of the standard CIE XYZ color space, following ITU Rec. 709 using a D65 white point:
 
-$$ Rl = 3.240479 \ X \ – \ 1.537150 \ Y \ – \ 0.498535 \ Z $$
+&nbsp;
 
-$$ Gl = -0.969256 \ X \ + \ 1.875992 \ Y \ + \ 0.041556 \ Z $$
-
-$$ Bl = 0.055648 \ X \ – \ 0.204043 \ Y \ + \ 1.057311 \ Z $$
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_xyz_to_linear}
 
 ---
 
 ### sRGB color space [3.4.2]
 
-The sRGB color space defines values Rs, Gs, Bs in terms of the linear lRGB primaries by applying a gamma $$ γ $$ mapping.
+The sRGB color space defines values Rs, Gs, Bs in terms of the linear lRGB primaries by applying a gamma **γ** mapping.
 
-if $$ (x \le 0.00304) $$
+&nbsp;
 
-$$ γ(x) = 12.92x $$
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_srgb_eq}
 
-else  
+lRGB to sRGB conversion:
 
-$$ γ(x) = 1.0556 x^{1 / 2.4} \ – \ 0.0556 $$
+&nbsp;
 
-if $$ (x \le 0.03928) $$  
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_lrgb_to_srgb}
 
-$$ γ^{-1}(x) = x / 12.92 $$
+sRGB to lRGB conversion:
 
-else  
+&nbsp;
 
-$$ γ^{-1}(x) = [(x + 0.0556) / 1.0556]^{2.4} $$  
-
-lRGB to sRGB conversion $$ \qquad (1) $$
-
-$$ Rs = γ(Rl) $$
-
-$$ Gs = γ(Gl) $$
-
-$$ Bs = γ(Bl) $$
-
-sRGB to lRGB conversion $$ \qquad (2) $$
-
-$$ Rl = γ^{-1}(Rs) $$
-
-$$ Gl = γ^{-1}(Gs) $$
-
-$$ Bl = γ^{-1}(Bs) $$
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_srgb_to_lrgb}
 
 ---
 
@@ -72,19 +66,30 @@ $$ Bl = γ^{-1}(Bs) $$
 
 The linear grayscale (luminance) color space is related to the linear lRGB color space by the equations:
 
-$$ lLUM = 0.2126 \ Rl \ + \ 0.7152 \ Gl \ + \ 0.0722 \ Bl \qquad (3) $$
+&nbsp;
 
-$$ Rl = Gl = Bl = lLUM \qquad (4) $$
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_lrgb_to_lum}
 
-The perceptually-uniform grayscale color space is related to the linear grayscale (luminance) color space by the $$ γ $$ mapping:
+The perceptually-uniform grayscale color space is related to the linear grayscale (luminance) color space by the gamma **γ** mapping:
 
-$$ sLUM = γ(lLUM) \qquad (5) $$
+&nbsp;
 
-$$ lLUM = γ^{-1}(sLUM) \qquad (6) $$
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_lum_conversions}
 
 Conversion from perceptually-uniform grayscale to sRGB is performed by replication:
 
-$$ Rs = Gs = Bs = LUMs \qquad (7) $$
+&nbsp;
+
+| &nbsp; | 
+| :---: |
+| &nbsp; |
+{:.tbl_images .color_lum_to_srgb}
 
 ---
 

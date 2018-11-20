@@ -137,9 +137,11 @@ vgTranslate(srcImagePos[X], srcImagePos[Y]);
 vgDrawImage(srcImage);
 ```
 
-| ![Source image "over" destination image (`VG_BLEND_SRC_OVER`)]({{site.url}}/assets/images/tut07_src_over.png) | 
+| &nbsp; | 
 | :---: |
 | *Source image "over" destination image (`VG_BLEND_SRC_OVER`)* | 
+{:.tbl_images .tut07_src_over} 
+
 
 Both images are generated procedurally according to the current surface size. A flower-like path is drawn (at the lower-left corner) with a [linear gradient]({{site.url}}/docs/tut/002-linear-gradients.html) fill, then pixels are copied from the drawing surface to the `VGImage` object, using the `vgGetPixels`function.
 
@@ -165,9 +167,10 @@ vgDrawPath(flower, VG_FILL_PATH);
 vgGetPixels(dstImage, 0, 0, 0, 0, imgSize, imgSize);
 ```
 
-| ![Source image]({{site.url}}/assets/images/tut07_src_image.png) | ![Destination image]({{site.url}}/assets/images/tut07_dst_image.png) |
+| &nbsp; | &nbsp; |
 | :---: | :---: |
 | *Source image* | *Destination image* |
+{:.tbl_images .tut07_images}
 
 A note about the image format value (`VGImageFormat enum` type) used to create images: in order to speedup "read pixels" and rendering operations, the best practice is to create images using the same (internal) format of the drawing surface; such format could be retrieved through the AmanithVG function `vgPrivGetSurfaceFormatMZT` (see [EGL like interface]({{site.url}}/docs/desc/003-egl.html)).
 
@@ -178,9 +181,10 @@ A note about the image format value (`VGImageFormat enum` type) used to create i
 AmanithVG implements an extension to the OpenVG API relative to blending: `VG_MZT_advanced_blend_modes` (see [extensions]({{site.url}}/docs/desc/004-extensions.html) chapter for additional details).
 This extension completes the OpenVG blend modes in order to support a full [Porter-Duff alpha-compositing model](http://www.w3.org/TR/2009/WD-SVGCompositing-20090430/#comp-op). In the detail the extension introduces several new blend modes: `VG_BLEND_CLEAR_MZT`, `VG_BLEND_DST_MZT`, `VG_BLEND_SRC_OUT_MZT`, `VG_BLEND_DST_OUT_MZT`, `VG_BLEND_SRC_ATOP_MZT`, `VG_BLEND_DST_ATOP_MZT`, `VG_BLEND_XOR_MZT`, `VG_BLEND_OVERLAY_MZT`, `VG_BLEND_COLOR_DODGE_MZT`, `VG_BLEND_COLOR_BURN_MZT`, `VG_BLEND_HARD_LIGHT_MZT`, `VG_BLEND_SOFT_LIGHT_MZT`, `VG_BLEND_DIFFERENCE_MZT`, `VG_BLEND_EXCLUSION_MZT`.
 
-| ![Destination image "at top" of source image (`VG_BLEND_DST_ATOP_MZT`)]({{site.url}}/assets/images/tut07_dst_atop.png) | 
+| &nbsp; | 
 | :---: |
-| *Destination image "at top" of source image (`VG_BLEND_DST_ATOP_MZT`)* | 
+| *Destination image "at top" of source image (`VG_BLEND_DST_ATOP_MZT`)* |
+{:.tbl_images .tut07_dst_atop} 
 
 The tutorial application will check (at runtime) the support of `VG_MZT_advanced_blend_modes` extension and, if found, will enable the user to switch to advanced blend modes too.
 

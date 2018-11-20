@@ -1,5 +1,5 @@
 ---
-layout: default-mj
+layout: default
 title: "Tut. 04 - Conical gradients"
 date: 2017-01-01 08:00:00 +0100
 chapter: 4
@@ -25,19 +25,26 @@ The scalar function has the following properties:
 
  - proceding counterclockwise, it is equal to the normalized angle (respect to the center-target direction) multiplied by the number of repeats
 
-| ![gradFunc(x, y)]({{site.url}}/assets/images/tut04_congrad_func.png) | 
+| &nbsp; | 
 | :---: |
 | *gradFunc(x, y)* | 
+{:.tbl_images .tut04_congrad_func} 
 
-$$ gradFunc(x,y) = \left(\frac{\arctan\left(\frac{y \ - \ cy}{x \ - \ cx}\right)}{2\pi} \ - \ \frac{\arctan\left(\frac{ty \ - \ cy}{tx \ - \ cx}\right)}{2\pi}\right) \ \cdot \ repeats $$
+&nbsp;
+
+| &nbsp; | 
+| :---: |
+| &nbsp; | 
+{:.tbl_images .tut04_congrad_gradfunc} 
 
 Such scalar value is mapped to colors by *color ramps*, exactly as it happens for [linear]({{site.url}}/docs/tut/002-linear-gradients.html) (have a look at it for more details) and [radial]({{site.url}}/docs/tut/003-radial-gradients.html) gradients (have a look at it for more details).
 
 Geometric properties (center and target) defining a conical gradient are specified in the *paint coordinates system*; according to the OpenVG pipeline, such system is then transported to the path coordinates system throught a "paint-to-user" affine matrix (`VG_MATRIX_FILL_PAINT_TO_USER` / `VG_MATRIX_STROKE_PAINT_TO_USER`). Finally the filled/stroked path is moved to the drawing surface system by another affine matrix, the so called "path-user-to-surface" (`VG_MATRIX_PATH_USER_TO_SURFACE`).
 
-| ![Gradient Matrices]({{site.url}}/assets/images/tut04_congrad_matrices.png) | 
+| &nbsp; |
 | :---: |
 | *Gradient Matrices* | 
+{:.tbl_images .tut04_congrad_matrices} 
 
 To enable conical gradient paint, use `vgSetParameteri` to set the paint type to `VG_PAINT_TYPE_CONICAL_GRADIENT_MZT`.
 The conical gradient parameters are set using `vgSetParameterfv` with a paramType argument of `VG_PAINT_CONICAL_GRADIENT_MZT`. The gradient values are supplied as a vector of `5` floats in the order `cx`, `cy`, `tx`, `ty`, `repeats`.
@@ -54,15 +61,17 @@ vgSetParameterfv(conGradPaint, VG_PAINT_CONICAL_GRADIENT_MZT, 5, conGradParams);
 
 Color ramps behaviour does not change for conical gradients, it's the same as specified for linear and radial gradients: `VG_PAINT_COLOR_RAMP_STOPS` parameter takes an array of floating-point values giving the offsets and colors of the stops, and all the three spread modes are supported too (`VG_COLOR_RAMP_SPREAD_PAD`, `VG_COLOR_RAMP_SPREAD_REPEAT`, `VG_COLOR_RAMP_SPREAD_REFLECT`).
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut04_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut04_repeat.png) | ![VG_COLOR_RAMP_SPREAD_REFLECT]({{site.url}}/assets/images/tut04_reflect.png) |
+| &nbsp; | &nbsp; | &nbsp; | 
 | :---: | :---: | :---: |
 | *Pad* | *Repeat* | *Reflect* |
+{:.tbl_images .tut04_congrad_repeats} 
 
 In the pictures below you can see the visual meaning of conical gradient repeats.
 
-| ![No repeats]({{site.url}}/assets/images/tut04_one_rep.png) | ![Two repeats]({{site.url}}/assets/images/tut04_two_rep.png) | ![Three repeats]({{site.url}}/assets/images/tut04_three_rep.png) |
+| &nbsp; | &nbsp; | &nbsp; | 
 | :---: | :---: | :---: |
 | *No repeats* | *Two repeats* | *Three repeats* |
+{:.tbl_images .tut04_congrad_repnum} 
 
 ---
 
@@ -140,9 +149,10 @@ float conGradRepeats;
 
 The `VG_MZT_color_ramp_interpolation` extension, that we have seen in the previous tutorials, is supported by conical grandients too.
 
-| ![VG_COLOR_RAMP_SPREAD_PAD]({{site.url}}/assets/images/tut04_pad.png) | ![VG_COLOR_RAMP_SPREAD_REPEAT]({{site.url}}/assets/images/tut04_smooth.png) |
+| &nbsp; | &nbsp; |
 | :---: | :---: |
 | *Linear interpolation* | *Smooth interpolation* |
+{:.tbl_images .tut04_congrad_interpolation} 
 
 ---
 
