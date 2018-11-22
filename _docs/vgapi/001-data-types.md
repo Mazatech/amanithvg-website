@@ -23,7 +23,7 @@ keywords: "openvg api data types primitive handle"
  | `VGfloat` | `4 byte` | `IEEE 754 Standard` | 
  | `VGboolean` | `4 byte` | `[ VG_FALSE(0), VG_TRUE(1) ]` |
  | `VGbitfiled` | `4 byte` | `[ 0, 2^32 - 1 ]` |
-{:.rwd-table}
+{:.rwd-table .rwd-table-primitiveDataTypes}
 
 ---
 
@@ -42,6 +42,6 @@ Handles employ reference count semantics: if a handle is in use, a request to de
 | `VGMaskLayer` | a `VGHandle` referencing mask data |
 | `VGFont` | a `VGHandle` referencing path data |
 | `VGPaint` | a `VGHandle` referencing paint specification |
-{:.rwd-table}
+{:.rwd-table .rwd-table-handleBasedDataTypes}
 
 ---

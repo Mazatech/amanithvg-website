@@ -105,6 +105,6 @@ numbers indicate the equations from this section that are to be applied, in left
 | sRGB | 2 | - | 2, 3 | 2, 3, 5 |
 | lLUM | 4 | 4, 1 | - | 5 |
 | sLUM | 7, 2 | 7 | 6 | - |
-{:.rwd-table}
+{:.rwd-table .rwd-table-colorConversions}
 
 ---

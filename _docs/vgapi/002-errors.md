@@ -19,14 +19,14 @@ After a call to `vgGetError`, the error code is cleared to `VG_NO_ERROR`.
 | Error code | Notes |
 | ---------- | ----- |
 | `VG_NO_ERROR` | Defined as 0 |
-| `VG_BAD_HANDLE_ERROR` | |
-| `VG_ILLEGAL_ARGUMENT_ERROR` | |
+| `VG_BAD_HANDLE_ERROR` | - |
+| `VG_ILLEGAL_ARGUMENT_ERROR` | - |
 | `VG_OUT_OF_MEMORY_ERROR` | ALL OpenVG functions may signal `VG_OUT_OF_MEMORY_ERROR` |
-| `VG_PATH_CAPABILITY_ERROR` | |
-| `VG_UNSUPPORTED_IMAGE_FORMAT_ERROR` | |
-| `VG_UNSUPPORTED_PATH_FORMAT_ERROR` | |
+| `VG_PATH_CAPABILITY_ERROR` | - |
+| `VG_UNSUPPORTED_IMAGE_FORMAT_ERROR` | - |
+| `VG_UNSUPPORTED_PATH_FORMAT_ERROR` | - |
 | `VG_IMAGE_IN_USE_ERROR` | Passing an image that is currently the rendering target to any OpenVG function (excluding `vgGetParameter` and `vgDestroyImage`) will result in a such error |
 | `VG_NO_CONTEXT_ERROR` | If no context is current at the time `vgGetError` is called, this error code is returned |
-{:.rwd-table}
+{:.rwd-table .rwd-table-errors}
 
 ---

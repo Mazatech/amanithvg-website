@@ -40,7 +40,7 @@ The context is responsible for maintaining the OpenVG API state, as shown in the
 | Paint                                 | Paint definitions                                     |
 | Mask                                  | Coverage mask and enable/disable                      |
 | Error                                 | Oldest unreported error code                          |
-{:.rwd-table}
+{:.rwd-table .rwd-table-drawingContext}
 
 ---
 

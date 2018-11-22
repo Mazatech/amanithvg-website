@@ -48,36 +48,36 @@ void vgGetiv(VGParamType paramType, VGint count, VGint* val)
 
 ### Context Parameters [5.2.1]
 
-The possible values of paramType from enumeration `VGParamType` are shown below, with the legal values for val. Default value is indicated with a yellow dot on the right ( <span class="ovg_default"/> ).
+The possible values of paramType from enumeration `VGParamType` are shown below, with the legal values for val. Default value is indicated in <span class="ovg_default">YELLOW</span>.
 
 | Parameter name | Parameter type | Possible values / Notes |
 | -------------- | -------------- | ----------------------- |
-| `VG_MATRIX_MODE` | `VGMatrixMode` | `VG_MATRIX_PATH_USER_TO_SURFACE`<span class="ovg_default"/><br> `VG_MATRIX_IMAGE_USER_TO_SURFACE`<br> `VG_MATRIX_FILL_PAINT_TO_USER`<br> `VG_MATRIX_STROKE_PAINT_TO_USER`<br> `VG_MATRIX_GLYPH_USER_TO_SURFACE` |
-| `VG_FILL_RULE` | `VGFillRule` | `VG_EVEN_ODD`<span class="ovg_default"/><br> `VG_NON_ZERO` |
-| `VG_IMAGE_QUALITY` | `VGImageQuality` | `VG_IMAGE_QUALITY_NONANTIALIASED`<br> `VG_IMAGE_QUALITY_FASTER`<span class="ovg_default"/><br> `VG_IMAGE_QUALITY_BETTER` |
-| `VG_RENDERING_QUALITY` | `VGRenderingQuality` | `VG_RENDERING_QUALITY_NONANTIALIASED`<br> `VG_RENDERING_QUALITY_FASTER`<br> `VG_RENDERING_QUALITY_BETTER`<span class="ovg_default"/> |
-| `VG_BLEND_MODE` | `VGBlendMode` | `VG_BLEND_SRC`<br> `VG_BLEND_SRC_OVER`<span class="ovg_default"/><br> `VG_BLEND_DST_OVER`<br> `VG_BLEND_SRC_IN`<br> `VG_BLEND_DST_IN`<br> `VG_BLEND_MULTIPLY`<br> `VG_BLEND_SCREEN`<br> `VG_BLEND_DARKEN`<br> `VG_BLEND_LIGHTEN`<br> `VG_BLEND_ADDITIVE` |
-| `VG_IMAGE_MODE` | `VGImageMode` | `VG_DRAW_IMAGE_NORMAL`<span class="ovg_default"/><br> `VG_DRAW_IMAGE_MULTIPLY`<br> `VG_DRAW_IMAGE_STENCIL` |
-| `VG_SCISSOR_RECTS` | `VGint*` | Format is:<br> `{ xMin, yMin, width, height, ... }`<br> Rects with width <= 0 or height <= 0 are ignored<br> `{ }`<span class="ovg_default"/> |
-| `VG_COLOR_TRANSFORM` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_COLOR_TRANSFORM_VALUES` | `VGfloat[8]` | Format is:<br> `{ Rscl, Gscl, Bscl, Ascl,`<br> `Rbias, Gbias, Bbias, Abias }`<br> Scale parameters are clamped to:<br> `[-127.0, +127.0]`<br> Bias parameters are clamped to:<br> `[-1.0, +1.0]`<br> `{ 1.0f, 1.0f, 1.0f, 1.0f,`<br> `0.0f, 0.0f, 0.0f, 0.0f }`<span class="ovg_default"/> |
-| `VG_STROKE_LINE_WIDTH` | `VGfloat` | Any positive value is valid (a value <=0 prevents stroking from taking place)<br> `1.0f`<span class="ovg_default"/> |
-| `VG_STROKE_CAP_STYLE` | `VGCapStyle` | `VG_CAP_BUTT`<span class="ovg_default"/><br> `VG_CAP_ROUND`<br> `VG_CAP_SQUARE` |
-| `VG_STROKE_JOIN_STYLE` | `VGJoinStyle` | `VG_JOIN_MITER`<span class="ovg_default"/><br> `VG_JOIN_ROUND`<br> `VG_JOIN_BEVEL` |
-| `VG_STROKE_MITER_LIMIT` | `VGfloat` | Miter limit values <=1 are silently clamped to 1<br> `4.0f`<span class="ovg_default"/> |
-| `VG_STROKE_DASH_PATTERN` | `VGfloat*` | Format is:<br> `{ on1, off1, on2, off2, ... }`<br> If the dash pattern has length 0, dashing is not performed. If the dash pattern has an odd number of elements, the final element is ignored.<br> `{ }`<span class="ovg_default"/> |
-| `VG_STROKE_DASH_PHASE` | `VGfloat` | Any float value is valid<br> `0.0f`<span class="ovg_default"/> |
-| `VG_STROKE_DASH_PHASE_RESET` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_TILE_FILL_COLOR` | `VGfloat[4]` | Format is:<br> `{ red, green, blue, alpha } sRGBA`<br> Values outside the [0, 1] range are interpreted as the nearest endpoint of the range<br> `{ 0.0f, 0.0f, 0.0f, 0.0f }`<span class="ovg_default"/> |
-| `VG_CLEAR_COLOR` | `VGfloat[4]` | Format is:<br> `{ red, green, blue, alpha } sRGBA`<br> Values outside the [0, 1] range are interpreted as the nearest endpoint of the range<br> `{ 0.0f, 0.0f, 0.0f, 0.0f }`<span class="ovg_default"/> |
-| `VG_GLYPH_ORIGIN` | `VGfloat[2]` | Format is:<br> `{ xOrigin, yOrigin }`<br> `{ 0.0f, 0.0f }`<span class="ovg_default"/> |
-| `VG_MASKING` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_SCISSORING` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_PIXEL_LAYOUT ` | `VGPixelLayout` | `VG_PIXEL_LAYOUT_UNKNOWN`<span class="ovg_default"/><br> `VG_PIXEL_LAYOUT_RGB_VERTICAL`<br> `VG_PIXEL_LAYOUT_BGR_VERTICAL`<br> `VG_PIXEL_LAYOUT_RGB_HORIZONTAL`<br> `VG_PIXEL_LAYOUT_BGR_HORIZONTAL` |
-| `VG_FILTER_FORMAT_LINEAR` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_FILTER_FORMAT_PREMULTIPLIED` | `VGboolean` | `VG_TRUE`<br> `VG_FALSE`<span class="ovg_default"/> |
-| `VG_FILTER_CHANNEL_MASK` | `VGbitfield` | Any combination of:<br> `VG_RED, VG_GREEN, VG_BLUE, VG_ALPHA` |
-{:.rwd-table}
+| `VG_MATRIX_MODE` | `VGMatrixMode` | <span class="ovg_default">VG_MATRIX_PATH_USER_TO_SURFACE</span> <br> `VG_MATRIX_IMAGE_USER_TO_SURFACE`<br> `VG_MATRIX_FILL_PAINT_TO_USER`<br> `VG_MATRIX_STROKE_PAINT_TO_USER`<br> `VG_MATRIX_GLYPH_USER_TO_SURFACE` |
+| `VG_FILL_RULE` | `VGFillRule` | <span class="ovg_default">VG_EVEN_ODD</span> <br> `VG_NON_ZERO` |
+| `VG_IMAGE_QUALITY` | `VGImageQuality` | `VG_IMAGE_QUALITY_NONANTIALIASED`<br> <span class="ovg_default">VG_IMAGE_QUALITY_FASTER</span> <br> `VG_IMAGE_QUALITY_BETTER` |
+| `VG_RENDERING_QUALITY` | `VGRenderingQuality` | `VG_RENDERING_QUALITY_NONANTIALIASED`<br> `VG_RENDERING_QUALITY_FASTER`<br> <span class="ovg_default">`VG_RENDERING_QUALITY_BETTER`</span> |
+| `VG_BLEND_MODE` | `VGBlendMode` | `VG_BLEND_SRC`<br> <span class="ovg_default">VG_BLEND_SRC_OVER</span><br> `VG_BLEND_DST_OVER`<br> `VG_BLEND_SRC_IN`<br> `VG_BLEND_DST_IN`<br> `VG_BLEND_MULTIPLY`<br> `VG_BLEND_SCREEN`<br> `VG_BLEND_DARKEN`<br> `VG_BLEND_LIGHTEN`<br> `VG_BLEND_ADDITIVE` |
+| `VG_IMAGE_MODE` | `VGImageMode` | <span class="ovg_default">VG_DRAW_IMAGE_NORMAL</span> <br> `VG_DRAW_IMAGE_MULTIPLY`<br> `VG_DRAW_IMAGE_STENCIL` |
+| `VG_SCISSOR_RECTS` | `VGint*` | Format is:<br> `{ xMin, yMin, width, height, ... }`<br> Rects with width <= 0 or height <= 0 are ignored<br> <span class="ovg_default">{ }</span> |
+| `VG_COLOR_TRANSFORM` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_COLOR_TRANSFORM_VALUES` | `VGfloat[8]` | Format is:<br> `{ Rscl, Gscl, Bscl, Ascl,`<br> `Rbias, Gbias, Bbias, Abias }`<br> Scale parameters are clamped to:<br> `[-127.0, +127.0]`<br> Bias parameters are clamped to:<br> `[-1.0, +1.0]`<br> <span class="ovg_default">{ 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f }</span> |
+| `VG_STROKE_LINE_WIDTH` | `VGfloat` | Any positive value is valid (a value <=0 prevents stroking from taking place)<br> <span class="ovg_default">1.0f</span> |
+| `VG_STROKE_CAP_STYLE` | `VGCapStyle` | <span class="ovg_default">VG_CAP_BUTT</span> <br> `VG_CAP_ROUND`<br> `VG_CAP_SQUARE` |
+| `VG_STROKE_JOIN_STYLE` | `VGJoinStyle` | <span class="ovg_default">VG_JOIN_MITER</span> <br> `VG_JOIN_ROUND`<br> `VG_JOIN_BEVEL` |
+| `VG_STROKE_MITER_LIMIT` | `VGfloat` | Miter limit values <=1 are silently clamped to 1<br> <span class="ovg_default">4.0f</span> |
+| `VG_STROKE_DASH_PATTERN` | `VGfloat*` | Format is:<br> `{ on1, off1, on2, off2, ... }`<br> If the dash pattern has length 0, dashing is not performed. If the dash pattern has an odd number of elements, the final element is ignored.<br> <span class="ovg_default">{ }</span> |
+| `VG_STROKE_DASH_PHASE` | `VGfloat` | Any float value is valid<br> <span class="ovg_default">0.0f</span> |
+| `VG_STROKE_DASH_PHASE_RESET` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_TILE_FILL_COLOR` | `VGfloat[4]` | Format is:<br> `{ red, green, blue, alpha } sRGBA`<br> Values outside the [0, 1] range are interpreted as the nearest endpoint of the range<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 0.0f }</span> |
+| `VG_CLEAR_COLOR` | `VGfloat[4]` | Format is:<br> `{ red, green, blue, alpha } sRGBA`<br> Values outside the [0, 1] range are interpreted as the nearest endpoint of the range<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 0.0f }</span> |
+| `VG_GLYPH_ORIGIN` | `VGfloat[2]` | Format is:<br> `{ xOrigin, yOrigin }`<br> <span class="ovg_default">{ 0.0f, 0.0f }</span> |
+| `VG_MASKING` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_SCISSORING` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_PIXEL_LAYOUT ` | `VGPixelLayout` | <span class="ovg_default">VG_PIXEL_LAYOUT_UNKNOWN</span> <br> `VG_PIXEL_LAYOUT_RGB_VERTICAL`<br> `VG_PIXEL_LAYOUT_BGR_VERTICAL`<br> `VG_PIXEL_LAYOUT_RGB_HORIZONTAL`<br> `VG_PIXEL_LAYOUT_BGR_HORIZONTAL` |
+| `VG_FILTER_FORMAT_LINEAR` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_FILTER_FORMAT_PREMULTIPLIED` | `VGboolean` | `VG_TRUE`<br> <span class="ovg_default">VG_FALSE</span> |
+| `VG_FILTER_CHANNEL_MASK` | `VGbitfield` | Any combination of:<br> `VG_RED, VG_GREEN, VG_BLUE, VG_ALPHA` <br> <span class="ovg_default">VG_RED \| VG_GREEN \| VG_BLUE \| VG_ALPHA</span> |
+{:.rwd-table .rwd-table-contextParameters}
 
 ---
 
@@ -98,6 +98,6 @@ Some context parameters are read-only, so they cannot be set through `vgSet`(`i`
 | `VG_MAX_IMAGE_PIXELS` | `VGint` | `17606416` | All implementations must define this value to be an integer no smaller than 65536 |
 | `VG_MAX_IMAGE_BYTES` | `VGint` | `70425664` | All implementations must define this value to be an integer no smaller than 65536 |
 | `VG_MAX_FLOAT` | `VGfloat` | `3.402823466e+38` | All implementations must define this value to be at least 10^10 |
-{:.rwd-table}
+{:.rwd-table .rwd-table-roContextParameters}
 
 ---

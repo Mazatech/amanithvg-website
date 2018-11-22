@@ -674,13 +674,21 @@ dt {
   }
 
   .ovg_default {
+    font-family: "Lucida Sans", Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+    font-size: 13px;
+    margin: 0;
+    padding: 2px;
+    border-radius: 10px;
+    display: contents;
     color: #f0b000;
   }
 
+/*
   .ovg_default:after {
     content: "\25CF";
   }
- 
+*/
+
   .rwd-table {
     border-color: transparent;
     background-color: #242424;
@@ -702,10 +710,8 @@ dt {
       display: table-cell;
       padding: .25em .5em;
     } 
-  } 
+  }
 }
-
-
 
 @media screen and (max-width: 975px) {
 
@@ -908,12 +914,12 @@ dt {
     }
 
     .rwd-table {
-      overflow: hidden;
+      overflow-x: auto;
       margin: 1em 0;
       min-width: 290px; 
         
       tr {
-        border-bottom: 15px solid #181818;
+        border-bottom: 10px solid #181818;
       }
       
       th {
@@ -921,20 +927,96 @@ dt {
       }
       
       td {
-        display: block;
-
-        &:first-child {
-          padding-top: .5em;
-        }
-        &:last-child {
-          padding-bottom: .5em;
-        }
-      }
-      
-      th, td {
+        display: flex;
         border-top: 1px solid #181818;
         text-align: left;
+        padding: .12em .24em;
       }
+      
+      td:before {
+        float: left;
+        font-weight: 500;
+        margin-right: 4px;
+        white-space: nowrap;
+        color: #fff;
+        background-color: #d04000;
+        text-shadow: 0px 1px 3px #000;
+        font-weight: 400;
+        padding: 0 6px;
+      }
+
+      code {
+        display: contents;
+      } 
+    }
+  }
+
+  .rwd-table-primitiveDataTypes {
+    td:before {
+      min-width: 100px;
+    }
+    td:nth-of-type(1):before { content: "Data type name"; }
+    td:nth-of-type(2):before { content: "Size"; }
+    td:nth-of-type(3):before { content: "Values range"; }
+  }
+
+  .rwd-table-handleBasedDataTypes {
+    td:before {
+      min-width: 100px;
+    }
+    td:nth-of-type(1):before { content: "Data type name"; }
+    td:nth-of-type(2):before { content: "Description"; }
+  }
+
+  .rwd-table-errors {
+    td:before {
+      min-width: 65px;
+    }
+    td:nth-of-type(1):before { content: "Error code"; }
+    td:nth-of-type(2):before { content: "Notes"; }  
+  }
+
+  .rwd-table-colorConversions {
+    td:before {
+      min-width: 65px;
+    }
+    td:nth-of-type(1):before { content: "Src/Dst"; }
+    td:nth-of-type(2):before { content: "lRGB"; }
+    td:nth-of-type(3):before { content: "sRGB"; }  
+    td:nth-of-type(4):before { content: "lLUM"; }  
+    td:nth-of-type(5):before { content: "sLUM"; }  
+  }
+
+  .rwd-table-drawingContext {
+    td:before {
+      min-width: 72px;
+    }
+    td:nth-of-type(1):before { content: "State"; }
+    td:nth-of-type(2):before { content: "Description"; }  
+  }
+
+  .rwd-table-contextParameters {
+    td:before {
+      min-width: 150px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Possible values / Notes"; }
+    code {
+      float: left;
+    }
+  }
+
+  .rwd-table-roContextParameters {
+    td:before {
+      min-width: 105px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "AmanithVG"; }
+    td:nth-of-type(4):before { content: "Notes"; }    
+    code {
+      float: left;
     }
   }
 
