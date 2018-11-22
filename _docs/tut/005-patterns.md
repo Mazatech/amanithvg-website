@@ -5,7 +5,7 @@ date: 2017-01-01 08:00:00 +0100
 chapter: 5
 categories: [tut]
 headline: "AmanithVG, how to create and use conical pattern paint type"
-image: "tut05_repeat.png"
+image: "tut05_repeat_dark.png"
 keywords: "amanithvg tutorial 05 pattern fill pad repeat reflect openvg"
 ---
 

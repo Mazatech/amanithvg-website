@@ -5,7 +5,7 @@ date: 2017-01-01 08:00:00 +0100
 chapter: 10
 categories: [tut]
 headline: "AmanithVG, draw with alpha mask and boolean masking operations"
-image: "tut10_subtraction.png"
+image: "tut10_subtraction_dark.png"
 keywords: "amanithvg tutorial 10 draw alpha mask masking clipping clip clear fill set union intersect subtract boolean openvg"
 ---
 

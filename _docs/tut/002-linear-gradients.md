@@ -5,7 +5,7 @@ date: 2017-01-01 08:00:00 +0100
 chapter: 2
 categories: [tut]
 headline: "AmanithVG, how to create and use linear gradient paint type"
-image: "tut02_smooth.png"
+image: "tut02_smooth_dark.png"
 keywords: "amanithvg tutorial 02 linear gradient pad repeat reflect openvg"
 ---
 

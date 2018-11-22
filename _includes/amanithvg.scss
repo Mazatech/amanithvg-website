@@ -183,6 +183,81 @@ dt {
   }
 }
 
+#gdprUserConsent {
+  position: fixed;
+  display: block;
+  top: 0;
+  height: auto;
+  background-color: transparent;
+}
+
+#gdprConsentFlow {
+  z-index: 1002;
+  position: fixed;
+  display: block;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, .9);
+  color: #000;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, .75);
+  font: 16px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  text-shadow: none;
+  font-weight: 300;
+  line-height: 1.5;
+  min-height: 100px;
+
+  .consentPopup {
+    padding: 10px;
+    margin: 0;
+    border: 0;
+    min-height: 100px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    color: #000;
+    font: 18px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  a {
+    font-weight: 500;
+    color: #016;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    cursor: pointer;
+    color: #049;
+  }
+
+  .btn-accept {
+    display: block;
+    background-color: #049;
+    color: #FD0;
+    font: 18px "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    border-radius: 4px;
+    line-height: 1.5;
+    margin-top: 11px;
+    text-decoration: none;
+    border: 1px solid #049;
+    padding: 3px 8px;
+  }
+
+  .btn-accept:hover {
+    cursor: pointer;
+    border: 1px solid #049;
+    background-color: #FD0;
+    color: #049;
+  }
+}
+
 #header {
   z-index: 100;
   position: fixed;
