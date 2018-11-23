@@ -80,7 +80,7 @@ The `VGMaskOperation` enumeration defines the set of possible operations that ma
 | `VG_UNION_MASK` | `1 - (1 - Amask) * (1 - Aprev)` |
 | `VG_INTERSECT_MASK` | `Amask * Aprev` |
 | `VG_SUBTRACT_MASK` | `Aprev * (1 - Amask)` |
-{:.rwd-table}
+{:.rwd-table .rwd-table-masking}
 
 ---
 

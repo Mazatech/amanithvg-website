@@ -69,7 +69,7 @@ Values from the `VGFontParamType` enumeration can be used as the `paramType` arg
 | Parameter name | Parameter type | Possible values / Notes |
 | -------------- | -------------- | ----------------------- |
 | `VG_FONT_NUM_GLYPHS` | `VGint` | A number >= 0 |
-{:.rwd-table}
+{:.rwd-table .rwd-tableFontParameters}
 
 ---
 {:.hrlight}

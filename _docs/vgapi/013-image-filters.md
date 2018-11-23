@@ -94,8 +94,8 @@ Read-only `paramType` values for the `vgGetParameter` function.
 | -------------- | -------------- | ----------- |
 | `VG_MAX_KERNEL_SIZE` | `VGint` | The largest legal value of the width and height parameters to the `vgConvolve` function.<br> All implementations must define `VG_MAX_KERNEL_SIZE` to be an integer no smaller than `7` |
 | `VG_MAX_SEPARABLE_KERNEL_SIZE` | `VGint` | The largest legal value of the size parameter to the `vgSeparableConvolve` function.<br> All implementations must define this value to be an integer no smaller than `15` |
-| `VG_MAX_GAUSSIAN_STD_DEVIATION` | `VGint` | The largest legal value of the `stdDeviationX` and `stdDeviationY` parameters to the vgGaussianBlur function.<br> All implementations must define this value to be an integer no smaller than `16`.
-{:.rwd-table}
+| `VG_MAX_GAUSSIAN_STD_DEVIATION` | `VGint` | The largest legal value of the `stdDeviationX` and `stdDeviationY` parameters to the `vgGaussianBlur` function.<br> All implementations must define this value to be an integer no smaller than `16`.
+{:.rwd-table .rwd-tableConvolutionParameters}
 
 ---
 

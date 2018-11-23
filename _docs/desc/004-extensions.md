@@ -15,7 +15,7 @@ OpenVG provides a drawing model similar to those of existing 2D drawing APIs and
 
 ---
 
-## Conical gradients [ VG\_MZT\_conical\_gradient ]
+## Conical gradients [&nbsp;VG\_MZT\_conical\_gradient&nbsp;]
 
 Conical gradients interpolate the color keys counter-clockwise around a point. A conical gradient is defined through the center point, the direction point and the number of repeats. Those points identify the line where the first color key lies on. The number of repeats tells how many times the circle will be split; all the keys take place every slice, following the classic spread mode rules.
 
@@ -49,7 +49,7 @@ vgSetParameterfv(paint, VG_PAINT_CONICAL_GRADIENT_MZT, 5, conGrad);
 
 ---
 
-## Advanced blend modes [ VG\_MZT\_advanced\_blend\_modes ]
+## Advanced blend modes [&nbsp;VG\_MZT\_advanced\_blend\_modes&nbsp;]
 
 This extension completes the OpenVG 1.1 blend modes to support a full extended Porter-Duff rendering model (the same rendering model used by [SVG 1.2](http://www.w3.org/TR/2003/WD-SVG12-20030715/#compositing)).
 
@@ -114,7 +114,7 @@ vgSeti(VG_BLEND_MODE, VG_BLEND_EXCLUSION_MZT);
 
 ---
 
-## Separable blend modes [ VG\_MZT\_separable\_blend\_modes ]
+## Separable blend modes [&nbsp;VG\_MZT\_separable\_blend\_modes&nbsp;]
 
 OpenVG 1.1 specifications provide a way to set a single blend mode, that will be used for both stroke and fill drawing. With this extension it is possible to independently specify a blend mode for the stroke and a blend mode for the fill.
 
@@ -139,7 +139,7 @@ vgSeti(VG_STROKE_BLEND_MODE_MZT, VG_BLEND_ADDITIVE);
 
 ---
 
-## Color ramp interpolation [ VG\_MZT\_color\_ramp\_interpolation ]
+## Color ramp interpolation [&nbsp;VG\_MZT\_color\_ramp\_interpolation&nbsp;]
 
 According to OpenVG 1.1 specifications, color and alpha values at offset values between the values given by stops are defined by means of linear interpolation between the values defined at the nearest stops above and below the given offset value. Linear interpolation suffers of the so called 'key highlights' issue; it is very noticeable when large surfaces are filled with a poor of keys gradient. This behaviour could be changed by defining a new color ramp interpolation schema. This extension introduces a smooth color interpolation, based on the Hermite interpolant coupled with Catmull-Rom tangents calculation. The result is a much smoother transition.
 
@@ -173,7 +173,7 @@ vgSetParameteri(paint, VG_PAINT_COLOR_RAMP_INTERPOLATION_TYPE_MZT,
 
 ---
 
-## Separable cap style [ VG\_MZT\_separable\_cap\_style ]
+## Separable cap style [&nbsp;VG\_MZT\_separable\_cap\_style&nbsp;]
 
 OpenVG 1.1 specifications provide a way to set a single cap style, that will be used for both start-cap and end-cap in a dashed stroke. With this extension it is possible to independently specify a different style for start-cap and end-cap.
 
@@ -199,7 +199,7 @@ vgSeti(VG_STROKE_END_CAP_STYLE_MZT, VG_CAP_SQUARE);
 
 ---
 
-## Clip paths [ VG\_MZT\_clip\_path ] - SRE only
+## Clip paths [&nbsp;VG\_MZT\_clip\_path&nbsp;] - SRE only
 
 OpenVG 1.1 specifications provide a way to define a set of scissor rectangles: all drawing is clipped (i.e. restricted) to the surface sub-region defined by the union of such rectangles.
 The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in

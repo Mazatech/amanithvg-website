@@ -108,7 +108,7 @@ The ratio of miter length to line width may be computed directly from the angle 
 corresponding miter limits for a line width of `1` are shown in the following table:
 
 | Angle (degrees) | Miter limit |
-| :-------------: | :---------: |
+| --------------- | ----------- |
 | 10.00 | 11.47 |
 | 11.47 | 10.00 |
 | 23.00 | 5.00 |
@@ -121,7 +121,7 @@ corresponding miter limits for a line width of `1` are shown in the following ta
 | 120.00 | 1.15 |
 | 150.00 | 1.03 |
 | 180.00 | 1.00 |
-{:.rwd-table}
+{:.rwd-table .rwd-tableAngleMiter}
 
 ---
 

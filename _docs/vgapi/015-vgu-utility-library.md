@@ -88,7 +88,7 @@ The `VGUArcType` enumeration defines three values to control the style of arcs:
 | `VGU_ARC_OPEN` | arc segment only |
 | `VGU_ARC_CHORD` | arc, plus line between arc endpoints |
 | `VGU_ARC_PIE` | arc, plus lines from each endpoint to the ellipse center |
-{:.rwd-table}
+{:.rwd-table .rwd-tableVguArc }
 
 ---
 

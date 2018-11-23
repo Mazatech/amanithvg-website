@@ -15,7 +15,7 @@ AmanithVG SRE and AmanithVG GLE implement the whole OpenVG 1.0.1 and OpenVG 1.1 
 AmanithVG GLE is one of the few OpenVG engines that accomplishes this task using 2 texture units and one auxiliary buffer (depth or stencil) only, using few software fallbacks where specific GL extensions aren't available and just to realize a couple of features. 
 
 | OpenVG feature | AmanithVG SRE | AmanithVG GLE |
-| :--- | :---: | :---: |
+| ---- | ----- | ----- |
 | Scissoring | <span class="green_text">__CPU__</span> | <span class="green_text">__GPU__</span> |
 | Clearing | <span class="green_text">__CPU__</span> | <span class="green_text">__GPU__</span> |
 | Alpha Masking | <span class="green_text">__CPU__</span> | <span class="green_text">__GPU__ |
@@ -36,7 +36,7 @@ AmanithVG GLE is one of the few OpenVG engines that accomplishes this task using
 | Font & text | <span class="green_text">__CPU__</span> | <span class="green_text">__GPU__</span> |
 | Color spaces | <span class="green_text">__CPU__</span> | <span class="green_text">__GPU__</span>\*\*\*\* |
 | Vgu | <span class="green_text">__CPU__</span> | <span class="red_text">__CPU__</span> |
-{:.rwd-table}
+{:.rwd-table .rwd-tableImplementationDetails}
 
 | :--- |
 | *\* antialiasing relays on GL multisampling.* |

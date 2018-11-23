@@ -62,14 +62,14 @@ The `VGMaskOperation` enumeration defines the set of possible operations that ma
 The following table gives the equations defining the new mask value `α'` for each mask operation in terms of the previous mask value `α` and the newly supplied mask value `αMask`:
 
 | Operation | Mask equation |
-| :-------- | :------------ |
+| --------- | ------------- |
 | `VG_CLEAR_MASK` | `α' = 0` |
 | `VG_FILL_MASK` | `α' = 1` |
 | `VG_SET_MASK` | `α' = αMask` |
 | `VG_UNION_MASK` | `α' = 1 – (1 – αMask) * (1 – α)` |
 | `VG_INTERSECT_MASK` | `α' = αMask * α` |
 | `VG_SUBTRACT_MASK` | `α' = α * (1 – αMask)` |
-{:.rwd-table}
+{:.rwd-table .rwd-tableMaskOperations}
 
 ## vgRenderToMask
 

@@ -26,7 +26,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 3.0em;
+  font-size: 2.4em;
   color: #f0f0f0
 }
 
@@ -362,7 +362,6 @@ dt {
         font-size: 1em;
         padding: 0 10px;
         line-height: 1.75;
-
       }
       
       &.article:hover {
@@ -665,7 +664,7 @@ dt {
   p {
     line-height: 1.5;
     font-size: 1.15em;
-    margin-bottom: 1.0em;
+    margin-bottom: 0.67em;
   }
 
   ul, ol {
@@ -785,6 +784,10 @@ dt {
       color: white;
     }
 
+    a:hover {
+      text-decoration: none;
+    }
+
     #nav-logo {
       display: block;
       border-radius: 300px;
@@ -880,6 +883,7 @@ dt {
 
       li {
         line-height: 2.0;
+        font-size: 0.825em;
       }
 
       &.title {
@@ -900,7 +904,7 @@ dt {
 
     h1 {
       letter-spacing: 0;
-      font-size: 2.3em;
+      font-size: 2.0em;
     }
 
     h2 {
@@ -1002,9 +1006,6 @@ dt {
     td:nth-of-type(1):before { content: "Parameter name"; }
     td:nth-of-type(2):before { content: "Parameter type"; }
     td:nth-of-type(3):before { content: "Possible values / Notes"; }
-    code {
-      float: left;
-    }
   }
 
   .rwd-table-roContextParameters {
@@ -1014,10 +1015,160 @@ dt {
     td:nth-of-type(1):before { content: "Parameter name"; }
     td:nth-of-type(2):before { content: "Parameter type"; }
     td:nth-of-type(3):before { content: "AmanithVG"; }
-    td:nth-of-type(4):before { content: "Notes"; }    
-    code {
-      float: left;
+    td:nth-of-type(4):before { content: "Notes"; }
+  }
+
+  .rwd-table-matrixMode {
+    td:before {
+      min-width: 90px;
     }
+    td:nth-of-type(1):before { content: "Matrix mode"; }
+    td:nth-of-type(2):before { content: "Type of matrix"; }
+  }
+
+  .rwd-table-masking {
+    td:before {
+      min-width: 100px;
+    }
+    td:nth-of-type(1):before { content: "Operation"; }
+    td:nth-of-type(2):before { content: "Resulting mask"; }
+  }
+
+  .rwd-table-pathSegments {
+    td:before {
+      min-width: 160px;
+    }
+    td:nth-of-type(1):before { content: "VGPathSegment"; }
+    td:nth-of-type(2):before { content: "Coordinates"; }
+    td:nth-of-type(3):before { content: "Implicit Points"; }
+    td:nth-of-type(4):before { content: "Description (Side Effects)"; }
+  }
+
+  .rwd-table-pathParameters {
+    td:before {
+      min-width: 105px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Notes"; }
+  }
+
+  .rwd-paintParameters {
+    td:before {
+      min-width: 148px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Possible values / Notes"; }
+  }
+
+  .rwd-imageParameters {
+    td:before {
+      min-width: 105px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Possible values"; }
+    td:nth-of-type(4):before { content: "Notes"; }
+  }
+
+  .rwd-tablePixelCopy {
+    td:before {
+      min-width: 65px;
+    }
+    td:nth-of-type(1):before { content: "Src/Dst"; }
+    td:nth-of-type(2):before { content: "Memory"; }
+    td:nth-of-type(3):before { content: "VGImage"; }
+    td:nth-of-type(4):before { content: "Surface"; }
+  }
+
+  .rwd-tableFontParameters {
+    td:before {
+      min-width: 148px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Possible values / Notes"; }
+  }
+
+  .rwd-tableConvolutionParameters {
+    td:before {
+      min-width: 105px;
+    }
+    td:nth-of-type(1):before { content: "Parameter name"; }
+    td:nth-of-type(2):before { content: "Parameter type"; }
+    td:nth-of-type(3):before { content: "Description"; }
+  }
+
+  .rwd-tableBlendingEquations {
+     td:before {
+      min-width: 170px;
+    }
+    td:nth-of-type(1):before { content: "Blend Mode"; }
+    td:nth-of-type(2):before { content: "Color blending function c'()"; }
+    td:nth-of-type(3):before { content: "Apha blending function α()"; }
+  }
+
+  .rwd-tableVguArc {
+    td:before {
+      min-width: 72px;
+    }
+    td:nth-of-type(1):before { content: "Arc Type"; }
+    td:nth-of-type(2):before { content: "Description"; }
+  }
+
+  .rwd-tableImagesOpenvg {
+    td:before {
+      min-width: 92px;
+    }
+    td:nth-of-type(1):before { content: "Format"; }
+    td:nth-of-type(2):before { content: "Bytes per pixel"; }
+    td:nth-of-type(3):before { content: "Bits per pixel"; }
+  }
+
+  .rwd-tableAngleMiter {
+    td:before {
+      min-width: 65px;
+    }
+    td:nth-of-type(1):before { content: "Angle"; }
+    td:nth-of-type(2):before { content: "Miter limit"; }
+  }
+
+  .rwd-tableAlphaEquations {
+    td:before {
+      min-width: 78px;
+    }
+    td:nth-of-type(1):before { content: "Blend mode"; }
+    td:nth-of-type(2):before { content: "f(Sc, Dc)"; }
+    td:nth-of-type(3):before { content: "X"; }
+    td:nth-of-type(4):before { content: "Y"; }
+    td:nth-of-type(5):before { content: "Z"; }  
+  }
+
+  .rwd-tableAlphaEquationsSimplified {
+    td:before {
+      min-width: 78px;
+    }
+    td:nth-of-type(1):before { content: "Blend mode"; }
+    td:nth-of-type(2):before { content: "Dca'"; }
+    td:nth-of-type(3):before { content: "Da'"; }  
+  }
+
+  .rwd-tableMaskOperations {
+    td:before {
+      min-width: 95px;
+    }
+    td:nth-of-type(1):before { content: "Operation"; }
+    td:nth-of-type(2):before { content: "Mask equation"; }
+  }
+
+  .rwd-tableImplementationDetails {
+    td:before {
+      min-width: 100px;
+    }
+    td:nth-of-type(1):before { content: "OpenVG feature"; }
+    td:nth-of-type(2):before { content: "AmanithVG SRE"; }
+    td:nth-of-type(3):before { content: "AmanithVG GLE"; }
   }
 
   .jumptarget {

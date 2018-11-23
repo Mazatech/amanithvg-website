@@ -81,7 +81,7 @@ vgSeti(VG_BLEND_MODE, VG_BLEND_SRC_OVER);
 The following table shows the equation factors for each OpenVG blend mode:
 
 | Blend mode | f(Sc, Dc) |  X  |  Y  |  Z  |
-| :--------- | :-------- | :-: | :-: | :-: |
+| ---------- | --------- | --- | --- | --- |
 | `VG_BLEND_SRC` | `Sc` | `1` | `1` | `0` |
 | `VG_BLEND_SRC_OVER` | `Sc` | `1` | `1` | `1` |
 | `VG_BLEND_DST_OVER` | `Dc` | `1` | `1` | `1` |
@@ -92,12 +92,12 @@ The following table shows the equation factors for each OpenVG blend mode:
 | `VG_BLEND_DARKEN` | `min(Sc, Dc)` | `1` | `1` | `1` |
 | `VG_BLEND_LIGHTEN` | `max(Sc, Dc)` | `1` | `1` | `1` |
 | `VG_BLEND_ADDITIVE` | `Sc + Dc` | `1` | `1` | `1` | 
-{:.rwd-table}
+{:.rwd-table .rwd-tableAlphaEquations }
 
 The following table shows the resulting (and simplified) blend equation for each OpenVG blend mode:
 
 | Blend mode | Dca' |  Da'  |  
-| :--------- | :--- | :---- |
+| ---------- | ---- | ----- |
 | `VG_BLEND_SRC` | `Sca` | `Sa` |
 | `VG_BLEND_SRC_OVER` | `Sca + Dca(1 - Sa)` | `Sa + Da(1 - Sa)` |
 | `VG_BLEND_DST_OVER` | `Dca + Sca(1 - Da)` | `Da + Sa(1 - Da)` |
@@ -108,7 +108,7 @@ The following table shows the resulting (and simplified) blend equation for each
 | `VG_BLEND_DARKEN` | `min(ScaDa, DcaSa) + Sca(1 - Da) + Dca(1 - Sa)` | `Sa + Da(1 - Sa)` |
 | `VG_BLEND_LIGHTEN` | `max(ScaDa, DcaSa) + Sca(1 - Da) + Dca(1 - Sa)` | `Sa + Da(1 - Sa)` |
 | `VG_BLEND_ADDITIVE` | `Sca + Dca` | `Sa + Da` |
-{:.rwd-table}
+{:.rwd-table .rwd-tableAlphaEquationsSimplified }
 
 ---
 

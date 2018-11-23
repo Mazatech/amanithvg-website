@@ -67,19 +67,19 @@ Return the paint object currently set for the given `paintMode`.
 
 ### Paint Object Parameter [9.1.3]
 
-Values from the `VGPaintParamType` enumeration may be used as the `paramType` argument to `vgSetParameter` and `vgGetParameter` to set and query various features of a paint object. For each parameter, default values are shown in blue.
+Values from the `VGPaintParamType` enumeration may be used as the `paramType` argument to `vgSetParameter` and `vgGetParameter` to set and query various features of a paint object. For each parameter, default values are shown in <span class="ovg_default">YELLOW</span>.
 
 | Parameter name | Parameter type | Possible values / Notes |
 | -------------- | -------------- | ----------------------- |
-| `VG_PAINT_TYPE` | `VGPaintType` | `VG_PAINT_TYPE_COLOR`<span class="ovg_default"/><br> `VG_PAINT_TYPE_LINEAR_GRADIENT`<br> `VG_PAINT_TYPE_RADIAL_GRADIENT`<br> `VG_PAINT_TYPE_PATTERN` |
-| `VG_PAINT_COLOR` | `VGfloat[4]` | Format is `{ red, green, blue, alpha }` sRGBA<br> Values outside the `[0, 1]` range are interpreted as the nearest endpoint of the range `{ 0.0f, 0.0f, 0.0f, 1.0f }`<span class="ovg_default"/> |
-| `VG_PAINT_COLOR_RAMP_SPREAD_MODE` | `VGColorRampSpreadMode` | `VG_COLOR_RAMP_SPREAD_PAD`<span class="ovg_default"/><br> `VG_COLOR_RAMP_SPREAD_REPEAT`<br> `VG_COLOR_RAMP_SPREAD_REFLECT` |
-| `VG_PAINT_COLOR_RAMP_PREMULTIPLIED` | `VGboolean` | `VG_TRUE`<span class="ovg_default"/><br> `VG_FALSE` (disabled) |
-| `VG_PAINT_COLOR_RAMP_STOPS` | `VGfloat*` | Format is `{ offset0, red0, green0, blue0, alpha0, ... }`<br> Color components are expressed in sRGBA space (`[0, 1]` range)<br> Stops with offsets <0 or >1 are ignored<br> `NULL`<span class="ovg_default"/> |
-| `VG_PAINT_LINEAR_GRADIENT` | `VGfloat[4]` | Format is `{ startx, starty, endx, endy }`<br> `{ 0.0f, 0.0f, 1.0f, 0.0f }`<span class="ovg_default"/> |
-| `VG_PAINT_RADIAL_GRADIENT` | `VGfloat[5]` | Format is `{ centerx, centery, focusx, focusy, radius }`<br> If `(focusx, focusy)` lies outside the circumference of the circle, the intersection of the line from the center to the focal point with the circumference of the circle is used as the focal point in place of the specified point<br> `{0.0f, 0.0f, 0.0f, 0.0f, 1.0f}`<span class="ovg_default"/> |
-| `VG_PAINT_PATTERN_TILING_MODE` | `VGTilingMode` | `VG_TILE_FILL`<span class="ovg_default"/><br> `VG_TILE_PAD`<br> `VG_TILE_REPEAT`<br>`VG_TILE_REFLECT` |
-{:.rwd-table}
+| `VG_PAINT_TYPE` | `VGPaintType` | <span class="ovg_default">VG_PAINT_TYPE_COLOR</span> <br> `VG_PAINT_TYPE_LINEAR_GRADIENT`<br> `VG_PAINT_TYPE_RADIAL_GRADIENT`<br> `VG_PAINT_TYPE_PATTERN` |
+| `VG_PAINT_COLOR` | `VGfloat[4]` | Format is `{ red, green, blue, alpha }` sRGBA<br> Values outside the `[0, 1]` range are interpreted as the nearest endpoint of the range<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 1.0f }</span> |
+| `VG_PAINT_COLOR_RAMP_SPREAD_MODE` | `VGColorRampSpreadMode` | <span class="ovg_default">VG_COLOR_RAMP_SPREAD_PAD</span> <br> `VG_COLOR_RAMP_SPREAD_REPEAT`<br> `VG_COLOR_RAMP_SPREAD_REFLECT` |
+| `VG_PAINT_COLOR_RAMP_PREMULTIPLIED` | `VGboolean` | <span class="ovg_default">VG_TRUE</span> <br> `VG_FALSE` (disabled) |
+| `VG_PAINT_COLOR_RAMP_STOPS` | `VGfloat*` | Format is `{ offset0, red0, green0, blue0, alpha0, ... }`<br> Color components are expressed in sRGBA space (`[0, 1]` range)<br> Stops with offsets <0 or >1 are ignored<br> <span class="ovg_default">NULL</span> |
+| `VG_PAINT_LINEAR_GRADIENT` | `VGfloat[4]` | Format is `{ startx, starty, endx, endy }`<br> <span class="ovg_default">{ 0.0f, 0.0f, 1.0f, 0.0f }</span> |
+| `VG_PAINT_RADIAL_GRADIENT` | `VGfloat[5]` | Format is `{ centerx, centery, focusx, focusy, radius }`<br> If `(focusx, focusy)` lies outside the circumference of the circle, the intersection of the line from the center to the focal point with the circumference of the circle is used as the focal point in place of the specified point<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 0.0f, 1.0f }</span> |
+| `VG_PAINT_PATTERN_TILING_MODE` | `VGTilingMode` | <span class="ovg_default">VG_TILE_FILL</span> <br> `VG_TILE_PAD`<br> `VG_TILE_REPEAT`<br>`VG_TILE_REFLECT` |
+{:.rwd-table .rwd-paintParameters}
 
 ---
 

@@ -25,20 +25,21 @@ The following table describes each segment command type and the side effects of 
 
 | `VGPathSegment` | Coordinates | Implicit Points | Description (Side Effects) |
 | --------------- | ----------- | --------------- | -------------------------- |
-| `VG_CLOSE_PATH` | none | | (px, py) = (ox, oy) = (sx, sy)<br> End current subpath. | 
-| `VG_MOVE_TO` | x0, y0 | | (sx, sy) = (px, py) = (ox, oy) = (x0, y0)<br> End current subpath. |
-| `VG_LINE_TO` | x0, y0 | | (px, py) = (ox, oy) = (x0, y0) |
+| `VG_CLOSE_PATH` | none | - | (px, py) = (ox, oy) = (sx, sy)<br> End current subpath. | 
+| `VG_MOVE_TO` | x0, y0 | - | (sx, sy) = (px, py) = (ox, oy) = (x0, y0)<br> End current subpath. |
+| `VG_LINE_TO` | x0, y0 | - | (px, py) = (ox, oy) = (x0, y0) |
 | `VG_HLINE_TO` | x0 | y0 = oy | (px, py) = (x0, oy), ox = x0 |
 | `VG_VLINE_TO` | y0 | x0 = ox | (px, py) = (ox, y0), oy = y0 |
-| `VG_QUAD_TO` | x0, y0, x1, y1 | | (px, py) = (x0, y0)<br> (ox, oy) = (x1, y1) |
-| `VG_CUBIC_TO` | x0, y0, x1, y1, x2, y2 | | (px, py) = (x1, y1)<br> (ox, oy) = (x2, y2) |
+| `VG_QUAD_TO` | x0, y0, x1, y1 | - | (px, py) = (x0, y0)<br> (ox, oy) = (x1, y1) |
+| `VG_CUBIC_TO` | x0, y0, x1, y1, x2, y2 | - | (px, py) = (x1, y1)<br> (ox, oy) = (x2, y2) |
 | `VG_SQUAD_TO` | x1, y1 | (x0, y0) = (2 * ox ‐ px, 2 * oy ‐ py) | (px, py) = (2 * ox - px, 2 * oy - py)<br> (ox, oy) = (x1, y1) |
 | `VG_SCUBIC_TO` | x1, y1, x2, y2 | (x0, y0) = (2 * ox ‐ px, 2 * oy ‐ py) | (px, py) = (x1, y1)<br> (ox, oy) = (x2, y2) |
-| `VG_SCCWARC_TO` | rh, rv, rot, x0, y0 | | (px, py) = (ox, oy) = (x0, y0) |
-| `VG_SCWARC_TO` | rh, rv, rot, x0, y0 | | (px, py) = (ox, oy) = (x0, y0) |
-| `VG_LCCWARC_TO` | rh, rv, rot, x0, y0 | | (px, py) = (ox, oy) = (x0, y0) |
-| `VG_LCWARC_TO` | rh, rv, rot, x0, y0 | | (px, py) = (ox, oy) = (x0, y0) |
-{:.rwd-table}
+| `VG_SCCWARC_TO` | rh, rv, rot, x0, y0 | - | (px, py) = (ox, oy) = (x0, y0) |
+| `VG_SCWARC_TO` | rh, rv, rot, x0, y0 | - | (px, py) = (ox, oy) = (x0, y0) |
+| `VG_LCCWARC_TO` | rh, rv, rot, x0, y0 | - | (px, py) = (ox, oy) = (x0, y0) |
+| `VG_LCWARC_TO` | rh, rv, rot, x0, y0 | - | (px, py) = (ox, oy) = (x0, y0) |
+{:.rwd-table .rwd-table-pathSegments}
+
 
 ---
 
@@ -246,9 +247,9 @@ All of the parameters defined by `VGPathParamType` are read-only.
 | `VG_PATH_DATATYPE` | `VGPathDatatype` | One of the following: `VG_PATH_DATATYPE_S_{8, 16, 32}, VG_PATH_DATATYPE_F` |
 | `VG_PATH_BIAS` | `VGfloat` | Specified through the `vgCreatePath` function |
 | `VG_PATH_SCALE` | `VGfloat` | Specified through the `vgCreatePath` function |
-| `VG_PATH_NUM_SEGMENTS` | `VGint` ||
-| `VG_PATH_NUM_COORDS` | `VGint` ||
-{:.rwd-table}
+| `VG_PATH_NUM_SEGMENTS` | `VGint` | - |
+| `VG_PATH_NUM_COORDS` | `VGint` | - |
+{:.rwd-table .rwd-table-pathParameters}
 
 ---
 

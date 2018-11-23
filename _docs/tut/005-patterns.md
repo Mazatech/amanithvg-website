@@ -27,7 +27,7 @@ The `VGImageFormat` enumeration defines the set of supported pixel formats and c
 The letter `A` denotes an alpha channel, `R` denotes red, `G` denotes green, and `B` denotes blue. `X` denotes a padding byte that is ignored. `L` denotes grayscale, and `BW` denotes (linear) bi-level grayscale (black-and-white), with `0` representing black and `1` representing white in either case. A lower-case letter `s` represents a non-linear, perceptually-uniform color space, as in `sRGB` and `sL`; a lower-case letter `l` represents a linear color space using the `sRGB` primaries. Formats with a suffix of `_PRE` store pixel values in premultiplied format.
 
 | Format | Bytes per pixel | Bits per pixel |
-| ------ | :-------------: | :------------: |
+| ------ | --------------- | -------------- |
 | `VG_sRGBX_8888` | 4 | 32 |
 | `VG_sRGBA_8888` | 4 | 32 |
 | `VG_sRGBA_8888_PRE` | 4 | 32 |
@@ -43,7 +43,7 @@ The letter `A` denotes an alpha channel, `R` denotes red, `G` denotes green, and
 | `VG_A_4` | n/a | 4 |
 | `VG_A_8` | 1 | 8 |
 | `VG_BW_1` | n/a | 1 |
-{:.rwd-table}
+{:.rwd-table .rwd-tableImagesOpenvg}
 
 Other available byteorder formats (`A/XRGB`, `BGRA/X`, `A/XBGR`) follow the same "bytes/bits per pixel" rules.
 

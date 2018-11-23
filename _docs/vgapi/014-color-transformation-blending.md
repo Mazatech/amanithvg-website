@@ -61,7 +61,7 @@ The `VGBlendMode` enumeration defines the possible blending modes:
 | `VG_BLEND_DARKEN` | `min(c'src + c'dst * (1 – αsrc), c'dst + c'src * (1 – αdst))` | `αsrc + αdst * (1 – αsrc)` |
 | `VG_BLEND_LIGHTEN` | `max(c'src + c'dst * (1 – αsrc), c'dst + c'src * (1 – αdst))` | `αsrc + αdst * (1 – αsrc)`
 | `VG_BLEND_ADDITIVE` | `min(c'src + c'dst, 1)` | `min(αsrc + αdst, 1)` |
-{:.rwd-table}
+{:.rwd-table .rwd-tableBlendingEquations}
 
 Example (set a "source over" blend mode):
 

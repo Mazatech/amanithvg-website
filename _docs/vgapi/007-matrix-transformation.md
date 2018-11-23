@@ -34,7 +34,7 @@ The current matrix to be manipulated is specified by setting the matrix mode. Se
 | `VG_MATRIX_FILL_PAINT_TO_USER` | Affine |
 | `VG_MATRIX_STROKE_PAINT_TO_USER` | Affine |
 | `VG_MATRIX_GLYPH_USER_TO_SURFACE` | Affine |
-{:.rwd-table}
+{:.rwd-table .rwd-table-matrixMode}
 
 To set the matrix mode, call `vgSeti` with a type of `VG_MATRIX_MODE` and a value of `VGMatrixMode`.  
 For example, to set the matrix mode to allow manipulation of the path-user-to-surface transformation, call:

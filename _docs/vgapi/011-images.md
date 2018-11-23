@@ -55,14 +55,14 @@ When those uses cease, the image's resources will automatically be deallocated.
 
 ## Image Object Parameter [10.4]
 
-Values from the `VGImageParamType` enumeration may be used as the paramType argument to vgGetParameter to query various features of an image. All of the parameters defined by `VGImageParamType` have integer values and are read-only.
+Values from the `VGImageParamType` enumeration may be used as the paramType argument to `vgGetParameter` to query various features of an image. All of the parameters defined by `VGImageParamType` have integer values and are read-only.
 
 | Parameter name | Parameter type | Possible values | Notes |
 | -------------- | -------------- | --------------- | ----- |
-| `VG_IMAGE_FORMAT` | VGImageFormat| `// RGB{A,X}` channel ordering<br> `VG_sRGB_565`<br> `VG_{s,l}RGBX_8888`<br> `VG_{s,l}RGBA_PRE`<br> `VG_sRGBA_{5551,4444}`<br> `VG_{sL,lL,A}_8`<br> `VG_{BW,A}_1`<br> `// {A,X}RGB` channel ordering<br> `VG_{s,l}{XRGB,ARGB}_8888`<br> `VG_{s,l}ARGB_8888_PRE`<br> `VG_{sARGB}_{1555,4444}`<br> `// {BGR{A,X}` channel ordering<br> `VG_{s,l}{BGRX,BGRA}_8888`<br> `VG_{s,l}BGRA_8888_PRE`<br> `VG_{sBGRA}_{1555,4444}`<br> `// {A,X}BGR` channel ordering<br> `VG_{s,l}{XBGR,ABGR}_8888`<br> `VG_{s,l}ABGR_8888_PRE`<br> `VG_{sABGR}_{1555,4444}`<br> `VG_sRGB_565` | Specified through the `vgCreateImage` function |
+| `VG_IMAGE_FORMAT` | `VGImageFormat` | `// RGB{A,X}` channel ordering<br> `VG_sRGB_565`<br> `VG_{s,l}RGBX_8888`<br> `VG_{s,l}RGBA_PRE`<br> `VG_sRGBA_{5551,4444}`<br> `VG_{sL,lL,A}_8`<br> `VG_{BW,A}_1`<br> `// {A,X}RGB` channel ordering<br> `VG_{s,l}{XRGB,ARGB}_8888`<br> `VG_{s,l}ARGB_8888_PRE`<br> `VG_{sARGB}_{1555,4444}`<br> `// {BGR{A,X}` channel ordering<br> `VG_{s,l}{BGRX,BGRA}_8888`<br> `VG_{s,l}BGRA_8888_PRE`<br> `VG_{sBGRA}_{1555,4444}`<br> `// {A,X}BGR` channel ordering<br> `VG_{s,l}{XBGR,ABGR}_8888`<br> `VG_{s,l}ABGR_8888_PRE`<br> `VG_{sABGR}_{1555,4444}`<br> `VG_sRGB_565` | Specified through the `vgCreateImage` function |
 | `VG_IMAGE_WIDTH` | `VGint` | Any value between `0` and `VG_MAX_IMAGE_WIDTH` | Specified through the `vgCreateImage` function |
-| `VG_IMAGE_HEIGHT` | `VGint` | Any value between `0` and `VG_MAX_IMAGE_HEIGHT` | Specified through the vgCreateImage function |
-{:.rwd-table}
+| `VG_IMAGE_HEIGHT` | `VGint` | Any value between `0` and `VG_MAX_IMAGE_HEIGHT` | Specified through the `vgCreateImage` function |
+{:.rwd-table .rwd-imageParameters}
 
 ---
 
@@ -245,9 +245,9 @@ Scissoring is applied to the destination, but does not affect the reading of pix
 
 | Src/Dst | Memory | VGImage | Surface |
 | ------- | ------ | ------- | ------- |
-| `Memory` | `-` | `vgImageSubData` | `vgWritePixels` |
+| `Memory` | - | `vgImageSubData` | `vgWritePixels` |
 | `VGImage` | `vgGetImageSubData` | `vgCopyImage` | `vgSetPixels` |
 | `Surface` | `vgReadPixels` | `vgGetPixels` | `vgCopyPixels` |
-{:.rwd-table}
+{:.rwd-table .rwd-tablePixelCopy}
 
 ---
