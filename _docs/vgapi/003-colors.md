@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Colors"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 3
 categories: [vgapi]
 headline: "Openvg API, color spaces and relative conversions"

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Tut. 08 - Image warping"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 8
 categories: [tut]
 headline: "AmanithVG, draw image with perspective transformations and warping effects"

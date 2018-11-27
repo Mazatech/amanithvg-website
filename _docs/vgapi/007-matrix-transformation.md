@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Matrix transformation"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 7
 categories: [vgapi]
 headline: "Openvg API, matrix transformations"

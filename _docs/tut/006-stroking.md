@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Tut. 06 - Stroking"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 6
 categories: [tut]
 headline: "AmanithVG, how to stroke a path with solid or dashing stroke, and different join and cap styles"

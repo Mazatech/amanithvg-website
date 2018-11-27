@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Extensions to the OpenVG API"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 4
 categories: [desc]
 headline: "AmanithVG OpenVG API proprietary extensions by Mazatech"

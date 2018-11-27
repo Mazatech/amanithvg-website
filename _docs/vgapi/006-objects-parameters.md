@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Objects parameters"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 6
 categories: [vgapi]
 headline: "Openvg API, set and get objects parameters"

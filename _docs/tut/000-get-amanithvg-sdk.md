@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Get AmanithVG SDK"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 0
 categories: [tut]
 headline: "Getting started with AmanithVG SDK: download, installation and setup toolchain"

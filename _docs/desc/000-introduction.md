@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Introduction"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 0
 categories: [desc]
 headline: "AmanithVG SRE and GLE 2D vector graphics engines"

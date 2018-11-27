@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Tut. 01 - Common setup"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 1
 categories: [tut]
 headline: "AmanithVG, basic OpenVG concepts and platform setup"

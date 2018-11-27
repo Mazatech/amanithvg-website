@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Configuration file"
-date: 2017-01-01 08:00:00 +0100
+date: 2018-11-01 08:00:00 +0100
 chapter: 5
 categories: [desc]
 headline: "AmanithVG configuration file for rendering quality and performance fine tuning"
