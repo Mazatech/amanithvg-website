@@ -56,9 +56,9 @@ Choose a toolchain and platform using:
 
 // Generators 
 -G "NMake Makefiles"        // NMake, or 
--G "Visual Studio 12 2013"  // Visual Studio 2013 solution, or
--G "Visual Studio 14 2015"  // Visual Studio 2015 solution, or
--G "Visual Studio 15 2017"  // Visual Studio 2017 solution 
+-G "Visual Studio 12 2013 [arch]"  // Visual Studio 2013 solution, or
+-G "Visual Studio 14 2015 [arch]"  // Visual Studio 2015 solution, or
+-G "Visual Studio 15 2017 [arch]"  // Visual Studio 2017 solution 
 ```
 
 ```
@@ -97,7 +97,7 @@ Choose a toolchain and platform using:
 ```
 // AmanithVG SRE backend, Windows x86_64, Visual Studio 2015 solution
 <open x64 Native Tools Command Prompt for VS 2015>
-cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 14 2015"
+cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 14 2015 Win64"
 <open the generated .sln solution>
 
 // AmanithVG GLE backend, Windows x86, Visual Studio 2017 solution
@@ -163,7 +163,7 @@ AmanithVG SRE (software rendering) is the default, you can switch to AmanithVG G
 iOS tutorials can be compiled using Xcode only.
 Once you have generated the Xcode project (through CMake), plug your iOS device in and open the .xcodeproj file.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Open the .xcodeproj file* |
 {:.tbl_images .tut00_setup001}
@@ -171,21 +171,21 @@ Once you have generated the Xcode project (through CMake), plug your iOS device 
 Then select the iOS device and check project properties.
 Select a valid developer certificate for the signing process.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Select a valid developer certificate, before* |
 {:.tbl_images .tut00_setup002}
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
 | *Select a valid developer certificate, after* |
 {:.tbl_images .tut00_setup003}
 
 Select the actual tutorial target, in order to run it.
 
-| &nbsp; | 
+| &nbsp; |
 | :---: |
-| *Select a tutorial target* | 
+| *Select a tutorial target* |
 {:.tbl_images .tut00_setup004}
 
 ---
