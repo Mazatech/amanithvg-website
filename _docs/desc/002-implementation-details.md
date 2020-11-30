@@ -49,7 +49,7 @@ AmanithVG GLE is one of the few OpenVG engines that accomplishes this task using
 
 ## Requirements and limitations
 
-Starting from version 5.0.3, AmanithVG SRE is thread-safe.
+Starting from version 5.0.3, AmanithVG SRE is thread-safe: all the exposed functions can be called from multiple threads at the same time.
 Implementation makes use of the following libraries to implement thread-safety:
 
 - native Win32 calls on Windows platform
