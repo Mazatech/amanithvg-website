@@ -17,22 +17,22 @@ OpenVG provides a drawing model similar to those of existing two-dimensional dra
 
 ## Target Applications
 
- * __SVG Viewers__   
+ * __SVG Viewers__
  OpenVG must provide the drawing functionality required for a high performance SVG document viewer that is conformant with version 1.2 of the SVG Tiny profile. It does not need to provide a one-to-one mapping between SVG syntactic features and API calls, but it must provide efficient ways of implementing all SVG Tiny features.
 
- * __Portable Mapping Applications__   
+ * __Portable Mapping Applications__
  OpenVG can provide dynamic features for map display that would be difficult or impossible to do with an SVG viewer alone, such as dynamic placement and sizing of street names and markers, and efficient viewport culling.
 
- * __E-book Readers__  
+ * __E-book Readers__
  The OpenVG API must provide fast rendering of readable text in Western, Asian, and other scripts. It does not need to provide advanced text layout features.
 
- * __Games__  
+ * __Games__
  The OpenVG API must be useful for defining sprites, backgrounds, and textures for use in both 2D and 3D games. It must be able to provide twodimensional overlays (e.g., for maps or scores) on top of 3D content.
 
- * __Scalable User Interfaces__  
+ * __Scalable User Interfaces__
  OpenVG may be used to render scalable user interfaces, particularly for applications that wish to present users with a unique look and feel that is consistent across different screen resolutions.
  
- * __Low-Level Graphics Device Interface__   
+ * __Low-Level Graphics Device Interface__
  OpenVG may be used as a low-level graphics device interface. Other graphical toolkits, such as windowing systems, may be implemented above OpenVG.
 
 

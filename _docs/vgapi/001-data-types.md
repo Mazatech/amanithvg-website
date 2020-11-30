@@ -29,8 +29,8 @@ keywords: "openvg api data types primitive handle"
 
 ## Handle-based data types [3.6]
 
-Images, paint objects, and paths are accessed using opaque handles.  
-Handles employ reference count semantics: if a handle is in use, a request to destroy it prevents the handle from being used further by the application, but allows it to continue to be used internally by the OpenVG implementation until it is no longer referenced.  
+Images, paint objects, and paths are accessed using opaque handles.
+Handles employ reference count semantics: if a handle is in use, a request to destroy it prevents the handle from being used further by the application, but allows it to continue to be used internally by the OpenVG implementation until it is no longer referenced.
 `VG_INVALID_HANDLE` (defined as `(VGHandle)0`) represents an invalid `VGHandle` that is used as an error return value from functions that return a `VGHandle`.
 
 

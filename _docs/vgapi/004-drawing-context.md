@@ -13,7 +13,7 @@ keywords: "openvg api drawing context states"
 
 ## API States [4]
 
-OpenVG functions that perform drawing, or that modify or query drawing state make use of an implicit drawing context. A context is created, attached to a drawing surface, and bound to a running application thread outside the scope of the OpenVG API. OpenVG API calls are executed with respect to the context currently bound to the thread in which they are executed.  
+OpenVG functions that perform drawing, or that modify or query drawing state make use of an implicit drawing context. A context is created, attached to a drawing surface, and bound to a running application thread outside the scope of the OpenVG API. OpenVG API calls are executed with respect to the context currently bound to the thread in which they are executed.
 When an image, paint, path, font, or mask handle is defined, it is permanently attached to the context that is current at that time.
 The context is responsible for maintaining the OpenVG API state, as shown in the table:
 

@@ -25,7 +25,7 @@ The linear lRGB color space is defined in terms of the standard CIE XYZ color sp
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_xyz_to_linear}
 
@@ -38,7 +38,7 @@ The sRGB color space defines values Rs, Gs, Bs in terms of the linear lRGB prima
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_srgb_eq}
 
@@ -47,7 +47,7 @@ lRGB to sRGB conversion:
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_lrgb_to_srgb}
 
@@ -56,7 +56,7 @@ sRGB to lRGB conversion:
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_srgb_to_lrgb}
 
@@ -69,7 +69,7 @@ The linear grayscale (luminance) color space is related to the linear lRGB color
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_lrgb_to_lum}
 
@@ -78,7 +78,7 @@ The perceptually-uniform grayscale color space is related to the linear grayscal
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_lum_conversions}
 
@@ -87,7 +87,7 @@ Conversion from perceptually-uniform grayscale to sRGB is performed by replicati
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .color_lum_to_srgb}
 

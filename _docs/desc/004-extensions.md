@@ -202,8 +202,7 @@ vgSeti(VG_STROKE_END_CAP_STYLE_MZT, VG_CAP_SQUARE);
 ## Clip paths [&nbsp;VG\_MZT\_clip\_path&nbsp;] - SRE only
 
 OpenVG 1.1 specifications provide a way to define a set of scissor rectangles: all drawing is clipped (i.e. restricted) to the surface sub-region defined by the union of such rectangles.
-The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in
-a stack-like fashion: each drawing performed by `vgDrawPath` / `vgDrawImage` / `vgDrawGlyph` is clipped against the intersection of all pushed clip paths.
+The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in a stack-like fashion: each drawing performed by `vgDrawPath` / `vgDrawImage` / `vgDrawGlyph` is clipped against the intersection of all pushed clip paths.
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |
@@ -219,16 +218,27 @@ vgDrawPath(drawPath, VG_FILL_PATH);
 vgSeti(VG_CLIPPING_MZT, VG_TRUE);
 
 // push first clip path
-vgClipPathPushMZT(clipPath0);
+vgClipPathPushMZT(clipPath0, VG_TRUE);
 vgDrawPath(drawPath, VG_FILL_PATH);
 
 // push second clip path (intersection)
-vgClipPathPushMZT(clipPath1);
+vgClipPathPushMZT(clipPath1, VG_TRUE);
 vgDrawPath(drawPath, VG_FILL_PATH);
 
-// in order to realize clip paths union, it is enough to create a single path
-// and append other paths to it, using for example vgAppendPath or vgTransformPath
-// functions, and taking care to set VG_NON_ZERO clip rule.
+/*
+    In order to realize clip paths union, it is enough to:
+
+    1) set VG_NON_ZERO clip rule:
+    vgSeti(VG_CLIP_RULE_MZT, VG_NON_ZERO);
+
+    2) push the first clip path, establishing a new layer:
+    vgClipPathPushMZT(path0, VG_TRUE);
+
+    3) push all other paths on the current clip layer:
+    vgClipPathPushMZT(path1, VG_FALSE);
+    vgClipPathPushMZT(path2, VG_FALSE);
+    vgClipPathPushMZT(path3, VG_FALSE);
+*/
 ```
 
 This extension adds:
@@ -253,14 +263,70 @@ typedef enum {
  * three new functions used to push, pop and clear clip paths
 
 ```c
-/* Push a new clip path. */
-void vgClipPathPushMZT(VGPath path);
+/*
+    Push a new clip path.
 
-/* Pop out the last pushed clip path. */
+    If 'advanceLayer' is VG_TRUE, a new clip layer is established, and the given
+    path is "drawn" on it; the clip rule assigned to the new clip layer is the
+    current value of VG_CLIP_RULE_MZT context parameter.
+
+    If 'advanceLayer' is VG_FALSE, the given path is added to the current clip
+    layer (if there is still no clip layer yet, a new clip layer is established
+    with a clip rule equal to the current value of VG_CLIP_RULE_MZT context
+    parameter).
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if path is not a valid path handle or if it is
+      VG_INVALID_HANDLE, or is not shared with the current context
+
+    - VG_OUT_OF_MEMORY_ERROR if we have already reached the maximum number of
+      clip layers that can be established
+*/
+void vgClipPathPushMZT(VGPath path,
+                       VGboolean advanceLayer);
+
+/* Pop out the last pushed clip layer. */
 void vgClipPathPopMZT(void);
 
-/* Clear the whole clip paths queue. */
+/* Clear and remove all clip layers. */
 void vgClipPathClearMZT(void);
+```
+
+---
+
+## Extended alpha mask [&nbsp;VG\_MZT\_mask&nbsp;]
+
+This extension adds a new function to modify the drawing surface mask values, in a very similar way to what the `vgMask` function does:
+
+```c
+void vgMaskMZT(VGHandle mask,
+               VGMaskOperation operation,
+               VGint x,
+               VGint y,
+               VGint width,
+               VGint height);
+```
+
+If the given `mask` handle refers a `VGMaskLayer` or an image created with a single-channel format (`VG_sL_8`, `VG_lL_8`, `VG_A_8`, `VG_BW_1`, `VG_A_1`, `VG_A_4`), this function will behave as a standard `vgMask` call with the same given parameters. For all other image formats, the final mask value that will be applied to the OpenVG mask (according to the given operation) is computed as follow:
+
+ - first a luminance value is computed from the color channel values RGB
+ - then the computed luminance value is multiplied by the corresponding alpha value to produce the mask value
+
+Such behavior is the one requested by the [SVG masking feaure](https://www.w3.org/TR/SVG11/masking.html).
+
+---
+
+## Extended image filters [&nbsp;VG\_MZT\_filters&nbsp;]
+
+This extension adds a new set of image filter functions:
+
+ * `vgColorMatrixMZT`, equal to the standard `vgColorMatrix` filter, but overcoming the limitation of not being able to apply the filter to the same input image: the given image is
+both the source and the destination).
+
+```c
+void vgColorMatrixMZT(VGImage img,
+                      const VGfloat *matrix);
 ```
 
 ---

@@ -37,8 +37,8 @@ VGImage vgCreateImage(VGImageFormat fmt,
                       VGbitfield quality)
 ```
 
-Create an image with the given `width`, `height`, and pixel format and returns a `VGImage` handle to it.  
-The format parameter must contain a value from the `VGImageFormat` enumeration.  
+Create an image with the given `width`, `height`, and pixel format and returns a `VGImage` handle to it.
+The format parameter must contain a value from the `VGImageFormat` enumeration.
 The `allowedQuality` parameter is a bitwise OR of values from the `VGImageQuality` enumeration, indicating which levels of resampling quality may be used to draw the image.
 
 ---
@@ -47,19 +47,19 @@ The `allowedQuality` parameter is a bitwise OR of values from the `VGImageQualit
 void vgDestroyImage(VGImage image)
 ```
 
-Deallocate an image, releasing any resources associated with it; following the call, the image handle is no longer valid in any context that shared it.  
-If the image is currently in use as a rendering target, is the ancestor of another image, is set as a paint pattern image on a `VGPaint` object, or is set as a glyph an a `VGFont` object, its definition remains available to those consumers as long as they remain valid, but the handle may no longer be used.  
+Deallocate an image, releasing any resources associated with it; following the call, the image handle is no longer valid in any context that shared it.
+If the image is currently in use as a rendering target, is the ancestor of another image, is set as a paint pattern image on a `VGPaint` object, or is set as a glyph an a `VGFont` object, its definition remains available to those consumers as long as they remain valid, but the handle may no longer be used.
 When those uses cease, the image's resources will automatically be deallocated.
 
 ---
 
 ## Image Object Parameter [10.4]
 
-Values from the `VGImageParamType` enumeration may be used as the paramType argument to `vgGetParameter` to query various features of an image. All of the parameters defined by `VGImageParamType` have integer values and are read-only.
+Values from the `VGImageParamType` enumeration may be used as the `paramType` argument to `vgGetParameter` to query various features of an image. All of the parameters defined by `VGImageParamType` have integer values and are read-only.
 
 | Parameter name | Parameter type | Possible values | Notes |
 | -------------- | -------------- | --------------- | ----- |
-| `VG_IMAGE_FORMAT` | `VGImageFormat` | `// RGB{A,X}` channel ordering<br> `VG_sRGB_565`<br> `VG_{s,l}RGBX_8888`<br> `VG_{s,l}RGBA_PRE`<br> `VG_sRGBA_{5551,4444}`<br> `VG_{sL,lL,A}_8`<br> `VG_{BW,A}_1`<br> `// {A,X}RGB` channel ordering<br> `VG_{s,l}{XRGB,ARGB}_8888`<br> `VG_{s,l}ARGB_8888_PRE`<br> `VG_{sARGB}_{1555,4444}`<br> `// {BGR{A,X}` channel ordering<br> `VG_{s,l}{BGRX,BGRA}_8888`<br> `VG_{s,l}BGRA_8888_PRE`<br> `VG_{sBGRA}_{1555,4444}`<br> `// {A,X}BGR` channel ordering<br> `VG_{s,l}{XBGR,ABGR}_8888`<br> `VG_{s,l}ABGR_8888_PRE`<br> `VG_{sABGR}_{1555,4444}`<br> `VG_sRGB_565` | Specified through the `vgCreateImage` function |
+| `VG_IMAGE_FORMAT` | `VGImageFormat` | `// RGB{A,X}` channel ordering<br>`VG_sRGB_565`<br>`VG_{s,l}RGBX_8888`<br>`VG_{s,l}RGBA_PRE`<br>`VG_sRGBA_{5551,4444}`<br>`VG_{sL,lL,A}_8`<br>`VG_{BW,A}_1`<br>`// {A,X}RGB` channel ordering<br>`VG_{s,l}{XRGB,ARGB}_8888`<br>`VG_{s,l}ARGB_8888_PRE`<br>`VG_{sARGB}_{1555,4444}`<br>`// {BGR{A,X}` channel ordering<br>`VG_{s,l}{BGRX,BGRA}_8888`<br>`VG_{s,l}BGRA_8888_PRE`<br>`VG_{sBGRA}_{1555,4444}`<br>`// {A,X}BGR` channel ordering<br>`VG_{s,l}{XBGR,ABGR}_8888`<br>`VG_{s,l}ABGR_8888_PRE`<br>`VG_{sABGR}_{1555,4444}`<br>`VG_sRGB_565` | Specified through the `vgCreateImage` function |
 | `VG_IMAGE_WIDTH` | `VGint` | Any value between `0` and `VG_MAX_IMAGE_WIDTH` | Specified through the `vgCreateImage` function |
 | `VG_IMAGE_HEIGHT` | `VGint` | Any value between `0` and `VG_MAX_IMAGE_HEIGHT` | Specified through the `vgCreateImage` function |
 {:.rwd-table .rwd-imageParameters}
@@ -74,8 +74,8 @@ void vgClearImage(VGImage image,
                   VGint width, VGint height)
 ```
 
-Fill a given rectangle of an image with the color specified by the `VG_CLEAR_COLOR` parameter.  
-The rectangle to be cleared is given by `x`, `y`, `width`, and `height`, which must define a positive region.  
+Fill a given rectangle of an image with the color specified by the `VG_CLEAR_COLOR` parameter.
+The rectangle to be cleared is given by `x`, `y`, `width`, and `height`, which must define a positive region.
 The rectangle is clipped to the bounds of the image.
 
 ---
@@ -143,9 +143,9 @@ void vgCopyImage(VGImage dst,
                  VGboolean dither)
 ```
 
-Pixels may be copied between images using the vgCopyImage function.  
-The source image pixel `(sx + i, sy + j)` is copied to the destination image pixel `(dx + i, dy + j)`, `for 0 <= i < width` and `0 <= j < height`.  
-Pixels whose source or destination lie outside of the bounds of the respective image are ignored.  
+Pixels may be copied between images using the `vgCopyImage` function.
+The source image pixel `(sx + i, sy + j)` is copied to the destination image pixel `(dx + i, dy + j)`, `for 0 <= i < width` and `0 <= j < height`.
+Pixels whose source or destination lie outside of the bounds of the respective image are ignored.
 Pixel format conversion is applied as needed.
 
 ---
@@ -158,7 +158,7 @@ Images may be drawn onto a drawing surface. An affine or projective transformati
 void vgDrawImage(VGImage image)
 ```
 
-Drawn the given image to the current drawing surface; the current image-user-to-surface transformation (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) is applied to the image.  
+Drawn the given image to the current drawing surface; the current image-user-to-surface transformation (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) is applied to the image.
 When a projective transformation is used, the value of the `VG_IMAGE_MODE` parameter is ignored and the behavior of `VG_DRAW_IMAGE_NORMAL` is substituted.
 
 ---
@@ -172,9 +172,9 @@ void vgSetPixels(VGint dx, VGint dy,
                  VGint width, VGint height)
 ```
 
-Copy pixel data from the image `src` onto the drawing surface.  
-The image pixel `(sx + i, sy + j)` is copied to the drawing surface pixel `(dx + i, dy + j)`, `for 0 <= i < width` and `0 <= j < height`.  
-Pixels whose source lies outside of the bounds of src or whose destination lies outside the bounds of the drawing surface are ignored. Scissoring takes place normally.  
+Copy pixel data from the image `src` onto the drawing surface.
+The image pixel `(sx + i, sy + j)` is copied to the drawing surface pixel `(dx + i, dy + j)`, `for 0 <= i < width` and `0 <= j < height`.
+Pixels whose source lies outside of the bounds of `src` or whose destination lies outside the bounds of the drawing surface are ignored. Scissoring takes place normally.
 Transformations, masking, and blending are not applied.
 
 ---
@@ -188,10 +188,10 @@ void vgWritePixels(const void* data,
                    VGint width, VGint height)
 ```
 
-Copy provided pixel data to the drawing surface without the creation of a `VGImage` object.  
-The pixel values to be drawn are taken from the data pointer at the time of the `vgWritePixels` call, so future changes to the data have no effect.  
-Pixels whose destination coordinate lies outside the bounds of the drawing surface are ignored.  
-Scissoring takes place normally.  
+Copy provided pixel data to the drawing surface without the creation of a `VGImage` object.
+The pixel values to be drawn are taken from the data pointer at the time of the `vgWritePixels` call, so future changes to the data have no effect.
+Pixels whose destination coordinate lies outside the bounds of the drawing surface are ignored.
+Scissoring takes place normally.
 Transformations, masking, and blending are not applied.
 
 ---
@@ -204,9 +204,9 @@ void vgGetPixels(VGImage dst,
                  VGint width, VGint height)
 ```
 
-Retrieve pixel data from the drawing surface into the image `dst`.  
-The drawing surface pixel `(sx + i, sy + j)` is copied to pixel `(dx + i, dy + j)` of the image `dst`, `for 0 <= i < width` and `0 <= j < height`.  
-Pixels whose source lies outside of the bounds of the drawing surface or whose destination lies outside the bounds of dst are ignored.  
+Retrieve pixel data from the drawing surface into the image `dst`.
+The drawing surface pixel `(sx + i, sy + j)` is copied to pixel `(dx + i, dy + j)` of the image `dst`, `for 0 <= i < width` and `0 <= j < height`.
+Pixels whose source lies outside of the bounds of the drawing surface or whose destination lies outside the bounds of `dst` are ignored.
 The scissoring region does not affect the reading of pixels.
 
 ---
@@ -220,9 +220,9 @@ void vgReadPixels(void* data,
                   VGint width, VGint height)
 ```
 
-Copy pixel data from the drawing surface without the creation of a `VGImage` object.  
-Pixels whose source lies outside of the bounds of the drawing surface are ignored.  
-Pixel format conversion is applied as needed.  
+Copy pixel data from the drawing surface without the creation of a `VGImage` object.
+Pixels whose source lies outside of the bounds of the drawing surface are ignored.
+Pixel format conversion is applied as needed.
 The scissoring region does not affect the reading of pixels.
 
 ---
@@ -234,9 +234,9 @@ void vgCopyPixel(VGint dx, VGint dy,
                  VGint width, VGint height)
 ```
 
-Copy pixels from one region of the drawing surface to another.  
-The drawing surface pixel `(sx + i, sy + j)` is copied to pixel `(dx + i, dy + j)` `for 0 <= i < width` and `0 <= j < height`.  
-Pixels whose source or destination lies outside of the bounds of the drawing surface are ignored. Transformations, masking, and blending are not applied.  
+Copy pixels from one region of the drawing surface to another.
+The drawing surface pixel `(sx + i, sy + j)` is copied to pixel `(dx + i, dy + j)` `for 0 <= i < width` and `0 <= j < height`.
+Pixels whose source or destination lies outside of the bounds of the drawing surface are ignored. Transformations, masking, and blending are not applied.
 Scissoring is applied to the destination, but does not affect the reading of pixels.
 
 ---

@@ -29,13 +29,13 @@ typedef VGHandle VGFont;
 
 Glyphs in a `VGFont` are identified by a glyph index, which is an arbitrary number assigned to a glyph when it is created. The semantics of the mapping are application-dependent. Possible mappings include:
 
- * __Unicode character codes__  
+ * __Unicode character codes__
  When a `VGFont` is created as a subset that supports only simple language scripts (e.g., Latin), the character code values may be used as glyph indices. This eliminates the need for an additional mapping table: a text string may be passed directly as an argument (as an array of glyph indices) to OpenVG API call for text rendering.
 
- * __Native font glyph indices__  
+ * __Native font glyph indices__
  OpenVG applications may re-use native glyph indices from an original TrueType or OpenType font when `VGFont` object is created. This simplifies text composition and layout decisions by re-using OpenType/TrueType layout and character-to-glyph mapping tables.
 
- * __Application-defined (custom) glyph indices__   
+ * __Application-defined (custom) glyph indices__
  OpenVG applications may assign arbitrary numbers as glyph indices. This may be beneficial for special purpose fonts that have a limited number of glyphs (e.g., SVG fonts).
 
 ---
@@ -46,8 +46,8 @@ Glyphs in a `VGFont` are identified by a glyph index, which is an arbitrary numb
 VGFont vgCreateFont(VGint glyphCapacityHint)
 ```
 
-Create a new font object and return a `VGFont` handle to it.  
-The `glyphCapacityHint` argument provides a hint as to the capacity of a `VGFont`.  
+Create a new font object and return a `VGFont` handle to it.
+The `glyphCapacityHint` argument provides a hint as to the capacity of a `VGFont`.
 A value of `0` indicates that the value is unknown.
 
 ---
@@ -57,7 +57,7 @@ A value of `0` indicates that the value is unknown.
 void vgDestroyFont(VGFont font)
 ```
 
-Destroy the given `VGFont` object: underlying objects that were used to define glyphs in the font won't be destroyed.  
+Destroy the given `VGFont` object: underlying objects that were used to define glyphs in the font won't be destroyed.
 It is the responsibility of an application to destroy all `VGPath` or `VGImage` objects that were used in a `VGFont`, if they are no longer in use.
 
 ---
@@ -88,9 +88,9 @@ void vgSetGlyphToPath(VGFont font,
                       const VGfloat escapement[2])
 ```
 
-Creates a new glyph and assigns the given path to a glyph associated with the `glyphIndex` in a font object.  
-The `glyphOrigin` argument defines the coordinates of the glyph origin within the `path`, and the `escapement` parameter determines the advance width for this glyph.  
-Both `glyphOrigin` and `escapement` coordinates are defined in the same coordinate system as the path.  
+Creates a new glyph and assigns the given path to a glyph associated with the `glyphIndex` in a font object.
+The `glyphOrigin` argument defines the coordinates of the glyph origin within the `path`, and the `escapement` parameter determines the advance width for this glyph.
+Both `glyphOrigin` and `escapement` coordinates are defined in the same coordinate system as the path.
 For glyphs that have no visual representation (e.g., the space character), a value of `VG_INVALID_HANDLE` is used for path.
 
 ---
@@ -105,7 +105,7 @@ void vgSetGlyphToImage(VGFont font,
 ```
 
 Creates a new glyph and assigns the given image into a glyph associated with the `glyphIndex` in a font object.
-The `glyphOrigin` argument defines the coordinates of the glyph origin within the image, and the `escapement` parameter determines the advance width for this glyph. Both `glyphOrigin` and `escapement` coordinates are defined in the image coordinate system.  
+The `glyphOrigin` argument defines the coordinates of the glyph origin within the image, and the `escapement` parameter determines the advance width for this glyph. Both `glyphOrigin` and `escapement` coordinates are defined in the image coordinate system.
 For glyphs that have no visual representation (e.g. the space character), a value of `VG_INVALID_HANDLE` is used for image.
 
 ---
@@ -115,7 +115,7 @@ For glyphs that have no visual representation (e.g. the space character), a valu
 void vgClearGlyph(VGFont font, VGuint glyphIndex)
 ```
 
-Delete the glyph defined by a `glyphIndex` parameter from a `font`.  
+Delete the glyph defined by a `glyphIndex` parameter from a `font`.
 The reference count for the `VGPath` or `VGImage` object to which the glyph was previously set is decremented, and the object's resources are released if the count has fallen to 0.
 
 ---
@@ -129,11 +129,11 @@ void vgDrawGlyph(VGFont font,
                  VGboolean allowAutoHinting)
 ```
 
-Render a glyph defined by the `glyphIndex` using the given `font` object.  
-The user space position of the glyph (the point where the glyph origin will be placed) is determined by value of `VG_GLYPH_ORIGIN`.  
-The new text origin is calculated by translating the glyph origin by the escapement vector of the glyph defined by `glyphIndex`.  
-Following the call, the `VG_GLYPH_ORIGIN` parameter will be updated with the new origin. The `paintModes` parameter controls how glyphs are rendered.  
-If paintModes is 0, neither `VGImage`-based nor `VGPath`-based glyphs are drawn.  
+Render a glyph defined by the `glyphIndex` using the given `font` object.
+The user space position of the glyph (the point where the glyph origin will be placed) is determined by value of `VG_GLYPH_ORIGIN`.
+The new text origin is calculated by translating the glyph origin by the escapement vector of the glyph defined by `glyphIndex`.
+Following the call, the `VG_GLYPH_ORIGIN` parameter will be updated with the new origin. The `paintModes` parameter controls how glyphs are rendered.
+If `paintModes` is 0, neither `VGImage`-based nor `VGPath`-based glyphs are drawn.
 This mode is useful for determining the metrics of the glyph sequence.
 
 ---
@@ -149,12 +149,12 @@ void vgDrawGlyphs(VGFont font,
                   VGboolean allowAutoHinting)
 ```
 
-Render a sequence of glyphs defined by the array pointed to by `glyphIndices` using the given font object.  
-The values in the `adjustments_x` and `adjustments_y` arrays define positional adjustment values for each pair of glyphs defined by the `glyphIndices` array. The `glyphCount` parameter defines the number of elements in the `glyphIndices` and `adjustments_x` and `adjustments_y` arrays.  
-The adjustment values defined in these arrays may represent kerning or other positional adjustments required for each pair of glyphs.  
-If no adjustments for glyph positioning in a particular axis are required, `NULL` pointers may be passed for either or both of `adjustment_x` and `adjustment_y`.  
-The adjustments values should be defined in the same coordinate system as the font glyphs. The user space position of the first glyph is determined by the value of `VG_GLYPH_ORIGIN`.  
-A new glyph origin for every glyph in the `glyphIndices` array is calculated by translating the glyph origin by the escapement vector of the current glyph, and applying the necessary positional adjustments, taking into account both the escapement values associated with the glyphs as well as the `adjustments_x` and `adjustments_y` parameters.  
+Render a sequence of glyphs defined by the array pointed to by `glyphIndices` using the given font object.
+The values in the `adjustments_x` and `adjustments_y` arrays define positional adjustment values for each pair of glyphs defined by the `glyphIndices` array. The `glyphCount` parameter defines the number of elements in the `glyphIndices` and `adjustments_x` and `adjustments_y` arrays.
+The adjustment values defined in these arrays may represent kerning or other positional adjustments required for each pair of glyphs.
+If no adjustments for glyph positioning in a particular axis are required, `NULL` pointers may be passed for either or both of `adjustment_x` and `adjustment_y`.
+The adjustments values should be defined in the same coordinate system as the font glyphs. The user space position of the first glyph is determined by the value of `VG_GLYPH_ORIGIN`.
+A new glyph origin for every glyph in the `glyphIndices` array is calculated by translating the glyph origin by the escapement vector of the current glyph, and applying the necessary positional adjustments, taking into account both the escapement values associated with the glyphs as well as the `adjustments_x` and `adjustments_y` parameters.
 Following the call, the `VG_GLYPH_ORIGIN` parameter will be updated with the new origin.
 
 ---

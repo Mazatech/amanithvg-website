@@ -23,6 +23,6 @@ AmanithVG GLE is entirely built on top of OpenGL 1.1+ and OpenGL ES 1.x CM, and 
 
 ## AmanithVG SRE
 
-AmanithVG SRE is a pure software solution that grants a superlative vector graphics quality without to sacrifice performance on any kind of architecture / platform. Thanks to its original polygon rasterization algorithm and dedicated optimized scanline fillers, this engine constitues the fastest OpenVG software rendering solution available on the market.
+AmanithVG SRE is a pure software solution that grants a superlative vector graphics quality without to sacrifice performance on any kind of architecture / platform. Thanks to its original polygon rasterization algorithm and dedicated optimized scanline fillers, this engine constitutes the fastest OpenVG software rendering solution available on the market.
 
 ---

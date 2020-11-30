@@ -48,9 +48,9 @@ void vgConvolve(VGImage dst, VGImage src,
                 VGTilingMode tilingMode)
 ```
 
-Apply a user-supplied convolution kernel to a normalized source image.  
-The dimensions of the kernel are given by `kernelWidth` and `kernelHeight`; the kernel values are specified as `kernelWidth * kernelHeight` `VGshorts` in column-major order.  
-The `shiftX` and `shiftY` parameters specify a translation between the source and destination images.  
+Apply a user-supplied convolution kernel to a normalized source image.
+The dimensions of the kernel are given by `kernelWidth` and `kernelHeight`; the kernel values are specified as `kernelWidth * kernelHeight` `VGshorts` in column-major order.
+The `shiftX` and `shiftY` parameters specify a translation between the source and destination images.
 The result of the convolution is multiplied by a `scale` factor, and a `bias` is added.
 
 ---
@@ -66,9 +66,9 @@ void vgSeparableConvolve(VGImage dst, VGImage src,
                          VGTilingMode tilingMode)
 ```
 
-Apply a user-supplied separable convolution kernel to a normalized source image.  
-A separable kernel is a two-dimensional kernel in which each entry kij is equal to a product kxi * kyj of elements from two onedimensional kernels, one horizontal and one vertical.  
-The lengths of the one-dimensional arrays `kernelX` and `kernelY` are given by `kernelWidth` and `kernelHeight`, respectively; the kernel values are specified as arrays of `VGshorts`.  
+Apply a user-supplied separable convolution kernel to a normalized source image.
+A separable kernel is a two-dimensional kernel in which each entry kij is equal to a product kxi * kyj of elements from two one-dimensional kernels, one horizontal and one vertical.
+The lengths of the one-dimensional arrays `kernelX` and `kernelY` are given by `kernelWidth` and `kernelHeight`, respectively; the kernel values are specified as arrays of `VGshorts`.
 The `shiftX` and `shiftY` parameters specify a translation between the source and destination images. The result of the convolution is multiplied by a `scale` factor, and a `bias` is added.
 
 ---
@@ -92,9 +92,9 @@ Read-only `paramType` values for the `vgGetParameter` function.
 
 | Parameter name | Parameter type | Description |
 | -------------- | -------------- | ----------- |
-| `VG_MAX_KERNEL_SIZE` | `VGint` | The largest legal value of the width and height parameters to the `vgConvolve` function.<br> All implementations must define `VG_MAX_KERNEL_SIZE` to be an integer no smaller than `7` |
-| `VG_MAX_SEPARABLE_KERNEL_SIZE` | `VGint` | The largest legal value of the size parameter to the `vgSeparableConvolve` function.<br> All implementations must define this value to be an integer no smaller than `15` |
-| `VG_MAX_GAUSSIAN_STD_DEVIATION` | `VGint` | The largest legal value of the `stdDeviationX` and `stdDeviationY` parameters to the `vgGaussianBlur` function.<br> All implementations must define this value to be an integer no smaller than `16`.
+| `VG_MAX_KERNEL_SIZE` | `VGint` | The largest legal value of the width and height parameters to the `vgConvolve` function.<br>All implementations must define `VG_MAX_KERNEL_SIZE` to be an integer no smaller than `7` |
+| `VG_MAX_SEPARABLE_KERNEL_SIZE` | `VGint` | The largest legal value of the size parameter to the `vgSeparableConvolve` function.<br>All implementations must define this value to be an integer no smaller than `15` |
+| `VG_MAX_GAUSSIAN_STD_DEVIATION` | `VGint` | The largest legal value of the `stdDeviationX` and `stdDeviationY` parameters to the `vgGaussianBlur` function.<br>All implementations must define this value to be an integer no smaller than `16`.
 {:.rwd-table .rwd-tableConvolutionParameters}
 
 ---
@@ -111,8 +111,8 @@ void vgLookup(VGImage dst, VGImage src,
               VGboolean outputPremultiplied)
 ```
 
-Pass each image channel of the normalized source image through a separate lookup table.  
-Each channel of the normalized source pixel is used as an index into the lookup table for that channel by multiplying the normalized value by `255` and rounding to obtain an 8-bit integral value.  
+Pass each image channel of the normalized source image through a separate lookup table.
+Each channel of the normalized source pixel is used as an index into the lookup table for that channel by multiplying the normalized value by `255` and rounding to obtain an 8-bit integral value.
 Each `LUT` parameter should contain 256 `VGubyte` entries.
 
 ---
@@ -126,9 +126,9 @@ void vgLookupSingle(VGImage dst, VGImage src,
                     VGboolean outputPremultiplied)
 ```
 
-Pass a single image channel of the normalized source image, selected by the `sourceChannel` parameter, through a combined lookup table that produces whole pixel values.  
-Each normalized source channel value is multiplied by `255` and rounded to obtain an 8-bit integral value.  
-The specified `sourceChannel` of the normalized source pixel is used as an index into the lookup table.  
+Pass a single image channel of the normalized source image, selected by the `sourceChannel` parameter, through a combined lookup table that produces whole pixel values.
+Each normalized source channel value is multiplied by `255` and rounded to obtain an 8-bit integral value.
+The specified `sourceChannel` of the normalized source pixel is used as an index into the lookup table.
 The `lookupTable` parameter should contain 256 4-byte aligned entries
 
 ---
