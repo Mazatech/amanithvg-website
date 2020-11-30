@@ -33,7 +33,7 @@ The `VGConfigMzt` enum type defines all the parameters that can be modified:
 
 ```c
 typedef enum {
-    //
+
     // [Geometry]
     //
     // Used by AmanithVG geometric kernel to approximate curves with straight line
@@ -47,8 +47,7 @@ typedef enum {
     // only). If VG_MZT_conical_gradient extension is not available, this parameter
     // has no effects. Valid range is [0; 100], where 100 represents the best quality.
     VG_CONFIG_CONICAL_GRADIENTS_QUALITY_MZT,
-    //
-    //
+
     // [Memory]
     //
     // Number of OpenVG calls (handles creation / destruction and drawing functions)
@@ -56,8 +55,7 @@ typedef enum {
     // number. If 0 is specified, unused memory will never be recovered from internal
     // structures and memory pools.
     VG_CONFIG_CALLS_BEFORE_MEMORY_RECOVERY_MZT,
-    //
-    //
+
     // [Rasterizer cache] - AmanithVG SRE only
     //
     // Disable paths rasterizer caching if (screen space) bounding box width exceeds
@@ -80,8 +78,7 @@ typedef enum {
     // box pixel alignement, when drawing a filled path already cached, using
     // VG_RENDERING_QUALITY_NONANTIALIASED. Valid values are VG_FALSE and VG_TRUE
     VG_CONFIG_ALLOW_VERTICAL_SNAP_TO_PIXEL_NOAA_MZT,
-    //
-    //
+
     // [OpenGL] / [OpenGL ES] - AmanithVG GLE only
     //
     // Avoid the use of GL_EXT_texture_rectangle or GL_ARB_texture_rectangle extension,
@@ -172,8 +169,11 @@ typedef enum {
     // with 0. Valid values are defined by the VGImageTextureBordersModeMzt enum type.
     VG_CONFIG_IMAGE_TEXTURE_BORDERS_MODE_MZT,
 
-    // Standard deviation factor for Gaussian blur filter.
-    VG_CONFIG_FILTER_GAUSSIAN_SIGMA_FACTOR_MZT,
+    // Standard deviation factor for Gaussian blur filter. It represents the factor
+    // by which the sigma value is multiplied to obtain the amplitude (of the Gaussian
+    // function) to be taken for the blur. Must be a positive number.
+    // The default value of 3 guarantees a coverage of the Gaussian curve equal to 99.7%
+    VG_CONFIG_FILTER_GAUSSIAN_SIGMA_FACTOR_MZT
 } VGConfigMzt;
 ```
 
