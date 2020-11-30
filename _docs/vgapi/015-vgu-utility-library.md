@@ -79,8 +79,8 @@ vguErrorCode vguArc(VGPath path,
                     VGfloat angleExt,
                     VGUArcType arcType)
 ```
-Appends an elliptical arc to a path, possibly along with one or two line segments, according to the `arcType` parameter.  
-The `startAngle` and `angleExtent` parameters are given in degrees, proceeding counter-clockwise from the positive X axis.  
+Appends an elliptical arc to a path, possibly along with one or two line segments, according to the `arcType` parameter.
+The `startAngle` and `angleExtent` parameters are given in degrees, proceeding counter-clockwise from the positive X axis.
 The `VGUArcType` enumeration defines three values to control the style of arcs:
 
 | Arc type | Description |

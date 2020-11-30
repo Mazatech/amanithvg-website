@@ -202,8 +202,7 @@ vgSeti(VG_STROKE_END_CAP_STYLE_MZT, VG_CAP_SQUARE);
 ## Clip paths [&nbsp;VG\_MZT\_clip\_path&nbsp;] - SRE only
 
 OpenVG 1.1 specifications provide a way to define a set of scissor rectangles: all drawing is clipped (i.e. restricted) to the surface sub-region defined by the union of such rectangles.
-The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in
-a stack-like fashion: each drawing performed by `vgDrawPath` / `vgDrawImage` / `vgDrawGlyph` is clipped against the intersection of all pushed clip paths.
+The `VG_MZT_clip_path` extension extends the concept of clipping regions, giving the possibility to define them using `VGPath` objects. Clip paths could be pushed (see `vgClipPathPushMZT`) and popped (see `vgClipPathPopMZT`), in a stack-like fashion: each drawing performed by `vgDrawPath` / `vgDrawImage` / `vgDrawGlyph` is clipped against the intersection of all pushed clip paths.
 
 | &nbsp; | &nbsp; | &nbsp; |
 | :---: | :---: | :---: |

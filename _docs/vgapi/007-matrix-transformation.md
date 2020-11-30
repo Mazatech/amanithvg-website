@@ -9,14 +9,14 @@ image: "amanithvg-logo.png"
 keywords: "openvg api matrix transformations translate scale rotate shear"
 ---
 
-# Coordinate Systems and Trasformations
+# Coordinate Systems and Transformations
 
 ## Coordinate Systems [6.4]
 
 Geometric coordinates are specified in the user coordinate system. The path-user-to-surface (`VG_MATRIX_PATH_USER_TO_SURFACE`)
-and image-user-to-surface (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) transformations map between the user coordinate system and pixel coordinates on the destination drawing surface.  
-This pixel-based coordinate system is known as the surface coordinate system.  
-The user coordinate system is oriented such that values along the x-axis increase from left to right and values along the y-axis increase from bottom to top.  
+and image-user-to-surface (`VG_MATRIX_IMAGE_USER_TO_SURFACE`) transformations map between the user coordinate system and pixel coordinates on the destination drawing surface.
+This pixel-based coordinate system is known as the surface coordinate system.
+The user coordinate system is oriented such that values along the x-axis increase from left to right and values along the y-axis increase from bottom to top.
 In the surface coordinate system, pixel `(0, 0)` is located at the lower-left corner of the drawing surface.
 
 ---
@@ -36,7 +36,7 @@ The current matrix to be manipulated is specified by setting the matrix mode. Se
 | `VG_MATRIX_GLYPH_USER_TO_SURFACE` | Affine |
 {:.rwd-table .rwd-table-matrixMode}
 
-To set the matrix mode, call `vgSeti` with a type of `VG_MATRIX_MODE` and a value of `VGMatrixMode`.  
+To set the matrix mode, call `vgSeti` with a type of `VG_MATRIX_MODE` and a value of `VGMatrixMode`.
 For example, to set the matrix mode to allow manipulation of the path-user-to-surface transformation, call:
 
 ```c
@@ -52,7 +52,7 @@ The matrix conventions used by OpenVG are similar to those of OpenGL. A point to
 &nbsp;
 
 | &nbsp; | 
-| :---: |
+| :-----: |
 | &nbsp; |
 {:.tbl_images .matrix_transform} 
 

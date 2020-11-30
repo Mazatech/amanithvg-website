@@ -40,17 +40,16 @@ AmanithVG has been designed to run everywhere. To accomplish this task the devel
 AmanithVG can be (cross)compiled for the following target platforms:
 
  * Windows XP / Vista / 8 / 10, on x86, x86_64, compilable with:
-   * Microsoft (R) C/C++ Optimizing Compiler Version 18.00.31101 (or higher) for x86
-   * Microsoft (R) C/C++ Optimizing Compiler Version 18.00.31101 (or higher) for x86_64
-   * mingw-w64 (gcc 4.9.1 or higher) for x86 and x86_64
+   * Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 (or higher) for x86
+   * Microsoft (R) C/C++ Optimizing Compiler Version 19.16.27043 (or higher) for x86_64
+   * mingw-w64 (gcc 6.3.0 or higher) for x86 and x86_64
 
  * MacOS X 10.10 or higher, on Intel (Universal Binary), compilable with:
    * Xcode version 8.0 or higher (clang-800.0.42.1 or higher)
 
- * Linux 2.6.x or higher, on x86, x86_64, ARM v5, ARM v6 (with or without VFP), ARM v7a, ARM v8a, mipsel, mips64el, ppc64el
-compilable with:
-   * gcc version 4.9.1 or higher
-
+ * Linux 2.6.x or higher, on x86, x86_64, ARM v5, ARM v6 (with or without VFP), ARM v7a, ARM v8a, mipsel, mips64el, ppc64el, compilable with:
+   * gcc version 6.3.0 or higher
+   
  * Windows CE / Mobile, on ARM v5, v6 (with or without VFP), compilable with:
    * arm-mingw32ce version 0.51 (gcc 4.1.0)
 

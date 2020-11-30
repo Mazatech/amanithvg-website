@@ -17,7 +17,7 @@ Paint defines a color and an alpha value for each pixel being drawn. Color paint
 
 ## Paint Definition [9.1]
 
-`VGPaint` represents an opaque handle to a paint object.  
+`VGPaint` represents an opaque handle to a paint object.
 Changes to a `VGPaint` object (e.g. using `vgSetParameter`) attached to a context will immediately affect drawing calls on that context.
 
 ```c
@@ -71,14 +71,14 @@ Values from the `VGPaintParamType` enumeration may be used as the `paramType` ar
 
 | Parameter name | Parameter type | Possible values / Notes |
 | -------------- | -------------- | ----------------------- |
-| `VG_PAINT_TYPE` | `VGPaintType` | <span class="ovg_default">VG_PAINT_TYPE_COLOR</span> <br> `VG_PAINT_TYPE_LINEAR_GRADIENT`<br> `VG_PAINT_TYPE_RADIAL_GRADIENT`<br> `VG_PAINT_TYPE_PATTERN` |
-| `VG_PAINT_COLOR` | `VGfloat[4]` | Format is `{ red, green, blue, alpha }` sRGBA<br> Values outside the `[0, 1]` range are interpreted as the nearest endpoint of the range<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 1.0f }</span> |
-| `VG_PAINT_COLOR_RAMP_SPREAD_MODE` | `VGColorRampSpreadMode` | <span class="ovg_default">VG_COLOR_RAMP_SPREAD_PAD</span> <br> `VG_COLOR_RAMP_SPREAD_REPEAT`<br> `VG_COLOR_RAMP_SPREAD_REFLECT` |
-| `VG_PAINT_COLOR_RAMP_PREMULTIPLIED` | `VGboolean` | <span class="ovg_default">VG_TRUE</span> <br> `VG_FALSE` (disabled) |
-| `VG_PAINT_COLOR_RAMP_STOPS` | `VGfloat*` | Format is `{ offset0, red0, green0, blue0, alpha0, ... }`<br> Color components are expressed in sRGBA space (`[0, 1]` range)<br> Stops with offsets <0 or >1 are ignored<br> <span class="ovg_default">NULL</span> |
-| `VG_PAINT_LINEAR_GRADIENT` | `VGfloat[4]` | Format is `{ startx, starty, endx, endy }`<br> <span class="ovg_default">{ 0.0f, 0.0f, 1.0f, 0.0f }</span> |
-| `VG_PAINT_RADIAL_GRADIENT` | `VGfloat[5]` | Format is `{ centerx, centery, focusx, focusy, radius }`<br> If `(focusx, focusy)` lies outside the circumference of the circle, the intersection of the line from the center to the focal point with the circumference of the circle is used as the focal point in place of the specified point<br> <span class="ovg_default">{ 0.0f, 0.0f, 0.0f, 0.0f, 1.0f }</span> |
-| `VG_PAINT_PATTERN_TILING_MODE` | `VGTilingMode` | <span class="ovg_default">VG_TILE_FILL</span> <br> `VG_TILE_PAD`<br> `VG_TILE_REPEAT`<br>`VG_TILE_REFLECT` |
+| `VG_PAINT_TYPE` | `VGPaintType` | <span class="ovg_default">`VG_PAINT_TYPE_COLOR`</span><br>`VG_PAINT_TYPE_LINEAR_GRADIENT`<br>`VG_PAINT_TYPE_RADIAL_GRADIENT`<br>`VG_PAINT_TYPE_PATTERN` |
+| `VG_PAINT_COLOR` | `VGfloat[4]` | Format is `{ red, green, blue, alpha }` sRGBA<br>Values outside the `[0, 1]` range are interpreted as the nearest endpoint of the range<br><span class="ovg_default">`{ 0.0f, 0.0f, 0.0f, 1.0f }`</span> |
+| `VG_PAINT_COLOR_RAMP_SPREAD_MODE` | `VGColorRampSpreadMode` | <span class="ovg_default">`VG_COLOR_RAMP_SPREAD_PAD`</span><br>`VG_COLOR_RAMP_SPREAD_REPEAT`<br>`VG_COLOR_RAMP_SPREAD_REFLECT` |
+| `VG_PAINT_COLOR_RAMP_PREMULTIPLIED` | `VGboolean` | <span class="ovg_default">`VG_TRUE`</span><br>`VG_FALSE` (disabled) |
+| `VG_PAINT_COLOR_RAMP_STOPS` | `VGfloat*` | Format is `{ offset0, red0, green0, blue0, alpha0, ... }`<br>Color components are expressed in sRGBA space (`[0, 1]` range)<br>Stops with offsets <0 or >1 are ignored<br><span class="ovg_default">`NULL`</span> |
+| `VG_PAINT_LINEAR_GRADIENT` | `VGfloat[4]` | Format is `{ startx, starty, endx, endy }`<br><span class="ovg_default">`{ 0.0f, 0.0f, 1.0f, 0.0f }`</span> |
+| `VG_PAINT_RADIAL_GRADIENT` | `VGfloat[5]` | Format is `{ centerx, centery, focusx, focusy, radius }`<br>If `(focusx, focusy)` lies outside the circumference of the circle, the intersection of the line from the center to the focal point with the circumference of the circle is used as the focal point in place of the specified point<br><span class="ovg_default">`{ 0.0f, 0.0f, 0.0f, 0.0f, 1.0f }`</span> |
+| `VG_PAINT_PATTERN_TILING_MODE` | `VGTilingMode` | <span class="ovg_default">`VG_TILE_FILL`</span><br>`VG_TILE_PAD`<br>`VG_TILE_REPEAT`<br>`VG_TILE_REFLECT` |
 {:.rwd-table .rwd-paintParameters}
 
 ---
@@ -94,8 +94,8 @@ VGfloat col[4] = { 1.0, 0.0, 0.0, 1.0f };
 vgSetParameterfv(VGPaint paint, VG_PAINT_COLOR, 4, col);
 ```
 
-A shorthand function that allows the `VG_PAINT_COLOR` parameter of a given paint object to be set using a 32-bit non-premultiplied `sRGBA_8888` representation. The rgba parameter is a `VGuint` with 8 bits of red starting at the most significant bit, followed by 8 bits each of green, blue, and alpha.  
-Each color or alpha channel value is conceptually divided by 255.0f to obtain a value between 0 and 1.  
+A shorthand function that allows the `VG_PAINT_COLOR` parameter of a given paint object to be set using a 32-bit non-premultiplied `sRGBA_8888` representation. The rgba parameter is a `VGuint` with 8 bits of red starting at the most significant bit, followed by 8 bits each of green, blue, and alpha.
+Each color or alpha channel value is conceptually divided by 255.0f to obtain a value between 0 and 1.
 
 ```c
 void vgSetColor(VGPaint paint, VGuint rgba)
@@ -110,7 +110,7 @@ vgSetColor(paint, 0xFF0000FF);
 ---
 {:.hrlight}
 
-Get the current setting of the `VG_PAINT_COLOR` parameter on a given paint object; returned value is a 32-bit non-premultiplied `sRGBA_8888` value.  
+Get the current setting of the `VG_PAINT_COLOR` parameter on a given paint object; returned value is a 32-bit non-premultiplied `sRGBA_8888` value.
 Each color channel or alpha value is clamped to the range [0, 1] , multiplied by 255, and rounded to obtain an 8-bit integer; the resulting values are packed into a 32-bit value in the same format as for `vgSetColor`.
 
 ```c
@@ -161,7 +161,7 @@ vgSetParameteri(paint, VG_PAINT_COLOR_RAMP_SPREAD_MODE, VG_COLOR_RAMP_SPREAD_PAD
 
 ### Radial Gradients [9.3.2]
 
-Radial gradients define a scalar-valued gradient function based on a gradient circle defined by a center point `(cx, cy)`, a radius `r`, and a focal point `(fx, fy)` that is forced to liewithin the circle. All parameters are given in the paint coordinate system. The radial gradient function is:
+Radial gradients define a scalar-valued gradient function based on a gradient circle defined by a center point `(cx, cy)`, a radius `r`, and a focal point `(fx, fy)` that is forced to lie within the circle. All parameters are given in the paint coordinate system. The radial gradient function is:
 
  * equal to 0 at the focal point
  * equal to 1 along the circumference of the gradient circle

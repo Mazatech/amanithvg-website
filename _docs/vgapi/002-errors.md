@@ -13,7 +13,7 @@ keywords: "openvg api error codes"
 
 ## Errors [4.1]
 
-The `vgGetError` function returns the oldest error code provided by an OpenVG function call, error codes and their numerical values are defined by the `VGErrorCode` enumeration.  
+The `vgGetError` function returns the oldest error code provided by an OpenVG function call, error codes and their numerical values are defined by the `VGErrorCode` enumeration.
 After a call to `vgGetError`, the error code is cleared to `VG_NO_ERROR`.
 
 | Error code | Notes |

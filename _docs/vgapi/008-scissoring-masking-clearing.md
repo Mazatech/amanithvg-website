@@ -18,7 +18,7 @@ All drawing is clipped (restricted) to the bounds of the drawing surface, and ma
 ## Scissoring [7.1]
 
 Drawing may be restricted to the union of a set of scissoring rectangles. Each scissoring rectangle is specified as an integer 4-tuple of the form (minX, minY, width, height). The scissoring region is defined as the union of all the specified rectangles. The rectangles as specified need not be disjoint.
-Scissoring is enabled when the parameter `VG_SCISSORING` has the value `VG_TRUE`. Scissoring may be disabled by calling `vgSeti` with a paramType argument of `VG_SCISSORING` and a value of `VG_FALSE`.
+Scissoring is enabled when the parameter `VG_SCISSORING` has the value `VG_TRUE`. Scissoring may be disabled by calling `vgSeti` with a `paramType` argument of `VG_SCISSORING` and a value of `VG_FALSE`.
 
 ```c
 #define NUM_RECTS 2
