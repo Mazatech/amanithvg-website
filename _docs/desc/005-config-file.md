@@ -177,6 +177,44 @@ typedef enum {
 } VGConfigMzt;
 ```
 
+Valid values per the `VG_CONFIG_FORCE_BUFFERS_DISABLED_MZT` parameter are defined by the `VGBuffersDisabledMzt` enum type:
+
+```c
+typedef enum {
+    // The defaul value (no buffers disabled).
+    VG_BUFFERS_DISABLED_NONE_MZT,
+    // When both depth and stencil buffers are available on the GL context, it
+    // forces the depth buffer to be unused by AmanithVG GLE.
+    VG_BUFFERS_DISABLED_DEPTH_MZT,
+    // When both depth and stencil buffers are available on the GL context, it
+    // forces the stencil buffer to be unused by AmanithVG GLE.
+    VG_BUFFERS_DISABLED_STENCIL_MZT
+} VGBuffersDisabledMzt;
+```
+
+Valid values per the `VG_CONFIG_FORCE_IMAGE_TEXTURE_BORDERS_MZT` parameter are defined by the `VGForceImageTextureBordersMzt` enum type:
+
+```c
+typedef enum {
+    VG_FORCE_IMAGE_TEXTURE_BORDERS_NONE_MZT,
+    VG_FORCE_IMAGE_TEXTURE_BORDERS_WHOLE_MZT,
+} VGForceImageTextureBordersMzt;
+```
+
+Valid values per the `VG_CONFIG_IMAGE_TEXTURE_BORDERS_MODE_MZT` parameter are defined by the `VGImageTextureBordersModeMzt` enum type:
+
+```c
+typedef enum {
+    // Borders are filled with a transparent black.
+    VG_TEXTURE_BORDER_MODE_CLEAR_MZT,
+    // Borders are filled by duplicating pixels on image edges.
+    VG_TEXTURE_BORDER_MODE_COPY_MZT,
+    // Borders are filled by duplicating pixels on image edges and
+    // overriding their alpha value with 0.
+    VG_TEXTURE_BORDER_MODE_COPY_ZERO_ALPHA_MZT
+} VGImageTextureBordersModeMzt;
+```
+
 ---
 
 For legacy reasons, here's the documentation for AmanithVG versions before 5.0.3:
