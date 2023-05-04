@@ -49,14 +49,14 @@ AmanithVG GLE is one of the few OpenVG engines that accomplishes this task using
 
 ## Requirements and limitations
 
-Starting from version 5.0.3, AmanithVG SRE is thread-safe: all the exposed functions can be called from multiple threads at the same time.
+AmanithVG SRE is thread-safe: all the exposed functions can be called from multiple threads at the same time.
 Implementation makes use of the following libraries to implement thread-safety:
 
 - native Win32 calls on Windows platform
 - pthreads (POSIX Threads) on MacOS X, Linux, Android, QNX
 - NSLock / NSThread objects on iOS
 
-There is a limitation in the maximum number of different threads that can be made "current" at the same time; this parameter can be configured at compile time and can be retrieved (at runtime) by using the `vgMaxCurrentThreadsGetMZT` function.
+There is a limitation in the maximum number of different threads that can be made "current" at the same time; this parameter can be configured at compile time and can be retrieved (at runtime) by calling `vgConfigGetMZT(VG_CONFIG_MAX_CURRENT_THREADS_MZT)`.
 
 AmanithVG uses 32 bit single precision floating point arithmetic, as defined by IEEE 754-1985 standard, to perform some internal computations. All input data that describe geometries such as (but not limited to) path coordinates, paint parameters and matrices, will be converted from relative to absolute forms (if applicable), normalized (if applicable) and internally stored as a 32 bit floating point number. After these steps, it could result that different input values will become the same value under the 32 bit floating point precision.
 

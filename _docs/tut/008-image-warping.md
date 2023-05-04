@@ -12,7 +12,7 @@ keywords: "amanithvg tutorial 08 image draw perspective transformations warp ope
 # Tutorial 08: Image warping
 
 OpenVG specifications state that images, as opposed to paths, can be drawn using a perspective image-user-to-surface transformation.
-The `vgDrawImag`e function uses a `3x3` *projective* (or *perspective*) transformation matrix (representing the image-user-to-surface transformation) that maps user coordinates to surface coordinates.
+The `vgDrawImage` function uses a `3x3` *projective* (or *perspective*) transformation matrix (representing the image-user-to-surface transformation) that maps user coordinates to surface coordinates.
 
 Lets see what happens.
 

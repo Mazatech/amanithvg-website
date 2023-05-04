@@ -13,9 +13,9 @@ keywords: "amanithvg tutorial 00 get start sdk setup openvg"
 
 ## Install CMake
 
-Install CMake 3.7+ tool following instructions at: [https://cmake.org/install](https://cmake.org/install/).
+Install CMake 3.12+ tool following instructions at: [https://cmake.org/install](https://cmake.org/install/).
 
-AmanithVG SDK uses CMake to generate makefiles and Xcode/VStudio solutions. 
+AmanithVG SDK uses CMake to generate makefiles and Xcode/VStudio solutions.
 
 ___
 
@@ -35,7 +35,7 @@ Within the `amanithvg-sdk` directory, you'll find `/tutorials` folder containing
 
 Use `CMake` with the following options:
 
-### OpenVG Engine 
+### OpenVG Engine
 
 Choose a single backend using:
 
@@ -54,20 +54,19 @@ Choose a toolchain and platform using:
 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86.cmake     // Windows x86, or
 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake  // Windows x86_64
 
-// Generators 
--G "NMake Makefiles"        // NMake, or 
--G "Visual Studio 12 2013 [arch]"  // Visual Studio 2013 solution, or
--G "Visual Studio 14 2015 [arch]"  // Visual Studio 2015 solution, or
--G "Visual Studio 15 2017 [arch]"  // Visual Studio 2017 solution 
+// Generators
+-G "Visual Studio 17 2022" -A [platform]   // Visual Studio 2022 solution, or
+-G "Visual Studio 16 2019" -A [platform]   // Visual Studio 2019 solution, or
+-G "Visual Studio 15 2017 [arch]"          // Visual Studio 2017 solution, or
+-G "NMake Makefiles"                       // NMake
 ```
 
 ```
 // MacOS X (Xcode)
 // ---------------
--DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake  // Universal Binary i386, x86_64
+-DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake  // Universal Binary (arm64, x86_64)
 
 // Generators
--G "Unix Makefiles"  // makefiles  
 -G "Xcode"           // Xcode project
 ```
 
@@ -84,7 +83,7 @@ Choose a toolchain and platform using:
 ```
 // iOS (Xcode)
 // -----------
--DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake  // UB armv7, arm64, bitcode enabled
+-DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake  // Universal Binary (arm64, x86_64)
 
 // Generator
 -G "Xcode"  // Xcode project
@@ -94,48 +93,60 @@ Choose a toolchain and platform using:
 
 ## Some CMake examples
 
+### Windows
 ```
-// AmanithVG SRE backend, Windows x86_64, Visual Studio 2015 solution
-<open x64 Native Tools Command Prompt for VS 2015>
-cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 14 2015 Win64"
+// AmanithVG GLE backend, Windows x86_64, Visual Studio 2022 solution
+<open x64 Native Tools Command Prompt for VS 2022>
+cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 17 2022" -A x64 .
 <open the generated .sln solution>
 
-// AmanithVG GLE backend, Windows x86, Visual Studio 2017 solution
+// AmanithVG SRE backend, Windows x86_64, Visual Studio 2019 solution
+<open x64 Native Tools Command Prompt for VS 2019>
+cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "Visual Studio 16 2019" -A x64 .
+<open the generated .sln solution>
+
+// AmanithVG GLE backend, Windows x86, Visual Studio 2017 nmake
 <open x86 Native Tools Command Prompt for VS 2017>
-cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86.cmake --no-warn-unused-cli -G "Visual Studio 15 2017"
-<open the generated .sln solution>
-
-// AmanithVG GLE backend, Windows x86_64, Visual Studio 2017 nmake
-<open x64 Native Tools Command Prompt for VS 2017>
-cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86_64.cmake --no-warn-unused-cli -G "NMake Makefiles"
+cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/win_x86.cmake --no-warn-unused-cli -G "NMake Makefiles" .
 nmake
+```
 
-
-// AmanithVG SRE backend, MacOS X, standard Makefile
+### MacOS X
+```
+// AmanithVG SRE backend, MacOS X, Xcode project
 <open a command prompt>
-cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake --no-warn-unused-cli -G "Unix Makefiles"
+cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake --no-warn-unused-cli -G "Xcode" .
 make
 
 // AmanithVG GLE backend, MacOS X, Xcode project
 <open a command prompt>
-cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake --no-warn-unused-cli -G "Xcode"
+cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/osx_ub.cmake --no-warn-unused-cli -G "Xcode" .
 <open the generated .xcodeproj project>
+```
 
-
+### Linux
+```
 // AmanithVG SRE backend, Linux x86_64, standard Makefile
 <open a command prompt>
-cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/linux_x86_64.cmake --no-warn-unused-cli -G "Unix Makefiles"
+cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/linux_x86_64.cmake --no-warn-unused-cli -G "Unix Makefiles" .
 make
 
+// AmanithVG GLE backend, Linux x86_64, standard Makefile
+<open a command prompt>
+cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/linux_x86_64.cmake --no-warn-unused-cli -G "Unix Makefiles" .
+make
+```
 
+### iOS
+```
 // AmanithVG SRE backend, iOS, Xcode project
 <open a command prompt>
-cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-warn-unused-cli -G "Xcode"
+cmake -DENGINE_SRE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-warn-unused-cli -G "Xcode" .
 <open the generated .xcodeproj project>
 
 // AmanithVG GLE backend, iOS, Xcode project
 <open a command prompt>
-cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-warn-unused-cli -G "Xcode"
+cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-warn-unused-cli -G "Xcode" .
 <open the generated .xcodeproj project>
 ```
 
@@ -143,7 +154,7 @@ cmake -DENGINE_GLE=1 -DCMAKE_TOOLCHAIN_FILE=./CMake/toolchain/ios_ub.cmake --no-
 
 ## Android tutorials
 
-Tutorials for Android can be compiled directly with Android Studio (you don't need to use CMake).
+Tutorials for Android can be compiled directly with [Android Studio](https://developer.android.com/studio) (you don't need to use CMake).
 
 Open project located in `<tutorial_dir>/platform/android`
 

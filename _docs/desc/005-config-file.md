@@ -1,17 +1,15 @@
 ---
 layout: default
-title: "Configuration file"
+title: "Configuration parameters"
 date: 2018-11-01 08:00:00 +0100
 chapter: 5
 categories: [desc]
-headline: "AmanithVG configuration file for rendering quality and performance fine tuning"
+headline: "AmanithVG configuration parameters for rendering quality and performance fine tuning"
 image: "amanithvg-logo.png"
-keywords: "amanithvg configuration file threshold customize fine tuning quality performance openvg"
+keywords: "amanithvg configuration parameters thresholds customize fine tuning quality performance openvg"
 ---
 
-# Configuration file
-
-**WARNING** Starting from version 5.0.3 configuration file support has been removed, in favor of two API functions:
+# Configuration parameters API
 
 ```c
 VGErrorCode vgConfigSetMZT(VGConfigMzt config,
@@ -22,8 +20,10 @@ Configure parameters and thresholds for the AmanithVG library. This function can
 - the library has not been already initialized by a previous call to `vgInitializeMZT`, or
 - the library has been already initialized (i.e. `vgInitializeMZT` has been already called) but no contexts have been already created
 
+Certain `VGConfigMzt` values refer to read-only parameters. Calling `vgConfigSetMZT` on these parameters has no effect (`VG_NO_ERROR` is returned).
+
 ```c
-VGErrorCode vgConfigGetMZT(VGConfigMzt config);
+VGfloat vgConfigGetMZT(VGConfigMzt config);
 ```
 
 Get the current value relative to the specified configuration parameter. If the given parameter is invalid (i.e. it does not correspond to any value of the `VGConfigMzt` enum type), a negative number is returned.
@@ -33,146 +33,200 @@ The `VGConfigMzt` enum type defines all the parameters that can be modified:
 
 ```c
 typedef enum {
-
+    //
+    // [READ-ONLY]
+    //
+    /*
+        The maximum number of different threads that can "work"
+        (e.g. create surfaces, draw paths, etc) concurrently.
+    */
+    VG_CONFIG_MAX_CURRENT_THREADS_MZT,
+    /*
+        The maximum dimension allowed for drawing surfaces, in pixels. This is
+        the maximum valid value that can be specified as 'width' and 'height'
+        for the vgPrivSurfaceCreateMZT and vgPrivSurfaceResizeMZT functions.
+    */
+    VG_CONFIG_MAX_SURFACE_DIMENSION_MZT,
+    //
+    //
     // [Geometry]
     //
-    // Used by AmanithVG geometric kernel to approximate curves with straight line
-    // segments(flattening). Valid range is [0; 100], where 100 represents the
-    // best quality.
+    /*
+        Used by AmanithVG geometric kernel to approximate curves with straight
+        line segments (flattening). Valid range is [0; 100], where 100
+        represents the best quality.
+    */
     VG_CONFIG_CURVES_QUALITY_MZT,
-    // Used by radial gradient paints, only in non-shader pipelines (AmanithVG GLE
-    // only). Valid range is [0; 100], where 100 represents the best quality.
+    /*
+        Used by radial gradient paints, only in non-shader pipelines
+        (AmanithVG GLE only). Valid range is [0; 100], where 100 represents
+        the best quality.
+    */
     VG_CONFIG_RADIAL_GRADIENTS_QUALITY_MZT,
-    // Used by conical gradient paints, only in non-shader pipelines (AmanithVG GLE
-    // only). If VG_MZT_conical_gradient extension is not available, this parameter
-    // has no effects. Valid range is [0; 100], where 100 represents the best quality.
+    /*
+        Used by conical gradient paints, only in non-shader pipelines
+        (AmanithVG GLE only). If VG_MZT_conical_gradient extension is not
+        available, this parameter has no effects. Valid range is [0; 100]
+        where 100 represents the best quality.
+    */
     VG_CONFIG_CONICAL_GRADIENTS_QUALITY_MZT,
-
+    //
+    //
     // [Memory]
     //
-    // Number of OpenVG calls (handles creation / destruction and drawing functions)
-    // to be done before to recover / retrieve unused memory. Must be a positive
-    // number. If 0 is specified, unused memory will never be recovered from internal
-    // structures and memory pools.
+    /*
+        Number of OpenVG calls (handles creation / destruction and drawing
+        functions) to be done before to recover / retrieve unused memory.
+        Must be a positive number. If 0 is specified, unused memory will
+        never be recovered from internal structures and memory pools.
+    */
     VG_CONFIG_CALLS_BEFORE_MEMORY_RECOVERY_MZT,
-
-    // [Rasterizer cache] - AmanithVG SRE only
     //
-    // Disable paths rasterizer caching if (screen space) bounding box width exceeds
-    // this value. Valid values are in the range [0; 4096]. Use 0 to disable rasterizer
-    // caching.
-    VG_CONFIG_MAX_CACHING_BOX_WIDTH_MZT,
-    // Disable paths rasterizer caching if (screen space) bounding box height exceeds
-    // this value.
-    // Valid values are in the range [0; 4096]. Use 0 to disable rasterizer caching.
-    VG_CONFIG_MAX_CACHING_BOX_HEIGHT_MZT,
-    // Allow the use of rasterizer cache forcing the vertical (screen space) bounding
-    // box pixel alignement, when drawing a filled path already cached, using
-    // VG_RENDERING_QUALITY_BETTER. Valid values are VG_FALSE and VG_TRUE
-    VG_CONFIG_ALLOW_VERTICAL_SNAP_TO_PIXEL_BETTER_MZT,
-    // Allow the use of rasterizer cache forcing the vertical (screen space) bounding
-    // box pixel alignement, when drawing a filled path already cached, using
-    // VG_RENDERING_QUALITY_FASTER. Valid values are VG_FALSE and VG_TRUE
-    VG_CONFIG_ALLOW_VERTICAL_SNAP_TO_PIXEL_FASTER_MZT,
-    // Allow the use of rasterizer cache forcing the vertical(screen space) bounding
-    // box pixel alignement, when drawing a filled path already cached, using
-    // VG_RENDERING_QUALITY_NONANTIALIASED. Valid values are VG_FALSE and VG_TRUE
-    VG_CONFIG_ALLOW_VERTICAL_SNAP_TO_PIXEL_NOAA_MZT,
-
+    //
     // [OpenGL] / [OpenGL ES] - AmanithVG GLE only
     //
-    // Avoid the use of GL_EXT_texture_rectangle or GL_ARB_texture_rectangle extension,
-    // even if supported by the GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL_EXT_texture_rectangle or GL_ARB_texture_rectangle
+        extension, even if supported by the GL Graphic System. Valid values
+        are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_RECT_TEXTURES_DISABLED_MZT,
-    // Avoid the use of GL_ARB_texture_mirrored_repeat extension, even if supported
-    // by the GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL_ARB_texture_mirrored_repeat extension, even
+        if supported by the GL Graphic System. Valid values are VG_FALSE
+        and VG_TRUE
+    */
     VG_CONFIG_FORCE_MIRRORED_REPEAT_DISABLED_MZT,
-    // Avoid the use of GL_ARB_texture_border_clamp extension, even if supported by
-    // the GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL_ARB_texture_border_clamp extension, even
+        if supported by the GL Graphic System. Valid values are VG_FALSE
+        and VG_TRUE
+    */
     VG_CONFIG_FORCE_CLAMP_TO_BORDER_DISABLED_MZT,
-    // Avoid the use of GL_EXT_blend_minmax extension, even if supported by the
-    // GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL_EXT_blend_minmax extension, even if supported
+        by the GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_BLEND_MIN_MAX_DISABLED_MZT,
-    // Avoid the use of GL_EXT_texture_env_dot3 or GL_ARB_texture_env_dot3 extension,
-    // even if supported by the GL Graphic System.
-    // WARNING: setting this parameter as true will compromise the correct drawing of
-    // images in stencil image mode. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL_EXT_texture_env_dot3 or GL_ARB_texture_env_dot3 extension,
+        even if supported by the GL Graphic System.
+        WARNING: setting this parameter as true will compromise the correct
+        drawing of images in stencil image mode.
+        Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_DOT3_DISABLED_MZT,
-    // Avoid the use of Vertex Buffer Objects (VBO), even if supported by the
-    // GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of Vertex Buffer Objects (VBO), even if supported by
+        the GL Graphic System. Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_VBO_DISABLED_MZT,
-    // Force the maximum number of texture units that AmanithVG can use.
-    // Valid values are 1, 2, 3, 4 (AmanithVG uses no more than 4 texture units;
-    // at least 2 texture units are always required to implement the whole OpenVG
-    // features set).
+    /*
+        Force the maximum number of texture units that AmanithVG can use.
+        Valid values are 1, 2, 3, 4 (AmanithVG uses no more than 4 texture
+        units; at least 2 texture units are always required to implement the
+        whole OpenVG features set).
+    */
     VG_CONFIG_MAX_PERMITTED_TEXTURE_UNITS_MZT,
-    // Force the maximum texture size that AmanithVG can use.
-    // Valid values are 0 (autodetect), 64, 128, 256, 512, 1024, 2048, 4096, 8192.
-    // Other values will be ignored.
+    /*
+        Force the maximum texture size that AmanithVG can use.
+        Valid values are 0 (autodetect), 64, 128, 256, 512, 1024, 2048,
+        4096, 8192. Other values will be ignored.
+    */
     VG_CONFIG_MAX_TEXTURE_SIZE_MZT,
-    // When both depth and stencil buffers are available on the GL context, it forces
-    // the specified buffer to be unused by AmanithVG. Valid values are defined by
-    // the VGBuffersDisabledMzt enum type. Other values will be ignored.
+    /*
+        When both depth and stencil buffers are available on the GL
+        context, it forces the specified buffer to be unused by AmanithVG.
+        Valid values are defined by the VGBuffersDisabledMzt enum type.
+        Other values will be ignored.
+    */
     VG_CONFIG_FORCE_BUFFERS_DISABLED_MZT,
-    // Suppose depth and stencil buffers to be persistent after a swapBuffers call.
-    // Please note that, while on desktop platforms persistent buffers are common,
-    // the same is not so common on embedded (OpenGL ES) platforms.
-    // WARNING: setting this parameter as true on GL Graphic System with non-persistent
-    // buffers, will compromise a correct rendering on some specific OpenVG features.
-    // Valid values are VG_FALSE and VG_TRUE
+    /*
+        Suppose depth and stencil buffers to be persistent after a swapBuffers
+        call. Please note that, while on desktop platforms persistent buffers
+        are common, the same is not so common on embedded (OpenGL ES) platforms.
+        WARNING: setting this parameter as true on GL Graphic System with
+        non-persistent buffers, will compromise a correct rendering on some specific
+        OpenVG features.
+        Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_SUPPOSE_PERSISTENT_BUFFERS_MZT,
-    // Avoid the use of GL scissor feature, even if supported by the GL Graphic System.
-    // WARNING: this parameter is provided to address compatibility issues; setting this
-    // parameter as true when the stencil buffer is not available to AmanithVG, will
-    // compromise a correct rendering on some specific OpenVG features.
-    // Furthermore it will have a negative impact on performance.
-    // Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL scissor feature, even if supported by the GL
+        Graphic System.
+        WARNING: this parameter is provided to address compatibility
+        issues; setting this parameter as true when the stencil buffer is
+        not available to AmanithVG, will compromise a correct rendering on
+        some specific OpenVG features. Furthermore it will have a negative
+        impact on performance. Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_SCISSOR_DISABLED_MZT,
-    // Avoid the use of GL color masking feature, even if supported by the
-    // GL Graphic System.
-    // WARNING: this parameter is provided to address compatibility issues;
-    // setting this parameter as true will compromise a correct rendering on
-    // some specific OpenVG features. Valid values are VG_FALSE and VG_TRUE
+    /*
+        Avoid the use of GL color masking feature, even if supported by the
+        GL Graphic System.
+        WARNING: this parameter is provided to address compatibility issues;
+        setting this parameter as true will compromise a correct rendering
+        on some specific OpenVG features. Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_COLOR_MASKING_DISABLED_MZT,
-    // Force the use of mipmaps on gradient textures.
-    // Valid values are VG_FALSE and VG_TRUE
+    /*
+        Force the use of mipmaps on gradient textures.
+        Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_MIPMAPS_ON_GRADIENTS_MZT,
-    // Force dithering on gradient textures, when the drawing surface is configured
-    // to have less than 8bit per color component (e.g.RGB565).
-    // Valid values are VG_FALSE and VG_TRUE
+    /*
+        Force dithering on gradient textures, when the drawing surface is
+        configured to have less than 8bit per color component (e.g.RGB565).
+        Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_DITHERING_ON_GRADIENTS_MZT,
-    // Force dithering on image textures, when the drawing surface is configured
-    // to have less than 8bit per color component (e.g.RGB565).
-    // Valid values are VG_FALSE and VG_TRUE
+    /*
+        Force dithering on image textures, when the drawing surface is
+        configured to have less than 8bit per color component (e.g.RGB565).
+        Valid values are VG_FALSE and VG_TRUE
+    */
     VG_CONFIG_FORCE_DITHERING_ON_IMAGES_MZT,
-    // If VG_TRUE, it forces GL_RGBA texture format even for opaque paint / images.
-    // If VG_FALSE, GL_RGB texture format for opaque paint / images will be used.
-    VG_CONFIG_FORCE_RGBA_TEXTURES_MZT,
-    // If different than VG_FORCE_IMAGE_TEXTURE_BORDERS_NONE_MZT, it forces the
-    // upload of VGImage textures with an additional filled border. If
-    // VG_FORCE_IMAGE_TEXTURE_BORDERS_NONE_MZT, images are uploaded without additional
-    // borders. Negative values are treated as VG_FORCE_IMAGE_TEXTURE_BORDERS_WHOLE_MZT.
-    // WARNING: this parameter is provided to address compatibility issues related
-    // to u-v coordinates generation throught the GL_TEXTURE matrix, on not conformant
-    // GL Graphic System. By setting this parameter as
-    // VG_FORCE_IMAGE_TEXTURE_BORDERS_WHOLE_MZT or to a positive number, it will
-    // require additional memory and could impact on performance (when drawing images
-    // for the first time).
-    // Valid values are defined by the VGForceImageTextureBordersMzt enum type.
-    VG_CONFIG_FORCE_IMAGE_TEXTURE_BORDERS_MZT,
-    // In conjunction with VG_CONFIG_FORCE_IMAGE_TEXTURE_BORDERS_MZT parameter, it
-    // specifies how VGImage texture borders must be filled. If
-    // VG_TEXTURE_BORDER_MODE_CLEAR_MZT, borders are filled with a transparent black;
-    // if VG_TEXTURE_BORDER_MODE_COPY_MZT, borders are filled by duplicating pixels
-    // on image edges; if VG_TEXTURE_BORDER_MODE_COPY_ZERO_ALPHA_MZT, borders are
-    // filled by duplicating pixels on image edges and overriding their alpha value
-    // with 0. Valid values are defined by the VGImageTextureBordersModeMzt enum type.
-    VG_CONFIG_IMAGE_TEXTURE_BORDERS_MODE_MZT,
+    /*
+        If VG_TRUE, it forces GL_RGBA texture format even for opaque
+        paint / images. If VG_FALSE, GL_RGB texture format for opaque
+        paint / images will be used.
 
-    // Standard deviation factor for Gaussian blur filter. It represents the factor
-    // by which the sigma value is multiplied to obtain the amplitude (of the Gaussian
-    // function) to be taken for the blur. Must be a positive number.
-    // The default value of 3 guarantees a coverage of the Gaussian curve equal to 99.7%
+    */
+    VG_CONFIG_FORCE_RGBA_TEXTURES_MZT,
+    /*
+        If different than VG_FORCE_IMAGE_TEXTURE_BORDERS_NONE_MZT, it forces
+        the upload of VGImage textures with an additional filled border. If
+        VG_FORCE_IMAGE_TEXTURE_BORDERS_NONE_MZT, images are uploaded without
+        additional borders.
+        Negative values are treated as VG_FORCE_IMAGE_TEXTURE_BORDERS_WHOLE_MZT.
+        WARNING: this parameter is provided to address compatibility issues
+        related to u-v coordinates generation throught the GL_TEXTURE
+        matrix, on not conformant GL Graphic System. By setting this parameter
+        as VG_FORCE_IMAGE_TEXTURE_BORDERS_WHOLE_MZT or to a positive number, it
+        will require additional memory and could impact on performance (when
+        drawing images for the first time).
+        Valid values are defined by the VGForceImageTextureBordersMzt enum type.
+    */
+    VG_CONFIG_FORCE_IMAGE_TEXTURE_BORDERS_MZT,
+    /*
+        In conjunction with VG_CONFIG_FORCE_IMAGE_TEXTURE_BORDERS_MZT
+        parameter, it specifies how VGImage texture borders must be filled.
+        If VG_TEXTURE_BORDER_MODE_CLEAR_MZT, borders are filled with a
+        transparent black; if VG_TEXTURE_BORDER_MODE_COPY_MZT, borders are
+        filled by duplicating pixels on image edges; if
+        VG_TEXTURE_BORDER_MODE_COPY_ZERO_ALPHA_MZT, borders are filled by
+        duplicating pixels on image edges and overriding their alpha value
+        with 0.
+        Valid values are defined by the VGImageTextureBordersModeMzt enum type.
+    */
+    VG_CONFIG_IMAGE_TEXTURE_BORDERS_MODE_MZT,
+    /*
+        Standard deviation factor for Gaussian blur filter. It represents
+        the factor by which the sigma value is multiplied to obtain the
+        amplitude (of the Gaussian function) to be taken for the blur.
+        Must be a positive number. The default value of 3.0 guarantees a
+        coverage of the Gaussian curve equal to 99.7%
+    */
     VG_CONFIG_FILTER_GAUSSIAN_SIGMA_FACTOR_MZT
 } VGConfigMzt;
 ```

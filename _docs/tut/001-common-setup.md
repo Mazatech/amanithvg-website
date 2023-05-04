@@ -32,6 +32,13 @@ AmanithVG provides a set of custom functions to create, bind and destroy OpenVG 
 The most used functions are the following:
 
 ```c
+
+// Initialize the library
+VGboolean vgInitializeMZT(void);
+
+// Terminate the library
+void vgTerminateMZT(void);
+
 // Create and initialize an OpenVG context
 void* vgPrivContextCreateMZT(void* sharedContext);
 ```
@@ -39,11 +46,6 @@ void* vgPrivContextCreateMZT(void* sharedContext);
 ```c
 // Destroy a previously created OpenVG context
 void vgPrivContextDestroyMZT(void* context);
-```
-
-```c
-// Get the maximum dimension allowed for OpenVG drawing surfaces
-VGint vgPrivSurfaceMaxDimensionGetMZT(void);
 ```
 
 ```c
@@ -83,6 +85,10 @@ void* vgSurface = NULL;
 
 void openvgInit(int width, int height) {
 
+    // initialize AmanithVG library, after initialization it is possible
+    // to create contexts and drawing surfaces
+    vgInitializeMZT(void);
+
     // create an OpenVG context
     vgContext = vgPrivContextCreateMZT(NULL);
 
@@ -107,6 +113,9 @@ void openvgDestroy(void) {
 
     // destroy OpenVG context
     vgPrivContextDestroyMZT(vgContext);
+
+    // release AmantihVG library
+    vgTerminateMZT();
 }
 ```
 
@@ -117,7 +126,7 @@ A typical window-based (i.e. not console) application loop, looks like the follo
 // calculate a feasible window dimension: not bigger than screen nor
 // bigger than maximum dimension allowed for OpenVG drawing surfaces
 int screenDim = min(screenWidth(), screenHeight());
-int openvgDim = vgPrivSurfaceMaxDimensionGetMZT();
+int openvgDim = vgConfigGetMZT(VG_CONFIG_MAX_SURFACE_DIMENSION_MZT);
 int windowSize = min(screenDim, openvgDim);
 
 // create a native square window
@@ -198,13 +207,13 @@ A blitter must be written in order to copy the content of AmanithVG SRE drawing 
 Another viable option is to use OpenGL (ES), upload surface pixels to a GL texture and then draw a 2D textured rectangle.
 Here is the list of actual API used to blit AmanithVG SRE drawing surface content:
 
- - Windows: SetDIBitsToDevice (GDI function)
+ - Windows: [SetDIBitsToDevice](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-setdibitstodevice) GDI function
 
- - MacOS X: OpenGL + texture + dedicated Apple extensions
+ - MacOS X: [Metal texture](https://developer.apple.com/documentation/metal/mtltexture?language=objc)
 
- - Linux: XPutImage (xlib)
+ - Linux: [XPutImage](https://linux.die.net/man/3/xputimage) X11 function
 
- - iOS: OpenGL (ES) + texture
+ - iOS: [Metal texture](https://developer.apple.com/documentation/metal/mtltexture?language=objc)
 
  - Android: OpenGL (ES) + texture
 

@@ -6,7 +6,7 @@ chapter: 4
 categories: [desc]
 headline: "AmanithVG OpenVG API proprietary extensions by Mazatech"
 image: "separable_blend_modes.png"
-keywords: "amanithvg API proprietary extensions conical gradient advanced blend modes separable color ramp interpolation cap style clip path mzt openvg"
+keywords: "amanithvg API proprietary extensions conical gradient advanced blend modes separable color ramp interpolation cap style clip path mask filters mzt openvg"
 ---
 
 # MZT extensions
@@ -238,6 +238,8 @@ vgDrawPath(drawPath, VG_FILL_PATH);
     vgClipPathPushMZT(path1, VG_FALSE);
     vgClipPathPushMZT(path2, VG_FALSE);
     vgClipPathPushMZT(path3, VG_FALSE);
+
+    Be sure that all the pushed paths have the same orientation!
 */
 ```
 
@@ -313,7 +315,7 @@ If the given `mask` handle refers a `VGMaskLayer` or an image created with a sin
  - first a luminance value is computed from the color channel values RGB
  - then the computed luminance value is multiplied by the corresponding alpha value to produce the mask value
 
-Such behavior is the one requested by the [SVG masking feaure](https://www.w3.org/TR/SVG11/masking.html).
+Such behavior is the one requested by the [SVG masking feature](https://www.w3.org/TR/SVG11/masking.html).
 
 ---
 
@@ -321,12 +323,339 @@ Such behavior is the one requested by the [SVG masking feaure](https://www.w3.or
 
 This extension adds a new set of image filter functions:
 
- * `vgColorMatrixMZT`, equal to the standard `vgColorMatrix` filter, but overcoming the limitation of not being able to apply the filter to the same input image: the given image is
-both the source and the destination).
+ * `vgColorMatrixMZT`, equal to the standard `vgColorMatrix` filter, with the exception that images can overlap (e.g. they could be the same).
 
 ```c
-void vgColorMatrixMZT(VGImage img,
-                      const VGfloat *matrix);
+void vgColorMatrixMZT(VGImage dst,
+                      VGImage src,
+                      const VGfloat* matrix);
+```
+
+ * `vgGaussianBlurMZT`, equal to the standard `vgGaussianBlur` filter, with the exception that images can overlap (e.g. they could be the same). If `axes` is NULL *and* `useFastApprox` is `VG_TRUE`, a fast Gaussian blur approximation (through subsequent application of separable box filters) is performed. If `axes` is non-NULL, a non-separable Gaussian blur is performed along the given `axes`: (`axes[0]`, `axes[1]`) defines the horizontal axis, (`axes[2]`, `axes[3]`) defines the vertical axis.
+
+```c
+void vgGaussianBlurMZT(VGImage dst,
+                       VGImage src,
+                       const VGfloat* axes,
+                       VGfloat stdDeviationX,
+                       VGfloat stdDeviationY,
+                       VGTilingMode tilingMode,
+                       VGboolean useFastApprox);
+```
+
+ * `vgLightingMZT`, it lights a source graphic using the alpha channel as a bump map.
+
+```c
+/*
+    This filter lights a source graphic using the alpha channel as a bump map.
+    The resulting image is an RGBA image based on the light color. The lighting
+    calculation follows the standard specular component of the Phong lighting
+    model. The resulting images depend on the light color, light position and
+    surface geometry of the input bump map. The filter assumes that the viewer
+    is at infinity in the z direction (i.e., the unit vector in the eye direction
+    is (0, 0, 1) everywhere).
+
+    'dstDiffuse' is the destination image for the diffuse component of the Phong
+    lighting model:
+    diffuse.r = Kd * <N, L> * light.color.r
+    diffuse.g = Kd * <N, L> * light.color.g
+    diffuse.b = Kd * <N, L> * light.color.b
+    diffuse.a = 1
+
+    The generated diffuse pixels are in the color space determined by the value of
+    VG_FILTER_FORMAT_LINEAR (because alpha is always 1, the pixel can be thought
+    of as both premultiplied and non-premultiplied), and then converted into the
+    destination image space. This means that VG_FILTER_FORMAT_PREMULTIPLIED
+    parameter is not actually used (it would not make sense to perform a useless
+    intermediate conversion).
+
+    'dstSpecular' is the destination image for the specular component of the Phong
+    lighting model:
+    specular.r = Ks * pow(<N, H>, light.specExp) * light.color.r
+    specular.g = Ks * pow(<N, H>, light.specExp) * light.color.g
+    specular.b = Ks * pow(<N, H>, light.specExp) * light.color.b
+    specular.a = max(specular.r, specular.g, specular.b)
+
+    The generated specular pixels are in the color space determined by the value of
+    VG_FILTER_FORMAT_LINEAR with alpha-premultiplication enforced, and then converted
+    into the destination image space. This means that VG_FILTER_FORMAT_PREMULTIPLIED
+    parameter is not actually used (it would not make sense to perform a useless
+    intermediate conversion).
+
+    For the diffuse lighting, 'diffuseConstant' represents the Kd value in Phong
+    lighting model, and must be non-negative. For the specular lighting:
+    - 'specularConstant' represents the Ks value in Phong lighting model, and
+       must be non-negative.
+    - 'specularExponent' represents the exponent for specular term, larger is
+       more "shiny", valid range is [1; 128]. Values outside the range are
+       interpreted as the nearest endpoint of the range.
+
+    The 'lightData' array contains the color and the geometric attributes of the
+    light source:
+    - [0] = red component of the light source
+    - [1] = green component of the light source
+    - [2] = blue component of the light source
+    - [3+] = < geometric attributes of the light source >, variable length
+             (see below)
+
+    The color components of the light source are expressed in non-premultiplied
+    sRGB, values outside the [0, 1] range are interpreted as the nearest endpoint
+    of the range. According to the given 'lightType', the < geometric attributes
+    of the light source > is a list of values as follows:
+
+    - 2 entries for VG_LIGHT_TYPE_DISTANT_MZT light type
+      [0] = azimuth angle, in degrees
+      [1] = elevation angle, in degrees
+    - 3 entries for VG_LIGHT_TYPE_POINT_MZT light type
+      [0] = x location for the light source
+      [1] = y location for the light source
+      [2] = z location for the light source
+    - 9 entries for VG_LIGHT_TYPE_SPOT_MZT light type
+      [0] = x location for the light source
+      [1] = y location for the light source
+      [2] = z location for the light source
+      [3] = x location of the point at which the light source is pointing
+            (i.e. pointsAtX)
+      [4] = y location of the point at which the light source is pointing
+            (i.e. pointsAtY)
+      [5] = z location of the point at which the light source is pointing
+            (i.e. pointsAtZ)
+      [6] = the exponent value controlling the focus for the light source
+      [7] = the limiting cone angle which restricts the region where the light
+            is projected, in degrees; valid range is [0; 90]
+      [8] = smoothing threshold used to implement edge darkening at the
+            boundary of the cone
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if 'src' is not a valid image handle, or is not
+      shared with the current context
+
+    - VG_BAD_HANDLE_ERROR if 'dstDiffuse' is different than VG_INVALID_HANDLE
+      and is not a valid image handle or is not shared with the current context
+
+    - VG_BAD_HANDLE_ERROR if 'dstSpecular' is different than VG_INVALID_HANDLE
+      and is not a valid image handle or is not shared with the current context
+
+    - VG_IMAGE_IN_USE_ERROR if either 'dstDiffuse', 'dstSpecular' or 'src' is
+      currently a rendering target
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'src' and 'dstDiffuse' images overlap
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'src' and 'dstSpecular' images overlap
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'diffuseConstant' is less than zero
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'specularConstant' is less than zero
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'lightType' is not one of the values from
+      the VGLightTypeMzt enumeration
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'lightData' is NULL or not properly aligned
+*/
+void vgLightingMZT(VGImage dstDiffuse,
+                   VGImage dstSpecular,
+                   VGImage src,
+                   VGfloat surfaceScale,
+                   // diffuse lighting
+                   VGfloat diffuseConstant,
+                   // specular lighting
+                   VGfloat specularConstant,
+                   VGfloat specularExponent,
+                   // light information
+                   VGLightTypeMzt lightType,
+                   const VGfloat* lightData);
+```
+
+ * `vgMorphologyMZT`, it performs "fattening" or "thinning" of images.
+
+```c
+/*
+    This filter performs "fattening" or "thinning" of images.
+    The dilation (or erosion) kernel is a rectangle with a width of 2 * radiusX
+    and a height of 2 * radiusY.
+
+    In erosion ('erode' = VG_TRUE), the output pixel is the individual
+    component-wise minimum of the corresponding R, G, B, A values in the
+    source image's kernel rectangle.
+
+    In dilation ('erode' = VG_FALSE), the output pixel is the individual
+    component-wise maximum of the corresponding R, G, B, A values in the
+    source image's kernel rectangle.
+
+    Normally the canonical orthogonal axes (1, 0) - (0, 1) are used
+    (i.e. NULL 'axes' argument) and in this case the filter implements a
+    separable fast algorithm. It is possible to specify generic non-orthogonal
+    'axes', in a such case the filter implements a slower non-separable algorithm.
+
+    NB: 'src' and 'dst' images can overlap.
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if either 'dst' or 'src' is not a valid image
+      handle, or is not shared with the current context
+
+    - VG_IMAGE_IN_USE_ERROR if either 'dst' or 'src' is currently a rendering
+      target
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'axes' is not NULL and not properly aligned
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'radiusX' or 'radiusY' is less than or equal
+      to 0
+*/
+void vgMorphologyMZT(VGImage dst,
+                     VGImage src,
+                     VGboolean erode,
+                     const VGfloat* axes,
+                     VGint radiusX,
+                     VGint radiusY);
+```
+
+ * `vgTurbulenceMZT`, it creates an image using the Perlin turbulence function.
+
+```c
+/*
+    This filter creates an image using the Perlin turbulence function.
+    It allows, for example, the synthesis of artificial textures like
+    clouds or marble.
+    
+    The generated color and alpha values are in the color space determined
+    by the value of VG_FILTER_FORMAT_LINEAR and VG_FILTER_FORMAT_PREMULTIPLIED.
+
+    In order to generate (x, y) coordinates for noise generation, each pixel
+    location (px, py) is shifted by 'bias' and multiplied by 'scale':
+
+    noise.x = (pixel.x + biasX) * scaleX
+    noise.y = (pixel.y + biasY) * scaleY
+
+    An initial seed value is computed based on attribute 'seed'. Then the
+    implementation computes the lattice points for R, then continues getting
+    additional pseudo random numbers relative to the last generated pseudo
+    random number and computes the lattice points for G, and so on for B and A.
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if 'image' is not a valid image handle, or is not
+      shared with the current context
+
+    - VG_IMAGE_IN_USE_ERROR if 'image' is currently a rendering target
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'baseFrequencyX' or 'baseFrequencyY' is
+      less than 0
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'numOctaves' is less than or equal to 0
+*/
+void vgTurbulenceMZT(VGImage image,
+                     VGfloat biasX,
+                     VGfloat biasY,
+                     VGfloat scaleX,
+                     VGfloat scaleY,
+                     VGfloat baseFrequencyX,
+                     VGfloat baseFrequencyY,
+                     VGint numOctaves,
+                     VGint seed,
+                     VGboolean stitchTiles,
+                     VGboolean fractalNoise);
+```
+
+ * `vgDisplacementMapMZT`, it uses the pixels values from a map to spatially displace the source image.
+
+```c
+/*
+    This filter uses the pixels values from 'map' to spatially displace the 'src'
+    image; result is written to 'dst' image. This is the transformation to be
+    performed:
+
+    dst(x, y) = src(x + scaleX * (map(x, y, xChannelSelector) - 0.5),
+                    y + scaleY * (map(x, y, yChannelSelector) - 0.5))
+
+    where src(x, y) is the input image and dst(x, y) is the destination.
+    map(x, y, xChannelSelector) and map(x, y, yChannelSelector) are the component
+    values of the channel designated by the xChannelSelector and yChannelSelector.
+    For example, to use the red component of 'map' to control displacement in x
+    and the green component of 'map to control displacement in y, set
+    'xChannelSelector' to VG_RED and 'yChannelSelector' to VG_GREEN.
+
+    'map' pixels are read and converted to the space defined by the current
+    values of VG_FILTER_FORMAT_PREMULTIPLIED and VG_FILTER_FORMAT_LINEAR
+    parameters. Pixels read from 'src' image are then converted to the space
+    of 'dst' image.
+
+    Some mandatory preconditions:
+    - 'src' and 'map' images must have the same dimensions
+    - 'dst' and 'src' images cannot overlap
+    - 'dst' and 'map' images cannot overlap
+
+    NB: 'src' and 'map' images can overlap.
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if either 'dst', 'src' or 'map is not a valid image
+      handle, or is not shared with the current context
+
+    - VG_IMAGE_IN_USE_ERROR if either 'dst', 'src' or 'map' is currently a
+      rendering target
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'dst' and 'src' overlap
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'dst' and 'map' overlap
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'src' and 'map' images do not have the same
+      dimensions (i.e. different width or height)
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'tilingMode' is not one of the values from
+      the VGTilingMode enumeration
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if either 'xChannelSelector' or 'yChannelSelector'
+      is not one of the values from the VGImageChannel enumeration
+*/
+void vgDisplacementMapMZT(VGImage dst,
+                          VGImage src,
+                          VGImage map,
+                          VGfloat scaleX,
+                          VGfloat scaleY,
+                          VGTilingMode tilingMode,
+                          VGImageChannel xChannelSelector,
+                          VGImageChannel yChannelSelector);
+```
+
+ * `vgCompositeMZT`, it composites two images together using commonly used blending modes.
+
+```c
+/*
+    This filter composites two images together using commonly used blending
+    modes: it performs a pixel-wise combination of two input images.
+    Additionally, a component-wise arithmetic operation (with the result clamped
+    between [0..1]) can be applied. If the arithmetic operation is chosen, each
+    result pixel is computed using the following formula:
+
+    dst(x, y) = k1 * in1(x, y) * in2(x, y) + k2 * in1(x, y) + k3 * in2(x, y) + k4
+
+    'dst', 'in1', 'in2' images can overlap, but 'in1' and 'in2' images must have
+    the same dimensions (mandatory precondition)
+
+    Possible errors:
+
+    - VG_BAD_HANDLE_ERROR if either 'dst', 'in1' or 'in2 is not a valid image
+      handle, or is not shared with the current context
+
+    - VG_IMAGE_IN_USE_ERROR if either 'dst', 'in1' or 'in2' is currently a
+      rendering target
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'in1' and 'in2' images do not have the same
+      dimensions (i.e. different width or height)
+
+    - VG_ILLEGAL_ARGUMENT_ERROR if 'operation' is not one of the values from
+      the VGCompositeOpMzt enumeration
+*/
+void vgCompositeMZT(VGImage dst,
+                    VGImage in1,
+                    VGImage in2,
+                    VGCompositeOpMzt operation,
+                    VGfloat k1,
+                    VGfloat k2,
+                    VGfloat k3,
+                    VGfloat k4);
 ```
 
 ---
