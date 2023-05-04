@@ -88,15 +88,17 @@ static void threadFunc(void) {
         if (current < contents.count) {
             // ... extract the next one
             Content c = contents[current++];
+            // unlock the global mutex
+            mutex.unlock();
             // draw it
             threadRender(c, vgContext);
         }
         else {
+            // unlock the global mutex
+            mutex.unlock();
             // there are no more SVG to render, this thread can exit
             done = true;
         }
-        // unlock the global mutex
-        mutex.unlock();
     }
 
     // destroy the OpenVG context
@@ -116,14 +118,14 @@ int main(int argc,
     // get the number of concurrent threads supported by the
     // hardware/os platform
     int hardwareThreads = hardware_concurrency();
-    // the actual number of threads that we spawn
+    // the actual number of threads that we'll spawn
     int maxThreads = min(vgThreads, hardwareThreads);
 
     // initialize AmanithVG library, after initialization it is possible
     // to create contexts and drawing surfaces; in a multi-thread program
     // it is recommended to initialize the library once before the creation
     // of threads
-    vgInitializeMZT(void);
+    vgInitializeMZT();
 
     // set quality parameters
     vgConfigSetMZT(VG_CONFIG_CURVES_QUALITY_MZT, 75.0f);
