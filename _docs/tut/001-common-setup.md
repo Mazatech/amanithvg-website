@@ -85,6 +85,13 @@ void* vgSurface = NULL;
 
 void openvgInit(int width, int height) {
 
+    // set quality parameters (range is [0; 100], where 100
+    // represents the best quality)
+    vgConfigSetMZT(VG_CONFIG_CURVES_QUALITY_MZT, 75.0f);
+    vgConfigSetMZT(VG_CONFIG_RADIAL_GRADIENTS_QUALITY_MZT, 75.0f);
+    vgConfigSetMZT(VG_CONFIG_CONICAL_GRADIENTS_QUALITY_MZT, 75.0f);
+    // set other parameters, if desired, before to call vgInitializeMZT
+
     // initialize AmanithVG library, after initialization it is possible
     // to create contexts and drawing surfaces
     vgInitializeMZT(void);
